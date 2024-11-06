@@ -1,11 +1,12 @@
 :root {
-    --bg-dark-mode: #2D2D2D;
+    --bg-dark-mode: #1F1F1F;
     --text-dark-mode: #E0E0E0;
     --bg-light-mode: #EDEDED;
     --text-light-mode: #1C1C1C;
 }
+
 @font-face{
-    font-family: 'Robpto';
+    font-family: 'Roboto';
     src: url(fonts/Roboto-Regular.woff) format('.woff');
     font-weight: 400;
     font-style: normal;
@@ -29,6 +30,17 @@ body{
     left: 0;
     background: rgba(112, 112, 112, 0.5);
 }
-.fixed > span{
-    color: var(--text-dark-mode);
+
+@media (prefers-color-scheme: dark) {
+    body{
+        background: var(--bg-dark-mode);
+        color: var(--text-dark-mode);
+    }
+}
+@media (prefers-color-scheme: light) {
+    body{
+        background: var(--bg-light-mode);
+        color: var(--text-light-mode);
+    }
+
 }
