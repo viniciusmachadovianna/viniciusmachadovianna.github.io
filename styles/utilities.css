@@ -1,0 +1,10 @@
+.fixed{
+    width: 50%;
+    height: 90%;
+    margin: 10px;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    position: fixed;
+    left: 0;
+    background: rgba(112, 112, 112, 0.5);
+}
