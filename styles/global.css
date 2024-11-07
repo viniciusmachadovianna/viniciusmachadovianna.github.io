@@ -1,10 +1,18 @@
 :root {
-    --bg-dark-mode: #1F1F1F;
-    --text-dark-mode: #E0E0E0;
-    --bg-light-mode: #EDEDED;
-    --text-light-mode: #1C1C1C;
+    --bg-color: #1F1F1F;
+    --text-color: #E0E0E0;
+    --cursor-color: #eeeeee;
 }
-
+[data-theme="dark"]{
+    --bg-color: #1F1F1F;
+    --text-color: #E0E0E0;
+    --cursor-color: #eeeeee;
+}
+[data-theme="light"]{
+    --bg-color: #EDEDED;
+    --text-color: #1C1C1C;
+    --cursor-color: #111111;
+}
 @font-face{
     font-family: 'Roboto';
     src: url(fonts/Roboto-Regular.woff) format('.woff');
@@ -12,25 +20,28 @@
     font-style: normal;
 }
 body{
-    background: var(--bg-dark-mode);
+    background: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
     display: flex;
     width: 100%;
     height: 100vh;
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-    
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; 
 }
-
-@media (prefers-color-scheme: dark) {
-    body{
-        background: var(--bg-dark-mode);
-        color: var(--text-dark-mode);
-    }
+a{
+    text-decoration: none;
+    color: var(--text-color);
 }
-@media (prefers-color-scheme: light) {
-    body{
-        background: var(--bg-light-mode);
-        color: var(--text-light-mode);
-    }
-
+#cursor {
+    display: none;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: none;
+    pointer-events: none;
+    transform: translate(50%, 50%);
+    z-index: 9999;
+}
+polygon{
+    fill: var(--cursor-color);
 }

@@ -1,10 +1,23 @@
+.dF{
+    display: flex;
+}
+.ffRW{
+    flex-flow: row wrap;
+}
+.jfC{
+    justify-content: center;
+}
+.aiC{
+    align-items: center;
+}
+
 .fixed{
     width: 50%;
-    height: 90%;
-    margin: 10px;
+    height: 70%;
     border: 2px solid transparent;
     border-radius: 3px;
     position: fixed;
-    left: 0;
-    background: rgba(112, 112, 112, 0.5);
+    left: 100px;
+    top: 100px;
+    background: rgba(59, 59, 59, 0.5);
 }

@@ -1,28 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" lang="en" content="Explore my portfolio of skills as a developer, with custom and modern solutions focused on innovation and user experience.">
+    <meta name="description" lang="pt" content="Conheça meu portfólio de habilidades como desenvolvedor, com soluções personalizadas e modernas, focadas em inovação e experiência do usuário.">
+
     <title>Vinícius Machado</title>
+    <link rel="stylesheet" href="styles/buttons.css">
     <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/utilities.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+
 </head>
 <body>
+    <svg id="cursor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <polygon points="0,0 100,50 70,60 50,50 60,70 50,100"/>
+    </svg>
     <header>
-        <button id="btnColorScheme">light/dark</button>
-        <select id="languageSelector">
-            <option value="en">English</option>
-            <option value="pt">Português</option>
-        </select>
-        
+        <button aria-label="Change the color scheme" id="themeSwitch"><img src="assets/icons/sun-light-mode.svg" alt="Ícone do sol - Tema claro" class="icon" data-icon="sun"></button>
+        <button id="languageSwitch" aria-label="Change the language" value="pt">Português</button>
+        <nav>
+            <a href="https://www.linkedin.com/in/viniciusmachadovianna/" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn Profile" >
+                LinkedIn
+                <img src="assets/icons/linkedin-dark-mode.svg" alt="LinkedIn Icon" class="icon" data-icon="linkedin">
+            </a>
+            <a href="https://github.com/viniciusmachadovianna" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Repositories" >
+                GitHub
+                <img src="assets/icons/github-dark-mode.svg" alt="GitHub Icon" class="icon" data-icon="github">
+            </a>
+        </nav>
     </header>
-    <section class="fixed">
-        <a href="docs/CV-VINICIUSMACHADOVIANNA.pdf - VINICIUS MACHADO VIANNA.pdf" target="_blank" download="CV VINICIUS MACHADO VIANNA">CV</a>
-        <span data-lang="greeting">Olá</span>
-    </section>
-    <!-- <a href="https://www.linkedin.com/in/viniciusmachadovianna/">https://www.linkedin.com/in/viniciusmachadovianna/</a> -->
+    <main>
+        <section class="fixed">
+            <a href="docs/CV-VINICIUSMACHADOVIANNA.pdf - VINICIUS MACHADO VIANNA.pdf" target="_blank" download="CV VINICIUS MACHADO VIANNA">CV</a>
+            <span data-lang="greeting">Olá!</span>
+            <span data-lang="aboutme">Meu nome é Vinícius Machado</span>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
 </body>
-<script src="scripts/script.js"></script>
+<script src="scripts/general.js"></script>
 <script src="scripts/language.js"></script>
+<script src="scripts/theme.js"></script>
 </html>
