@@ -38,6 +38,7 @@ const langData = {
         sectionProjects:'Projects',
         sectionExperience:'Experience',
         sectionEducation:'Education',
+        motto: 'Empathy in every detail',
     },
     pt: {
         greeting: 'Olá!',
@@ -45,6 +46,7 @@ const langData = {
         sectionProjects:'Projetos',
         sectionExperience:'Experiência',
         sectionEducation:'Formação',
+        motto: 'Empatia em cada detalhe',
     }
 };
 function languageSelection(language) {

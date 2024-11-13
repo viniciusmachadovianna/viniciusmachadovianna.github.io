@@ -10,51 +10,48 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <svg id="cursor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-        <polygon/>
-    </svg>
     <header>
-        <aside>
-            <button aria-label="Change the color scheme" id="themeSwitch" class="">
-                <img src="assets/icons/sun-dark-mode.svg" alt="dark/light mode icon" class="icon">
-            </button>
-            <button id="languageSwitch" aria-label="Change the language" value="pt">
-                English
-            </button>
-        </aside>
-        <nav>
-            <a href="https://www.linkedin.com/in/viniciusmachadovianna/" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn Profile" data-link="ext">
-                LinkedIn
-                <img src="assets/icons/linkedin-dark-mode.svg" alt="LinkedIn Icon" class="icon" data-icon="linkedin">
-            </a>
-            <a href="https://github.com/viniciusmachadovianna" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Repositories" >
-                GitHub
-                <img src="assets/icons/github-dark-mode.svg" alt="GitHub Icon" class="icon" data-icon="github">
-            </a>
-        </nav>
+        <div class="profilePic">
+            <img src="assets/pics/profilePicture.png" alt="profile picture" data-icon="">
+        </div>
+        <span data-lang="greeting">Olá!</span>
+        <span data-lang="aboutme">Meu nome é Vinícius Machado</span>
+        <a href="https://www.linkedin.com/in/viniciusmachadovianna/" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn Profile" data-link="ext">
+            LinkedIn
+            <img src="assets/icons/linkedin-dark-mode.svg" alt="LinkedIn Icon" class="icon" data-icon="linkedin">
+        </a>
+        <a href="https://github.com/viniciusmachadovianna" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Repositories" >
+            GitHub
+            <img src="assets/icons/github-dark-mode.svg" alt="GitHub Icon" class="icon" data-icon="github">
+        </a>
+        <a href="assets/docs/CV-VINICIUSMACHADOVIANNA.pdf" target="_blank" download="CV VINICIUS MACHADO VIANNA">CV</a>
+        <span data-lang="motto">Empatia em cada detalhe</span>
     </header>
+    <nav>
+        <a href="#projects" data-lang="sectionProjects">Projetos</a>
+        <a href="#experience" data-lang="sectionExperience">Experiência</a>
+        <a href="#education" data-lang="sectionEducation">Formação</a>
+    </nav>
+    <aside>
+        <button aria-label="Change the color scheme" id="themeSwitch">
+            <img src="assets/icons/sun-dark-mode.svg" alt="dark/light mode icon" class="icon" data-icon="themeIcon">
+        </button>
+        <button id="languageSwitch" aria-label="Change the language" value="pt">
+            English
+        </button>
+    </aside>
     <main>
-        <section class="fixed">
-            <a href="assets/docs/CV-VINICIUSMACHADOVIANNA.pdf - VINICIUS MACHADO VIANNA.pdf" target="_blank" download="CV VINICIUS MACHADO VIANNA">CV</a>
-            <span data-lang="greeting">Olá!</span>
-            <span data-lang="aboutme">Meu nome é Vinícius Machado</span>
-            <a href="#projects" data-lang="sectionProjects">Projetos</a>
-            <a href="#experience" data-lang="sectionExperience">Experiência</a>
-            <a href="#education" data-lang="sectionEducation">Formação</a>
+        <section id="projects">
+            <article>
+                <img src="assets/icons/tech/php.svg" alt="PHP icon">
+            </article>
         </section>
-        <section class="list">
-            <section id="projects">
-            </section>
-            <section id="experience">
-            </section>
-            <section id="education">
-            </section>
+        <section id="experience">
         </section>
-    </main>
-    <footer>
-        <!-- © Copyright 2024. All rights reserved. -->
-        Designed from scratch by me.
-    </footer>
-</body>
+        <section id="education">
+        </main>
+        <footer>Designed from scratch by me - All rights reserved ©2024</footer>
+        <svg id="cursor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon/></svg>
+    </body>
 <script src="script.js"></script>
 </html>
