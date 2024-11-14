@@ -1,19 +1,21 @@
-/* GLOBAL:*/
 :root {
     --bg-color: #1F1F1F;
     --text-color: #E0E0E0;
+    --text-reverse: #1C1C1C;
     --cursor-color: #EEEEEE;
     --bg-reverse: #EDEDEDFD;
 }
 [data-theme="dark"]{
     --bg-color: #1F1F1F;
     --text-color: #E0E0E0;
+    --text-reverse: #1C1C1C;
     --cursor-color: #EEEEEE;
     --bg-reverse: #EDEDEDFD;
 }
 [data-theme="light"]{
     --bg-color: #EDEDED;
     --text-color: #1C1C1C;
+    --text-reverse: #E0E0E0;
     --cursor-color: #111111;
     --bg-reverse: #1F1F1Ffd;
 }
@@ -42,12 +44,10 @@ a{
 polygon{
     fill: var(--cursor-color);
 }
-/* HEADER: */
 .icon{
     width: 25px;
     height: 25px;
 }
-/* FOOTER: */
 footer{
     position: absolute;
     bottom: 0;
@@ -55,7 +55,6 @@ footer{
     width: 100%;
     text-align: center;
 }
-/* CUSTOM CURSOR: */
 #cursor {
     display: none;
     position: absolute;
@@ -66,7 +65,6 @@ footer{
     transform: translate(50%, 50%);
     z-index: 9999;
 }
-/* BUTTONS: */
 #themeSwitch{
     background: none;
     border: none;
@@ -107,10 +105,10 @@ img[data-icon="themeIcon"]:hover{
     background: var(--bg-reverse);
     color: var(--bg-color);
 }
-/* FIXED COLUMN (LEFT): */
 header{
     width: 300px;
-    height: 70%;
+    height: 90vh;
+    margin: auto 20px auto 20px;
     border: 2px solid transparent;
     background: rgba(59, 59, 59, 0.5);
     transition: .3s;
@@ -143,6 +141,48 @@ header:hover{
 .profilePic:hover img{
     transform: scale(1.2);
 }
+.loop{
+    background: var(--bg-reverse);
+    color: var(--text-reverse);
+    white-space: nowrap;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+}
+.loop > div{
+    animation: loop 7s linear infinite;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.loop > div > span {
+    padding-right: 5px;
+}
+.loop > div > span::after {
+    content: ' ⬪ ';
+}
+@keyframes loop{
+    0% {transform: translateX(0%);}
+    100% {transform: translateX(-50%);}
+}
+span[data-lang="motto"]{
+    font-style: italic;
+    margin-top: auto;
+}
+img[data-icon="logomark"]{
+    width: 50px;
+    height: 50px;
+}
+nav{
+    background: gray;
+    width: 50px;
+    height: 90vh;
+    display: flex;
+}
+nav > a{
+    background: lightgray;
+    height: 100px;
+}
 aside{
     position: absolute;
     left: 0;
@@ -152,11 +192,10 @@ aside{
     width: 50px;
     height: 100px;
 }
-/* SCROLLABLE COLUMN (RIGHT MAIN): */
 main{
     display: flex;
     flex-flow: row wrap;
-    width: 100px;
+    width: 100%;
     height: 500px;
     background: rgba(34, 34, 34, 0.5);
     overflow-y: scroll;
