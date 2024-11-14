@@ -1,11 +1,4 @@
-:root {
-    --bg-color: #1F1F1F;
-    --text-color: #E0E0E0;
-    --text-reverse: #1C1C1C;
-    --cursor-color: #EEEEEE;
-    --bg-reverse: #EDEDEDFD;
-}
-[data-theme="dark"]{
+:root, [data-theme="dark"]{
     --bg-color: #1F1F1F;
     --text-color: #E0E0E0;
     --text-reverse: #1C1C1C;
@@ -41,13 +34,7 @@ a{
     text-decoration: none;
     color: var(--text-color);
 }
-polygon{
-    fill: var(--cursor-color);
-}
-.icon{
-    width: 25px;
-    height: 25px;
-}
+polygon{fill: var(--cursor-color);}
 footer{
     position: absolute;
     bottom: 0;
@@ -55,23 +42,17 @@ footer{
     width: 100%;
     text-align: center;
 }
-#cursor {
-    display: none;
-    position: absolute;
+.icon{
     width: 25px;
     height: 25px;
-    background: none;
-    pointer-events: none;
-    transform: translate(50%, 50%);
-    z-index: 9999;
 }
 #themeSwitch{
+    display: inline;
     background: none;
     border: none;
     padding: 4px;
     border-radius: 50%;
     transition: .3s ease-out;
-    display: inline;
 }
 #themeSwitch:hover {
     animation: theme-pulse 2s infinite ease-in-out;
@@ -106,13 +87,13 @@ img[data-icon="themeIcon"]:hover{
     color: var(--bg-color);
 }
 header{
+    display: flex;
     width: 300px;
     height: 90vh;
     margin: auto 20px auto 20px;
     border: 2px solid transparent;
     background: rgba(59, 59, 59, 0.5);
     transition: .3s;
-    display: flex;
     flex-flow: column;
     align-items: center;
 }
@@ -120,12 +101,11 @@ header:hover{
     border: 2px solid #fff;
 }
 .profilePic{
+    display: flex;
     width: 120px;
     height: 120px;
     clip-path: polygon(50% 10%, 90% 25%, 90% 75%, 50% 90%, 10% 75%, 10% 25%);
-    display: inline-block;
     transition: .3s ease;
-    display: flex;
     align-items: center;
     justify-content: center;
     transition: .7s ease;
@@ -148,22 +128,26 @@ header:hover{
     width: 100%;
     height: 30px;
     overflow: hidden;
+    display: flex;
 }
 .loop > div{
-    animation: loop 7s linear infinite;
     height: 100%;
+    min-width: 100%;
     display: flex;
+    justify-content: space-around;
     align-items: center;
+    animation: stripe-loop 10s linear infinite;
+    user-select: none;
 }
-.loop > div > span {
-    padding-right: 5px;
+.loop:hover > div{
+    animation-play-state: paused;
+}
+@keyframes stripe-loop{
+    to {transform: translateX(-100%);}
 }
 .loop > div > span::after {
     content: ' ⬪ ';
-}
-@keyframes loop{
-    0% {transform: translateX(0%);}
-    100% {transform: translateX(-50%);}
+    padding-left: 25%;
 }
 span[data-lang="motto"]{
     font-style: italic;
@@ -199,4 +183,14 @@ main{
     height: 500px;
     background: rgba(34, 34, 34, 0.5);
     overflow-y: scroll;
+}
+#cursor{
+    display: none;
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: none;
+    pointer-events: none;
+    transform: translate(50%, 50%);
+    z-index: 9999;
 }
