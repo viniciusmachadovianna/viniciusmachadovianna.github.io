@@ -97,9 +97,7 @@ header{
     flex-flow: column;
     align-items: center;
 }
-header:hover{
-    border: 2px solid #fff;
-}
+header:hover{border: 2px solid #fff;}
 .profilePic{
     display: flex;
     width: 120px;
@@ -121,7 +119,7 @@ header:hover{
 .profilePic:hover img{
     transform: scale(1.2);
 }
-.loop{
+[data-effect="marquee"]{
     background: var(--bg-reverse);
     color: var(--text-reverse);
     white-space: nowrap;
@@ -130,7 +128,22 @@ header:hover{
     overflow: hidden;
     display: flex;
 }
-.loop > div{
+[data-effect="typewriter"]{
+    display: flex;
+    justify-content: center;
+}
+[data-lang="role"]{
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
+    border-right: 1px solid cyan;
+    animation: type-keep 3s steps(22,end), cursor-blink .75s infinite;
+}
+@keyframes type-erase{from,to{width:0%}33%{width: 100%;}66%{width: 100%;}}
+@keyframes type-keep{to{width:100%;}}
+@keyframes cursor-blink{from,to{border-color:transparent}50%{border-color: cyan;}}
+[data-effect="marquee"]> div{
     height: 100%;
     min-width: 100%;
     display: flex;
@@ -139,13 +152,9 @@ header:hover{
     animation: stripe-loop 10s linear infinite;
     user-select: none;
 }
-.loop:hover > div{
-    animation-play-state: paused;
-}
-@keyframes stripe-loop{
-    to {transform: translateX(-100%);}
-}
-.loop > div > span::after {
+[data-effect="marquee"]:hover > div{animation-play-state: paused;}
+@keyframes stripe-loop{to {transform: translateX(-100%)}}
+[data-effect="marquee"] > div > span::after {
     content: ' ⬪ ';
     padding-left: 25%;
 }
@@ -173,9 +182,10 @@ aside{
     top: 50%;
     transform: translateY(-50%);
     background: rgb(68, 68, 68);
-    width: 50px;
+    width: 70px;
     height: 100px;
 }
+aside>button{margin: 10px;}
 main{
     display: flex;
     flex-flow: row wrap;
