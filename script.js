@@ -32,6 +32,7 @@ const langData = {
     en: {
         greeting: 'Hello!',
         aboutme: "My name is Vinícius Machado,",
+        role: "Software Engineer",
         sectionProjects:'Projects',
         sectionExperience:'Experience',
         sectionEducation:'Education',
@@ -40,6 +41,7 @@ const langData = {
     pt: {
         greeting: 'Olá!',
         aboutme: "Meu nome é Vinícius Machado",
+        role: "Engenheiro de Software",
         sectionProjects:'Projetos',
         sectionExperience:'Experiência',
         sectionEducation:'Formação',
