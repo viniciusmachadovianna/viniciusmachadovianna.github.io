@@ -35,7 +35,6 @@ const langData = {
         role: "Software Engineer",
         sectionProjects:'Projects',
         sectionExperience:'Experience',
-        sectionEducation:'Education',
         motto: 'Empathy in every detail',
     },
     pt: {
@@ -44,7 +43,6 @@ const langData = {
         role: "Engenheiro de Software",
         sectionProjects:'Projetos',
         sectionExperience:'Experiência',
-        sectionEducation:'Formação',
         motto: 'Empatia em cada detalhe',
     }
 };
