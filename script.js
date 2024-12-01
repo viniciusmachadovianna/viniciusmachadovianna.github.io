@@ -30,17 +30,19 @@ document.querySelectorAll('a').forEach(a => {
 });
 const langData = {
     en: {
+        language: 'PT',
         greeting: 'Hello!',
         aboutme: "My name is Vinícius Machado,",
-        role: "Software Engineer",
+        role: "System Developer",
         sectionProjects:'Projects',
         sectionExperience:'Experience',
         motto: 'Empathy in every detail',
     },
     pt: {
+        language: 'EN',
         greeting: 'Olá!',
         aboutme: "Meu nome é Vinícius Machado",
-        role: "Engenheiro de Software",
+        role: "Desenvolvedor de Sistemas",
         sectionProjects:'Projetos',
         sectionExperience:'Experiência',
         motto: 'Empatia em cada detalhe',
@@ -56,16 +58,12 @@ function languageSelection(language) {
 }
 const userLang = (navigator.language || navigator.userLanguage).slice(0, 2);
 const language = userLang === 'en' || userLang === 'pt' ? userLang : 'en';
+document.documentElement.setAttribute("lang",language);
 languageSelection(language);
-$("#languageSwitch").addEventListener("click",(e) => {
-    languageSelection(e.target.value);
-    if (e.target.value === "en"){
-        e.target.value = "pt"
-        e.target.innerHTML = "PT";
-    } else{
-        e.target.value = "en"
-        e.target.innerHTML = "EN";
-    }
+$("#languageSwitch").addEventListener("click",() => {
+    const lang = document.documentElement.getAttribute("lang") === "pt" ? "en" : "pt";
+    languageSelection(lang);
+    document.documentElement.setAttribute("lang",lang);
 });
 document.documentElement.setAttribute("data-theme", window.matchMedia('(prefers-color-scheme: light)').matches ? "light" : "dark");
 $("#themeSwitch").addEventListener("click",(e) => {
