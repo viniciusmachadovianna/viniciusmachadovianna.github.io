@@ -1,5 +1,6 @@
 :root, [data-theme="dark"]{
     --bg-color: rgb(31, 31, 31);
+    --bg-rgb: 31,31,31;
     --text-color: rgb(224, 224, 224);
     --text-reverse: rgb(28, 28, 28);
     --cursor-color: rgb(238, 238, 238);
@@ -7,6 +8,7 @@
 }
 [data-theme="light"]{
     --bg-color: rgb(237, 237, 237);
+    --bg-rgb: 237,237,237;
     --text-color: rgb(28, 28, 28);
     --text-reverse: rgb(224, 224, 224);
     --cursor-color: rgb(17, 17, 17);
@@ -23,10 +25,12 @@ body{
     color: var(--text-color);
     margin: 0;
     display: flex;
+    flex-flow: column wrap;
+    align-items: center;
     width: 100%;
     height: 100vh;
     overflow-y: hidden;
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; 
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 html,body{
     transition: .7s ease;
@@ -120,15 +124,6 @@ header:hover{border: 2px solid var(--bg-reverse);}
 .profilePic:hover img{
     transform: scale(1.1);
 }
-[data-effect="marquee"]{
-    background: var(--bg-reverse);
-    color: var(--text-reverse);
-    white-space: nowrap;
-    width: 100%;
-    height: 30px;
-    overflow: hidden;
-    display: flex;
-}
 [data-effect="typewriter"]{
     display: flex;
     justify-content: center;
@@ -159,9 +154,16 @@ header:hover{border: 2px solid var(--bg-reverse);}
     content: ' ⬪ ';
     padding-left: 25%;
 }
-div[data-effect="marquee"]{
+[data-effect="marquee"]{
     margin-top: auto;
     margin-bottom: 30px;
+    background: var(--bg-reverse);
+    color: var(--text-reverse);
+    white-space: nowrap;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    display: flex;
 }
 span[data-lang="motto"]{
     font-style: italic;
@@ -175,7 +177,7 @@ nav{
     display: flex;
     align-items: center;
     background: rgba(112, 112, 112, .50);
-    border-radius: 3px;
+    border-radius: 5px;
     height: 50px;
     left: 50%;
     top: 20px;
@@ -184,8 +186,8 @@ nav{
 nav > a{
     border: 1px solid grey;
     padding: 5px;
-    border-radius: 10px;
-    width: 100px;
+    border-radius: 7px;
+    width: 120px;
     height: 20px;
     line-height: 20px;
     text-align: center;
@@ -196,31 +198,78 @@ nav>a:hover{
     text-decoration:line-through;
 }
 aside{
-    position: absolute;
-    left: 5px;
-    top: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     transform: translateY(-50%);
     background: rgb(68, 68, 68);
-    width: 70px;
-    height: 100px;
+    width: 120px;
+    height: 50px;
 
 }
 aside>button{margin: 10px;}
 main{
-    display: flex;
     position: relative;
-    flex-flow: row wrap;
-    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
     height: 100vh;
-    background: rgba(34, 34, 34, 0.5);
-    overflow-y: scroll;
-}
-#projects{
-    margin-top: 50px;
+    background: rgba(35, 35, 35, 0.5);
+    overflow: hidden;
 }
 section{
     margin: 20px;
-    background: rgb(56, 56, 56);
+    background: rgba(56, 56, 56,.5);
+    overflow-y: scroll;
+    width: 500px;
+    height: 300px;
+}
+#projects{
+    margin-top: 100px;
+    background: transparent;
+}
+#experience{
+    background: rgba(81, 81, 81,.5);
+}
+article{
+    position: relative;
+}
+.readingProgress{
+    position: sticky;
+    top: 0;
+    left: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.readingProgress > circle{
+    fill: transparent;
+    stroke: white;
+    stroke-width: 1;
+}
+[data-effect="circularProgress"]{
+    animation: progress 3s linear forwards;
+}
+@keyframes progress{
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+video{
+    filter: grayscale(100%) blur(0px) brightness(70%) invert(100%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
 }
 #cursor{
     display: none;
@@ -232,18 +281,5 @@ section{
     transform: translate(50%, 50%);
     z-index: 9999;
 }
-.cir{
-    background:lightblue;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-}
-[data-effect="circularProgress"]{
-    animation: progress 1s linear forwards;
-}
-@keyframes progress{
-    to{
-        stroke-dashoffset: 0;
-    }
-}
+
+

@@ -8,7 +8,7 @@ const langData = {
         role: "System Developer",
         sectionProjects:'Projects',
         sectionExperience:'Experience',
-        motto: 'Empathy in every detail',
+        motto: '<>',
     },
     pt: {
         language: 'EN',
@@ -17,7 +17,7 @@ const langData = {
         role: "Desenvolvedor de Sistemas",
         sectionProjects:'Projetos',
         sectionExperience:'Experiência',
-        motto: 'Empatia em cada detalhe',
+        motto: '<>',
     }
 };
 arrow.style.display = "block";
@@ -73,4 +73,26 @@ $("#themeSwitch").addEventListener("click",(e) => {
     icon.src = `/assets/icons/${icon.getAttribute("data-icon")}-${theme}-mode.svg`;
     });
     theme === "light" ? img.setAttribute("src",'/assets/icons/moon-light-mode.svg'): img.setAttribute("src",'/assets/icons/sun-dark-mode.svg');
+});
+document.addEventListener('mouseup', () => changeCursor('up'));
+
+// apply to all articles pending:
+const readingTime = article => Math.ceil( article.textContent.trim().split(/\s+/).length / 220);
+$("#readingTime").textContent = `${readingTime($("article"))} ${readingTime($("article")) == 1 ? "min" : "mins"}`;
+document.addEventListener("DOMContentLoaded", function() {
+
+    const article = document.querySelector("section");
+    if (!article) {
+        console.log("Article not found!");
+        return;
+    }
+
+    article.addEventListener("scroll", function() {
+        // Check if the event is firing and log scroll values
+
+        // Logging scroll height and scroll position
+        console.log(`Scroll Height: ${article.scrollHeight} Scroll Top: ${article.scrollTop} e ${article.clientHeight}`); // Total height of content
+        console.log(); // Current scroll position
+    });
+
 });
