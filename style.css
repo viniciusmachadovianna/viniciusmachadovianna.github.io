@@ -192,20 +192,18 @@ nav > a{
     transition: .5 ease;
     margin: 0 20px;
 }
-/* nav>a::before{
-    content: ''; 
-}*/
 nav>a:hover{
     text-decoration:line-through;
 }
 aside{
     position: absolute;
-    left: 0;
+    left: 5px;
     top: 50%;
     transform: translateY(-50%);
     background: rgb(68, 68, 68);
     width: 70px;
     height: 100px;
+
 }
 aside>button{margin: 10px;}
 main{
@@ -233,4 +231,19 @@ section{
     pointer-events: none;
     transform: translate(50%, 50%);
     z-index: 9999;
+}
+.cir{
+    background:lightblue;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+[data-effect="circularProgress"]{
+    animation: progress 1s linear forwards;
+}
+@keyframes progress{
+    to{
+        stroke-dashoffset: 0;
+    }
 }
