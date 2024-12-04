@@ -8,7 +8,7 @@ const langData = {
         role: "System Developer",
         sectionProjects:'Projects',
         sectionExperience:'Experience',
-        motto: 'Passion in details',
+        motto: 'Attention for details',
     },
     pt: {
         language: 'EN',
@@ -17,7 +17,7 @@ const langData = {
         role: "Desenvolvedor de Sistemas",
         sectionProjects:'Projetos',
         sectionExperience:'Experiência',
-        motto: 'Paixão nos detalhes',
+        motto: 'Atenção aos detalhes',
     }
 };
 arrow.style.display = "block";

@@ -46,6 +46,8 @@ body{
     height: 100vh;
     overflow-y: hidden;
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    scroll-behavior: smooth;
+
 }
 html,body{transition:.7s ease;}
 a{text-decoration: none;}
@@ -132,7 +134,7 @@ code{
     margin: 0 auto;
     max-width: fit-content;
     border-right: 1px solid cyan;
-    animation: type-keep 3s steps(22,end), cursor-blink .75s infinite;
+    animation: type-keep 4s steps(26,end), cursor-blink 1s infinite;
 }
 @keyframes type-keep{from{width: 0;}to{width:100%;}}
 @keyframes cursor-blink{from,to{border-color:transparent}50%{border-color: cyan;}}
@@ -293,6 +295,7 @@ menu{
     width: fit-content;
     overflow-y: scroll;
     height: 200px;
+    scrollbar-color: var(--decoration);
 }
 li{
     list-style: none;
