@@ -3,19 +3,35 @@ const arrow = $("#cursor");
 const langData = {
     en: {
         greeting: 'Hello!',
+<<<<<<< Updated upstream
         aboutme: "My name is Vinícius Machado,",
         role: "Software Engineer",
         sectionProjects:'Projects',
         sectionExperience:'Experience',
         motto: 'Empathy in every detail',
+=======
+        aboutme: "My name is ",
+        role: "System Developer",
+        sectionProjects:'Projects',
+        sectionExperience:'Experience',
+        motto: 'Passion in details',
+>>>>>>> Stashed changes
     },
     pt: {
         greeting: 'Olá!',
+<<<<<<< Updated upstream
         aboutme: "Meu nome é Vinícius Machado",
         role: "Engenheiro de Software",
         sectionProjects:'Projetos',
         sectionExperience:'Experiência',
         motto: 'Empatia em cada detalhe',
+=======
+        aboutme: "Meu nome é ",
+        role: "Desenvolvedor de Sistemas",
+        sectionProjects:'Projetos',
+        sectionExperience:'Experiência',
+        motto: 'Paixão nos detalhes',
+>>>>>>> Stashed changes
     }
 };
 arrow.style.display = "block";
@@ -32,6 +48,7 @@ document.addEventListener('mousemove', (e) => {
 const cursor = {
     up: '0,0 25,75 75,75 35,60 20,20 60,35 60,60 35,60 75,75 75,25',
     down: '0,0 75,25 75,75 25,75',
+    inside: '60,60 35,60 20,20, 60,35',
     link: '60,0 80,20 35,20 80,65 65,80 20,35 20,80 0,60 0,0',
     oldlink: '80,0 100,20 35,20 100,85 85,100 20,35 20,100 0,80 0,0)',
     arrow: '0,0 100,50 70,60 50,50 60,70 50,100'
@@ -76,3 +93,40 @@ $("#themeSwitch").addEventListener("click",(e) => {
     });
     theme === "light" ? img.setAttribute("src",'/assets/icons/moon-light-mode.svg'): img.setAttribute("src",'/assets/icons/sun-dark-mode.svg');
 });
+<<<<<<< Updated upstream
+=======
+document.addEventListener('mouseup', () => changeCursor('up'));
+
+// apply to all articles pending:
+const readingTime = article => Math.ceil( article.textContent.trim().split(/\s+/).length / 220);
+$("time").textContent = `${readingTime($("article"))} ${readingTime($("article")) == 1 ? "min" : "mins"}`;
+document.addEventListener("DOMContentLoaded", function() {
+    const article = document.querySelector("section");
+    article.addEventListener("scroll", function() {
+        console.log(`Scroll Height: ${article.scrollHeight} Scroll Top: ${article.scrollTop} e ${article.clientHeight}`); // Total height of content
+    });
+});
+
+document.addEventListener("contextmenu",(e)=>{
+    console.log("right clicked");
+    
+    // e.preventDefault();
+});
+
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 'g') {
+        $("menu").style.visibility = (window.getComputedStyle($("menu")).visibility === "visible") ? "hidden" : "visible";
+        event.preventDefault();
+    }
+});
+
+document.querySelectorAll('sup').forEach(info => {
+    let dialog = document.querySelector("dialog");
+    info.addEventListener('click', () =>{
+        dialog.innerHTML = info.getAttribute("title");
+        dialog.setAttribute('open','');
+    });
+});
+
+$("dialog").addEventListener('click',()=>{$("dialog").removeAttribute('open');});
+>>>>>>> Stashed changes

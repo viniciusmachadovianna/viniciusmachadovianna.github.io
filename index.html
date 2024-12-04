@@ -10,8 +10,8 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-    
     <header>
+<<<<<<< Updated upstream
         <div class="profilePic">
             <img src="assets/pics/profilePicture.png" alt="profile picture" data-icon="">
         </div>
@@ -29,11 +29,43 @@
             <img src="assets/icons/github-dark-mode.svg" alt="GitHub Icon" class="icon" data-icon="github">
         </a>
         <a href="assets/docs/CV-VINICIUSMACHADOVIANNA.pdf" target="_blank" download="CV VINICIUS MACHADO VIANNA">CV</a>
+=======
+        <picture>
+            <!-- responsivity later: -->
+            <!-- <source media="(min-width: )" srcset=""> -->
+            <img src="assets/imgs/profilePicture.png" alt="profile picture" style="height: 200px;width: 200px;">
+        </picture>
+        <span data-lang="greeting">Olá!</span>
+        <span><span data-lang="aboutme">Meu nome é</span><mark>Vinícius Machado</mark></span>
+        <code data-lang="role">Desenvolvedor de Sistemas</code>
+        <a href="assets/docs/CV-VINICIUSMACHADOVIANNA.pdf" target="_blank" title="Curriculum Vitae">CV</a>
+        
+>>>>>>> Stashed changes
         <div data-effect="marquee">
-            <div><span>WEB DEV</span><span>UX/UI</span><span>DESIGN</span></div>
-            <div aria-hidden="true"><span>WEB DEV</span><span>UX/UI</span><span>DESIGN</span></div>
+            <div>
+                <span>WEB DEV</span>
+                <span>UX <sup title="Experiência do Usuário" aria-hidden="true"></sup></span>
+                <span>DESIGN</span>
+                <span>UI <sup title="Interface do Usuário" aria-hidden="true"></sup></span>
+            </div>
+            <div aria-hidden="true">
+                <span>WEB DEV</span>
+                <span>UX <sup  title="Experiência do Usuário" aria-hidden="true"></sup></span>
+                <span>DESIGN</span>
+                <span>UI <sup title="Interface do Usuário" aria-hidden="true"></sup></span>
+            </div>
         </div>
-        <span data-lang="motto"></span>
+        <div>
+            <a href="https://www.linkedin.com/in/viniciusmachadovianna/" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn Profile" data-link="ext">
+                LinkedIn
+                <img src="assets/icons/linkedin-dark-mode.svg" alt="LinkedIn Icon" class="icon" data-icon="linkedin">
+            </a>
+            <a href="https://github.com/viniciusmachadovianna" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Repositories" >
+                GitHub
+                <img src="assets/icons/github-dark-mode.svg" alt="GitHub Icon" class="icon" data-icon="github">
+            </a>
+        </div>
+        <q data-lang="motto"></q>
     </header>
     <aside>
         <button aria-label="Change the color scheme" id="themeSwitch"  aria-hidden="true">
@@ -42,6 +74,7 @@
         <button id="languageSwitch" aria-label="Change the language" value="en">
             EN
         </button>
+        <kbd>Ctrl+G</kbd>
     </aside>
     <main>
         <nav>
@@ -55,15 +88,53 @@
         </nav>
         <section id="projects">
             <article>
+<<<<<<< Updated upstream
             </article>
+=======
+                <!-- <img src="assets/icons/" alt="read icon">  -->
+                <time>0 min</time>
+                <svg  height="30" width="30" xmlns="http://www.w3.org/2000/svg" class="readingProgress">
+                    <circle r="10" cx="15" cy="15" opacity=".2"/>
+                    <circle r="10" cx="15" cy="15" stroke-dasharray="62" stroke-dashoffset="62" data-effect="circularProgress"/>
+                </svg>
+                <details>
+                    <summary>lorem, for now</summary>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reprehenderit nostrum suscipit deserunt at ducimus accusantium, quod molestias incidunt excepturi necessitatibus illo fugiat voluptates asperiores voluptate soluta ea. Ad, sapiente at.
+                        <!-- <wbr> is ideal to text responsivity...? -->
+                        Odio molestiae possimus totam ea aspernatur at distinctio autem ducimus nostrum velit magnam corrupti laborum dicta nam consequuntur, temporibus itaque saepe excepturi, dolorem ipsa illum eveniet amet! Ipsam, quod iste.
+                    </p>
+                    </details>
+                </article>
+>>>>>>> Stashed changes
         </section>
         <section id="experience">
             
         </section>
+<<<<<<< Updated upstream
         </main>
         <footer>NOT FINISHED - Designed from scratch by me - All rights reserved ©2024</footer>
         <svg id="cursor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,0 25,75 75,75 35,60 20,20 60,35 60,60 35,60 75,75 75,25"/></svg>
 
     </body>
+=======
+        <video aria-hidden="true" src="assets/videos/darkSea.mp4" mute loop></video>
+    </main>
+    <footer>
+        <menu>
+            <li><input type="checkbox" disabled>tooltip</li>
+            <li><input type="checkbox" disabled>aside rework</li>
+            <li><input type="checkbox" disabled>sup triggers tooltip</li>
+            <li><input type="checkbox" disabled checked="true">title in sup</li>
+            <li><input type="checkbox" disabled checked="true">inside cursor svg</li>
+        </menu>
+        <samp>MADE WITH ♡ - All rights reserved ©2024</samp>
+        <sub>[IN PROGRESS]</sub>
+        <progress value="30" max="100"></progress>
+    </footer>
+    <dialog></dialog>
+    <svg id="cursor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,0 25,75 75,75 35,60 20,20 60,35 60,60 35,60 75,75 75,25"/></svg>
+</body>
+>>>>>>> Stashed changes
 <script src="script.js"></script>
 </html>
