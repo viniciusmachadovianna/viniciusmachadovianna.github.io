@@ -3,35 +3,19 @@ const arrow = $("#cursor");
 const langData = {
     en: {
         greeting: 'Hello!',
-<<<<<<< Updated upstream
-        aboutme: "My name is Vinícius Machado,",
-        role: "Software Engineer",
-        sectionProjects:'Projects',
-        sectionExperience:'Experience',
-        motto: 'Empathy in every detail',
-=======
         aboutme: "My name is ",
         role: "System Developer",
         sectionProjects:'Projects',
         sectionExperience:'Experience',
         motto: 'Passion in details',
->>>>>>> Stashed changes
     },
     pt: {
         greeting: 'Olá!',
-<<<<<<< Updated upstream
-        aboutme: "Meu nome é Vinícius Machado",
-        role: "Engenheiro de Software",
-        sectionProjects:'Projetos',
-        sectionExperience:'Experiência',
-        motto: 'Empatia em cada detalhe',
-=======
         aboutme: "Meu nome é ",
         role: "Desenvolvedor de Sistemas",
         sectionProjects:'Projetos',
         sectionExperience:'Experiência',
         motto: 'Paixão nos detalhes',
->>>>>>> Stashed changes
     }
 };
 arrow.style.display = "block";
@@ -93,8 +77,6 @@ $("#themeSwitch").addEventListener("click",(e) => {
     });
     theme === "light" ? img.setAttribute("src",'/assets/icons/moon-light-mode.svg'): img.setAttribute("src",'/assets/icons/sun-dark-mode.svg');
 });
-<<<<<<< Updated upstream
-=======
 document.addEventListener('mouseup', () => changeCursor('up'));
 
 // apply to all articles pending:
@@ -129,4 +111,3 @@ document.querySelectorAll('sup').forEach(info => {
 });
 
 $("dialog").addEventListener('click',()=>{$("dialog").removeAttribute('open');});
->>>>>>> Stashed changes
