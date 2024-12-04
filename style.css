@@ -40,10 +40,12 @@ mark{
 body{
     margin: 0;
     display: flex;
+    flex-flow: column wrap;
+    align-items: center;
     width: 100%;
     height: 100vh;
     overflow-y: hidden;
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif; 
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 }
 html,body{transition:.7s ease;}
 a{text-decoration: none;}
@@ -103,8 +105,10 @@ header{
 header:hover{border: 2px solid var(--bg-reverse);}
 picture{
     display: flex;
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
+    margin-top: -100px;
+    margin-bottom: 20px;
     transition: .3s ease;
     align-items: center;
     justify-content: center;
@@ -148,6 +152,13 @@ code{
 [data-effect="marquee"]{
     margin-top: auto;
     margin-bottom: 30px;
+    background: var(--bg-reverse);
+    color: var(--text-reverse);
+    white-space: nowrap;
+    width: 100%;
+    height: 30px;
+    overflow: hidden;
+    display: flex;
 }
 sup{
     background: rgba(var(--bg-rgb),.5);
@@ -168,16 +179,14 @@ q{
     height: 50px;
 }
 nav{
-    position: absolute;
+    position: sticky;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
     align-items: center;
     background: rgba(112,112,112,.5);
     border-radius: 3px;
     height: 50px;
     left: 50%;
-    top: 10px;
+    top: 20px;
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -190,6 +199,7 @@ nav > a{
     line-height: 20px;
     text-align: center;
     transition: .5 ease;
+    margin: 0 20px;
 }
 nav>a:hover{
     text-decoration:line-through;
