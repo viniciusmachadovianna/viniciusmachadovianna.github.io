@@ -83,13 +83,12 @@ $("time").textContent = `${readingTime($("article"))} ${readingTime($("article")
 document.addEventListener("DOMContentLoaded", function() {
     const article = document.querySelector("section");
     article.addEventListener("scroll", function() {
-        console.log(`Scroll Height: ${article.scrollHeight} Scroll Top: ${article.scrollTop} e ${article.clientHeight}`); // Total height of content
+        console.log(`Scroll Height: ${article.scrollHeight} Scroll Top: ${article.scrollTop} e ${article.clientHeight}`);
     });
 });
 
 document.addEventListener("contextmenu",(e)=>{
     console.log("right clicked");
-    
     // e.preventDefault();
 });
 
