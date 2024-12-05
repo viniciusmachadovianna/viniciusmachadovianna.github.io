@@ -95,17 +95,22 @@ document.addEventListener("contextmenu",(e)=>{
 
 document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.key === 'g') {
-        $("menu").style.visibility = (window.getComputedStyle($("menu")).visibility === "visible") ? "hidden" : "visible";
+        $("menu").style.display = (window.getComputedStyle($("menu")).display === "flex") ? "none" : "flex";
         event.preventDefault();
     }
 });
-
 document.querySelectorAll('sup').forEach(info => {
     let dialog = document.querySelector("dialog");
-    info.addEventListener('click', () =>{
+    info.addEventListener('mouseover', () =>{
+        const trigger = info.getBoundingClientRect();
+        const x = trigger.left+window.scrollX;
+        const y = trigger.top+window.scrollY;
+        dialog.style.left = `${x+100}px`;
+        dialog.style.top = `${y-20}px`;
         dialog.innerHTML = info.getAttribute("title");
         dialog.setAttribute('open','');
     });
+    info.addEventListener('mouseout', () =>{
+        dialog.removeAttribute('open');
+    });
 });
-
-$("dialog").addEventListener('click',()=>{$("dialog").removeAttribute('open');});

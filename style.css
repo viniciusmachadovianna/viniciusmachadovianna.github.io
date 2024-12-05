@@ -99,33 +99,44 @@ header{
     height: 50vh;
     margin: auto 20px auto 20px;
     border: 2px solid transparent;
-    background: rgba(59, 59, 59, 0.5);
+    border-radius: 5px;
+    border: 2px solid rgb(222 200 200 / 10%);
+    background: linear-gradient(135deg, #ffffff4d 0%, #7878784d 42%, #3232324d 100%);
+    position: relative;
+    backdrop-filter:blur(10px);
     transition: .3s;
     flex-flow: column;
     align-items: center;
 }
-header:hover{border: 2px solid var(--bg-reverse);}
+header>svg{
+    position: absolute;
+    top: -120px;
+    border: 2px solid transparent;
+    left: 50%;
+    transform: translate(-50%);
+}
 picture{
     display: flex;
     width: 200px;
     height: 200px;
     margin-top: -100px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     transition: .3s ease;
     align-items: center;
     justify-content: center;
     border: 2px solid var(--bg-reverse);
     border-radius: 50%;
     overflow: hidden;
+    z-index: 1;
 }
 picture > img{
     width: 200px;
     height: 200px;
     transition: .5s ease;
 }
-picture:hover img{
-    transform: scale(1.1);
-}
+picture:hover>img{transform:scale(1.1);}
+svg>circle{transition:.7s;}
+picture:hover~svg>circle{stroke-dashoffset:-240;}
 code{
     display: inline-block;
     text-align: center;
@@ -163,8 +174,10 @@ code{
     display: flex;
 }
 sup{
-    background: rgba(var(--bg-rgb),.5);
+    background: var(--decoration);
     border-radius: 50%;
+    border: 1px solid var(--bg-color);
+    color: var(--bg-color);
     font-weight: bold;
     padding: 1px 5px;
     font-size: .6em;
@@ -264,7 +277,7 @@ article{
     }
 }
 video{
-    filter:blur(5px)brightness(.5);
+    filter:blur(0px)brightness(.5);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -286,7 +299,7 @@ footer{
     transform: translateX(-50%);
 }
 menu{
-    visibility: hidden;
+    display: none;
     border: 1px solid var(--text-color);
     padding: 20px;
     flex-flow: column;
@@ -306,7 +319,9 @@ mark{
 dialog{
     position: absolute;
     top: 50%;
-    width: 100px;
+    left: 0;
+    margin: 0;
+    padding: 10px;
     text-align: center;
     transform: translateY(-50%) translateX(-50%);
     background-color: rgba(var(--bg-rgb),.5);
