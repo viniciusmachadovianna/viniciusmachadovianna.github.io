@@ -6,6 +6,8 @@
     --text-reverse: rgb(28, 28, 28);
     --cursor-color: rgb(238, 238, 238);
     --bg-reverse: rgb(237, 237, 237);
+    --glass: linear-gradient(135deg, #ffffff4d 0%, #7878784d 42%, #3232324d 100%);
+   
 }
 [data-theme="light"]{
     --bg-color: rgb(237, 237, 237);
@@ -54,7 +56,6 @@ a{text-decoration: none;}
 polygon{fill:var(--cursor-color);}
 .icon{width: 25px;height: 25px;}
 #themeSwitch{
-    display: inline;
     background: none;
     border: none;
     padding: 4px;
@@ -98,10 +99,9 @@ header{
     width: 300px;
     height: 50vh;
     margin: auto 20px auto 20px;
-    border: 2px solid transparent;
     border-radius: 5px;
-    border: 2px solid rgb(222 200 200 / 10%);
-    background: linear-gradient(135deg, #ffffff4d 0%, #7878784d 42%, #3232324d 100%);
+    border: 1px solid rgb(222 200 200 / 10%);
+    background: var(--glass);
     position: relative;
     backdrop-filter:blur(10px);
     transition: .3s;
@@ -188,6 +188,7 @@ sup::after{
 }
 q{
     font-style: italic;
+    margin: 20px 0;
 }
 [data-icon="logomark"]{
     width: 50px;
@@ -224,9 +225,13 @@ aside{
     justify-content: space-around;
     align-items: center;
     transform: translateY(-50%);
-    background: rgb(68, 68, 68);
+    background: var(--glass);
+    border: 1px solid rgb(222 200 200 / 10%);
+    border-radius: 3px;
     min-width: fit-content;
     height: 50px;
+    width: fit-content;
+    padding: 0 10px;
 
 }
 aside>button{margin: 10px;}
