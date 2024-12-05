@@ -102,9 +102,9 @@ document.addEventListener('keydown', function(event) {
 document.querySelectorAll('sup').forEach(info => {
     let dialog = document.querySelector("dialog");
     info.addEventListener('mouseover', () =>{
-        const trigger = info.getBoundingClientRect();
-        const x = trigger.left+window.scrollX;
-        const y = trigger.top+window.scrollY;
+        const pos = info.getBoundingClientRect();
+        const x = pos.left+window.scrollX;
+        const y = pos.top+window.scrollY;
         dialog.style.left = `${x+100}px`;
         dialog.style.top = `${y-20}px`;
         dialog.innerHTML = info.getAttribute("title");

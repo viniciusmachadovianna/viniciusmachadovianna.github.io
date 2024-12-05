@@ -58,9 +58,13 @@ polygon{fill:var(--cursor-color);}
     padding: 4px;
     border-radius: 50%;
     transition: .3s ease-out;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 #themeSwitch:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     animation: theme-pulse 2s infinite ease-in-out;
+    transform:rotateX(20deg) rotateY(20deg);
 }
 @keyframes theme-pulse {
     0% {background: none;}
@@ -102,9 +106,9 @@ header{
     background: linear-gradient(135deg, #ffffff4d 0%, #7878784d 42%, #3232324d 100%);
     position: relative;
     backdrop-filter:blur(10px);
-    transition: .3s;
     flex-flow: column;
     align-items: center;
+    box-shadow: 0 0 0px rgba(255, 255, 255, 0.5);
 }
 header>svg{
     position: absolute;
