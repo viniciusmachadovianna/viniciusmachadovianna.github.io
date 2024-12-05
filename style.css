@@ -110,7 +110,7 @@ header{
 }
 header>svg{
     position: absolute;
-    top: -120px;
+    top: -125px;
     border: 2px solid transparent;
     left: 50%;
     transform: translate(-50%);
