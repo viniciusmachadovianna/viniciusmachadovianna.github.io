@@ -16,6 +16,7 @@
             <!-- <source media="(min-width: )" srcset=""> -->
             <img src="assets/imgs/profilePicture.png" alt="profile picture" style="height: 200px;width: 200px;">
         </picture>
+        <svg  height="242" width="242"><circle r="120" cx="121" cy="121" fill="transparent" stroke="white" stroke-dasharray="360" stroke-dashoffset="120"/></svg>
         <span data-lang="greeting">Olá!</span>
         <span><span data-lang="aboutme">Meu nome é</span><mark>Vinícius Machado</mark></span>
         <code data-lang="role">Desenvolvedor de Sistemas</code>
@@ -53,6 +54,7 @@
         <button aria-label="Change the language" id="languageSwitch" data-lang="language">
             EN
         </button>
+        <button>pause</button>
         <kbd>Ctrl+G</kbd>
     </aside>
     <main>
@@ -80,14 +82,24 @@
                 </article>
         </section>
         <section id="experience">
+                <div class="blurry-card"></div>
         </section>
         <video aria-hidden="true" src="assets/videos/darkSea.mp4" mute loop></video>
     </main>
     <footer>
         <menu>
-            <li><input type="checkbox" disabled>tooltip</li>
+            <li><input type="checkbox" disabled>ask to scroll icon</li>
+            <li><input type="checkbox" disabled>marquee bg change</li>
             <li><input type="checkbox" disabled>aside rework</li>
-            <li><input type="checkbox" disabled>sup triggers tooltip</li>
+            <li><input type="checkbox" disabled>socials flex</li>
+            <li><input type="checkbox" disabled>motto style adjust</li>
+            <li><input type="checkbox" disabled>logotype update</li>
+            <li><input type="checkbox" disabled>nav buttons rework</li>
+            <li><input type="checkbox" disabled>play/pause video btn</li>
+            <li><input type="checkbox" disabled checked="true">profile pic hover border</li>
+            <li><input type="checkbox" disabled checked="true">profile pic scale</li>
+            <li><input type="checkbox" disabled checked="true">sup triggers tooltip</li>
+            <li><input type="checkbox" disabled checked="true">tooltip</li>
             <li><input type="checkbox" disabled checked="true">title in sup</li>
             <li><input type="checkbox" disabled checked="true">inside cursor svg</li>
         </menu>
@@ -95,8 +107,8 @@
         <sub>[IN PROGRESS]</sub>
         <progress value="30" max="100"></progress>
     </footer>
-    <dialog></dialog>
     <svg id="cursor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="0,0 25,75 75,75 35,60 20,20 60,35 60,60 35,60 75,75 75,25"/></svg>
+    <dialog></dialog>
 </body>
 <script src="script.js"></script>
 </html>
