@@ -136,7 +136,7 @@ picture > img{
 }
 picture:hover>img{transform:scale(1.1);}
 svg>circle{transition:.7s;}
-picture:hover~svg>circle{stroke-dashoffset:-240;}
+header:hover svg>circle{stroke-dashoffset:-240;}
 code{
     display: inline-block;
     text-align: center;
