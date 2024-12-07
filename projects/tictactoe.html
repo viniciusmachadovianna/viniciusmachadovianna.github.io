@@ -29,6 +29,7 @@
         border: 10px solid transparent;
         transition: .4s ease;
         cursor: pointer;
+        display: none;
     }
     header::after{
         content: "▶︎";
@@ -53,7 +54,6 @@
     }
     main{
         position: absolute;
-        z-index: 1;
         width: 330px;
         height: 330px;
         display: flex;
@@ -68,23 +68,30 @@
         color: aliceblue;
         font-size: 4em;
     }
-    div::after{
-        /* content: "◯"; */
-        content: "✖";
-        color: transparent;
-        text-align: center;
-        line-height: 50%;
-        transition: .4s ease;
-    }
     div:hover{
         background: purple;
     }
-    div:hover::after{
-        color: aliceblue;
-    }
     main{
-        display: none;
-        /* display: flex; */
+        /* display: none; */
+        display: flex;
+    }
+    rect{
+        position: absolute;
+        z-index: 1;
+        width: 300px;
+        height: 10px;
+        background: rgb(93, 255, 174);
+        /* LINES: */
+        /* transform: translateY(-110px); */
+        /* transform: translateY(0px); */
+        /* transform: translateY(110px); */
+        /* COLUMNS: */
+        /* transform: rotate(90deg) translateY(110px);
+        transform: rotate(90deg) translateY(0px);
+        transform: rotate(90deg) translateY(-110px); */
+        /* DIAGONALS: */
+        /* transform: rotate(45deg); */
+        transform: rotate(-45deg);
     }
 </style>
 <body>
@@ -93,6 +100,8 @@
         <span>TAC</span>
         <span>TOE</span>
     </header>
+    <rect>
+    </rect>
     <main>
         <div id="a1"></div>
         <div id="a2"></div>
@@ -105,6 +114,8 @@
         <div id="c3"></div>
     </main>
     <footer>
+        <output id="o">0</output>
+        <output id="x">2</output>
     </footer>
 </body>
 <script>
@@ -114,17 +125,23 @@
         header.style.display = "none";
         main.style.display = "flex";
     })
+    var turn = "✖"; //◯
+    var turnsTaken = 0;
     document.querySelectorAll("div").forEach(div =>{
-        div.style.setProperty("--after-content","◯"); 
         div.addEventListener('click',(e)=>{
-            console.log(div.style.getPropertyValue("--after-content"));
-            div.style.setProperty("--after-content","◯"); 
-            console.log(div.style.getPropertyValue("--after-content"));
-            //✖◯
-            e.target.innerHTML = "✖";
+            if(div.style.background !== "none"){
+                div.innerHTML = turn;
+                turn = turn === "✖" ? "◯" : "✖";
+                div.style.background = "none";
+                turnsTaken += 1;
+            }
         })
         div.addEventListener('mouseover',()=>{
-
+            if(div.style.background !== "none"){div.innerHTML = turn;}
+        })
+        
+        div.addEventListener('mouseout',()=>{
+            if(div.style.background !== "none"){div.innerHTML = "";}
         })
     })
 </script>
