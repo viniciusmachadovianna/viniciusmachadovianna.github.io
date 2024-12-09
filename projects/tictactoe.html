@@ -29,7 +29,6 @@
         border: 10px solid transparent;
         transition: .4s ease;
         cursor: pointer;
-        display: none;
     }
     header::after{
         content: "▶︎";
@@ -72,7 +71,13 @@
         background: purple;
     }
     main{
-        /* display: none; */
+        display: none;
+    }
+    /* //cut header: */
+    header{
+        display: none;
+    }
+    main{
         display: flex;
     }
     rect{
@@ -92,6 +97,10 @@
         /* DIAGONALS: */
         /* transform: rotate(45deg); */
         transform: rotate(-45deg);
+    }
+    footer{
+        position: absolute;
+        bottom: 0;
     }
 </style>
 <body>
@@ -114,28 +123,34 @@
         <div id="c3"></div>
     </main>
     <footer>
-        <output id="o">0</output>
-        <output id="x">2</output>
+        <output id="◯">0</output>
+        <output id="✖">2</output>
     </footer>
 </body>
 <script>
+    const $=(el)=>document.querySelector(el);
     const header = document.querySelector("header"),
         main = document.querySelector("main");
+    var turn = "✖", //◯
+        turnsTaken = 0,
+        winsO = 0,
+        winsX = 0;
     header.addEventListener("click",()=>{
         header.style.display = "none";
         main.style.display = "flex";
-    })
-    var turn = "✖"; //◯
-    var turnsTaken = 0;
+    });
     document.querySelectorAll("div").forEach(div =>{
         div.addEventListener('click',(e)=>{
             if(div.style.background !== "none"){
                 div.innerHTML = turn;
+                turnsTaken += 1;
+                if(turnsTaken>=5){checkVictoryCondition()};
                 turn = turn === "✖" ? "◯" : "✖";
                 div.style.background = "none";
-                turnsTaken += 1;
             }
+            // console.log(turnsTaken);
         })
+        
         div.addEventListener('mouseover',()=>{
             if(div.style.background !== "none"){div.innerHTML = turn;}
         })
@@ -143,6 +158,36 @@
         div.addEventListener('mouseout',()=>{
             if(div.style.background !== "none"){div.innerHTML = "";}
         })
-    })
+    });
+    function checkVictoryCondition(){
+        if (
+        $("#a1").innerHTML === turn && 
+        $("#a2").innerHTML === turn &&
+        $("#a3").innerHTML === turn ||
+        $("#b1").innerHTML === turn && 
+        $("#b2").innerHTML === turn &&
+        $("#b3").innerHTML === turn ||
+        $("#c1").innerHTML === turn && 
+        $("#c2").innerHTML === turn &&
+        $("#c3").innerHTML === turn ||
+        $("#a1").innerHTML === turn && 
+        $("#b1").innerHTML === turn &&
+        $("#c1").innerHTML === turn ||
+        $("#a2").innerHTML === turn && 
+        $("#b2").innerHTML === turn &&
+        $("#c2").innerHTML === turn ||
+        $("#a3").innerHTML === turn && 
+        $("#b3").innerHTML === turn &&
+        $("#c3").innerHTML === turn ||
+        $("#a1").innerHTML === turn && 
+        $("#b2").innerHTML === turn &&
+        $("#c3").innerHTML === turn ||
+        $("#a3").innerHTML === turn && 
+        $("#b2").innerHTML === turn &&
+        $("#c1").innerHTML === turn
+    ){
+        document.querySelector(`#${turn}`).innerHTML = (parseInt(document.querySelector(`#${turn}`).innerHTML)+1);
+    }
+    }
 </script>
 </html>
