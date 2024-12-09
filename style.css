@@ -110,7 +110,7 @@ header{
 }
 header>svg{
     position: absolute;
-    top: -125px;
+    top: -120px;
     border: 2px solid transparent;
     left: 50%;
     transform: translate(-50%);
@@ -134,9 +134,9 @@ picture > img{
     height: 200px;
     transition: .5s ease;
 }
-picture:hover>img{transform:scale(1.1);}
 svg>circle{transition:.7s;}
 header:hover svg>circle{stroke-dashoffset:-240;}
+header:hover>picture>img{transform:scale(1.1);}
 code{
     display: inline-block;
     text-align: center;
