@@ -294,7 +294,7 @@ video{
     z-index: -1;
     object-fit: cover;
 }
-footer{
+pre{
     position: absolute;
     bottom: 20px;
     display: flex;
