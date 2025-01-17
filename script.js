@@ -96,13 +96,6 @@ document.addEventListener("contextmenu",(e)=>{
     console.log("right mouse button clicked");
     // e.preventDefault();
 });
-
-document.addEventListener('keydown', function(event) {
-    if (event.ctrlKey && event.key === 'g') {
-        event.preventDefault();
-        $("menu").style.display = (window.getComputedStyle($("menu")).display === "flex") ? "none" : "flex";
-    }
-});
 document.querySelectorAll('sup').forEach(info => {
     let dialog = document.querySelector("dialog");
     info.addEventListener('mouseover', () =>{
