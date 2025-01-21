@@ -79,7 +79,7 @@ $("#themeSwitch").addEventListener("click",(e) => {
     document.documentElement.setAttribute("data-theme", theme);
     icon.src = `/assets/icons/${icon.getAttribute("data-icon")}-${theme}-mode.svg`;
     });
-    theme === "light" ? img.setAttribute("src",'/assets/icons/moon-light-mode.svg'): img.setAttribute("src",'/assets/icons/sun-dark-mode.svg');
+    theme==="light"?img.setAttribute("src",'/assets/icons/moon-light-mode.svg'): img.setAttribute("src",'/assets/icons/sun-dark-mode.svg');
 });
 
 // apply to all articles pending:
