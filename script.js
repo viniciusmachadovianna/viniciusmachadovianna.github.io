@@ -97,18 +97,18 @@ document.addEventListener("contextmenu",(e)=>{
     // e.preventDefault();
 });
 document.querySelectorAll('sup').forEach(info => {
-    let dialog = document.querySelector("dialog");
+    const tooltip = document.$("#tooltip");
     info.addEventListener('mouseover', () =>{
-        const trigger = info.getBoundingClientRect();
-        const x = trigger.left+window.scrollX;
-        const y = trigger.top+window.scrollY;
-        dialog.style.left = `${x+100}px`;
-        dialog.style.top = `${y-20}px`;
-        dialog.innerHTML = info.getAttribute("title");
-        dialog.setAttribute('open','');
+        const trigger = info.getBoundingClientRect(),
+            x = trigger.left+window.scrollX,
+            y = trigger.top+window.scrollY;
+        tooltip.style.left = `${x+100}px`;
+        tooltip.style.top = `${y-20}px`;
+        tooltip.innerHTML = info.getAttribute("title");
+        tooltip.setAttribute('display','absolute');
     });
     info.addEventListener('mouseout', () =>{
-        dialog.removeAttribute('open');
+        tooltip.removeAttribute('open');
     });
 });
 
