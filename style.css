@@ -99,6 +99,7 @@ header{
 #profilePicture{
     position: absolute;
     left: 0;
+    top: 50%;
     background: rgb(59, 59, 59);
     transition: .5s ease;
     display: flex;
@@ -313,7 +314,7 @@ mark{
 }
 #tooltip{
     position: absolute;
-    /* display: none; */
+    display: none;
     top: 50%;
     left: 0;
     margin: 0;
