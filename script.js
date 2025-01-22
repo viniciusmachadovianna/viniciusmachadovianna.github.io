@@ -97,7 +97,7 @@ document.addEventListener("contextmenu",(e)=>{
     // e.preventDefault();
 });
 document.querySelectorAll('sup').forEach(info => {
-    const tooltip = document.$("#tooltip");
+    const tooltip = $("#tooltip");
     info.addEventListener('mouseover', () =>{
         const trigger = info.getBoundingClientRect(),
             x = trigger.left+window.scrollX,
@@ -105,10 +105,10 @@ document.querySelectorAll('sup').forEach(info => {
         tooltip.style.left = `${x+100}px`;
         tooltip.style.top = `${y-20}px`;
         tooltip.innerHTML = info.getAttribute("title");
-        tooltip.setAttribute('display','absolute');
+        tooltip.style.display='block';
     });
     info.addEventListener('mouseout', () =>{
-        tooltip.removeAttribute('open');
+        tooltip.style.display='none';
     });
 });
 

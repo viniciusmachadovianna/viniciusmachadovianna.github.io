@@ -11,8 +11,26 @@
 </head>
 <body>
     <header>
-        <img id="profilePicture" src="assets/profile.png////" alt="profile picture">
-        <img id="spinningCircle" src="assets/icons/halfcircle.svg" alt="">
+        <div id="profilePicture">
+            <img src="assets/profile.png" alt="profile picture">
+            <img src="assets/icons/halfcircle.svg" alt="" aria-hidden="true">
+        </div>
+        <span data-lang="greeting">Olá!</span>
+        <span><span data-lang="aboutme">Meu nome é</span><mark>Vinícius Machado</mark></span>
+        <code data-lang="role">Desenvolvedor de Sistemas</code>
+        <a href="assets/docs/CV-VINICIUSMACHADOVIANNA.pdf" target="_blank" title="Curriculum Vitae">CV</a>
+        
+        <div>
+            <a href="https://www.linkedin.com/in/viniciusmachadovianna/" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn Profile" data-link="ext">
+                LinkedIn
+                <img src="assets/icons/linkedin.svg" alt="LinkedIn Icon" class="icon" data-icon="linkedin">
+            </a>
+            <a href="https://github.com/viniciusmachadovianna" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Repositories" >
+                GitHub
+                <img src="assets/icons/github.svg" alt="GitHub Icon" class="icon" data-icon="github">
+            </a>
+        </div>
+        
         <div data-effect="marquee">
             <div>
                 <span>WEB DEV</span>
@@ -27,25 +45,9 @@
                 <span>UI <sup title="Interface do Usuário" aria-hidden="true"></sup></span>
             </div>
         </div>
-        <span data-lang="greeting">Olá!</span>
-        <span><span data-lang="aboutme">Meu nome é</span><mark>Vinícius Machado</mark></span>
-        <code data-lang="role">Desenvolvedor de Sistemas</code>
-        <!-- <a href="assets/docs/CV-VINICIUSMACHADOVIANNA.pdf" target="_blank" title="Curriculum Vitae">CV</a> -->
-        
-        <div>
-            <a href="https://www.linkedin.com/in/viniciusmachadovianna/" target="_blank" rel="noopener noreferrer" aria-label="Visit my LinkedIn Profile" data-link="ext">
-                LinkedIn
-                <img src="assets/icons/linkedin.svg" alt="LinkedIn Icon" class="icon" data-icon="linkedin">
-            </a>
-            <a href="https://github.com/viniciusmachadovianna" target="_blank" rel="noopener noreferrer" aria-label="Visit my GitHub Repositories" >
-                GitHub
-                <img src="assets/icons/github.svg" alt="GitHub Icon" class="icon" data-icon="github">
-            </a>
-        </div>
-        <q data-lang="motto">Mantenha simples, torne poderoso</q>
     </header>
     <aside>
-        <!-- <button aria-label="Change the color scheme" id="themeSwitch"  aria-hidden="true">
+        <button aria-label="Change the color scheme" id="themeSwitch"  aria-hidden="true">
             <img src="assets/icons/lightmode.svg" alt="dark/light mode icon" class="icon" data-icon="themeIcon">
             
             <svg id="switch" height="100" width="100" xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +69,7 @@
             
                 <circle cx="50" cy="50" r="50" width="100%" height="100%" x="0" y="0" fill="url(#glassGradient)" mask="url(#customMask)"/>
             </svg>
-        </button> -->
+        </button>
         <button aria-label="Change the language" id="languageSwitch" data-lang="language">
             <kbd>EN</kbd>
         </button>
@@ -80,12 +82,12 @@
         </nav>
         <section id="projects">
             <article>
-                <!-- <img src="assets/icons/" alt="read icon">  -->
-                <!-- <time>0 min</time>
+                <img src="assets/icons/" alt="read icon"> 
+                <time>0 min</time>
                 <svg  height="30" width="30" xmlns="http://www.w3.org/2000/svg" class="readingProgress">
                     <circle r="10" cx="15" cy="15" opacity=".2"/>
                     <circle r="10" cx="15" cy="15" stroke-dasharray="62" stroke-dashoffset="62" data-effect="circularProgress"/>
-                </svg> -->
+                </svg>
                 
                 <span data-lang="welcome">
                     This portfolio project isn't finished yet, but you can give me an feedback about what you are seeing for now.
@@ -111,6 +113,10 @@
                 </details>
             </article>
         </section>
+        <footer>
+            <q data-lang="motto">Mantenha simples, torne poderoso</q>
+            <pre class="footer">MADE WITH ♡ - 2025 ©</pre>
+        </footer>
         <!-- <section id="experience">
         </section> -->
         <!-- <video aria-hidden="true" src="assets/videos/darkSea.mp4" autoplay mute loop></video> -->
