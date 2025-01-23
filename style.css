@@ -45,7 +45,7 @@ polygon{fill:var(--cursor-color);}
 #themeSwitch{
     background: none;
     border: none;
-    padding: 4px;
+    /* padding: 4px; */
     border-radius: 50%;
     transition: .3s ease-out;
 }
@@ -177,7 +177,7 @@ sup::after{
 }
 q{
     font-style: italic;
-    margin: 20px 0;
+    margin: 0;
 }
 [data-icon="logomark"]{
     width: 50px;
