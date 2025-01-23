@@ -80,8 +80,8 @@ switch:hover{
 }
 header{
     display: flex;
-    min-width: 100px;
-    max-width: 500px;
+    min-width: 50px;
+    max-width: 80vw;
     margin: 20px 50px;
     border-radius: 5px;
     border: 1px solid rgb(222 200 200 / 10%);
@@ -131,11 +131,13 @@ code{
 }
 
 [data-effect="marquee"]{
-    margin-right:-20px;
+    margin-right:-10px;
     background: var(--bg-reverse);
     color: var(--text-reverse);
     white-space: nowrap;
-    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    max-width: 300px;
     height: 25px;
     overflow: hidden;
 }
@@ -150,7 +152,7 @@ code{
 }
 
 @keyframes stripe-loop{to{transform:translateX(-100%)}}
-[data-effect="marquee"]>div>span::after{content:' ⬪ ';margin-left:5px;}
+[data-effect="marquee"]>div>span::after{content:' ⬪ ';margin: 0 10px;}
 
 sup{
     background: var(--decoration);
@@ -169,31 +171,7 @@ sup::after{
     width: 50px;
     height: 50px;
 }
-nav{
-    position: sticky;
-    display: flex;
-    align-items: center;
-    background: rgba(112,112,112,.5);
-    border-radius: 3px;
-    height: 50px;
-    left: 50%;
-    top: 20px;
-    transform: translateX(-50%);
-    z-index: 1;
-}
-nav > a{
-    border: 1px solid grey;
-    padding: 5px;
-    border-radius: 4px;
-    width: 120px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    margin: 0 20px;
-}
-nav>a:hover{
-    text-decoration:line-through;
-}
+
 aside{
     position: absolute;
     left: 20px;
@@ -221,11 +199,34 @@ main{
     background: rgba(35, 35, 35, 0);
     overflow-x: hidden;
 }
+nav{
+    position: sticky;
+    display: flex;
+    align-items: center;
+    background: rgba(112,112,112,.5);
+    border-radius: 3px;
+    height: 50px;
+    left: 50%;
+    top: 20px;
+    z-index: 1;
+}
+nav > a{
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 4px;
+    width: 120px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    margin: 0 20px;
+}
+nav>a:hover{
+    text-decoration:line-through;
+}
 section{
     margin: 20px;
     background: rgba(81, 81, 81,.5);
     overflow-y: auto;
-    width: 500px;
     min-height: 300px;
     border-radius: 3px;
 }
