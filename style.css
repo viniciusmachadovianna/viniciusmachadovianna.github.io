@@ -1,3 +1,4 @@
+*{transition: .4s ease;}
 :root, [data-theme="dark"]{
     --bg-color: rgb(31, 31, 31);
     --bg-rgb: 31,31,31;
@@ -36,18 +37,15 @@ body{
     align-items: center;
     width: 100%;
     height: 100vh;
-    overflow-y: hidden;
+    overflow: hidden;
     scroll-behavior: smooth;
 }
 a{text-decoration: none;}
 polygon{fill:var(--cursor-color);}
 .icon{width: 25px;height: 25px;}
 #themeSwitch{
-    background: none;
     border: none;
-    /* padding: 4px; */
     border-radius: 50%;
-    transition: .3s ease-out;
 }
 #themeSwitch:hover {
     animation: theme-pulse 2s infinite ease-in-out;
@@ -73,7 +71,6 @@ img[data-icon="themeIcon"]:hover{
     100% {filter: invert(0%)};
 }
 #languageSwitch{
-    background: none;
     border: none;
     color: var(--text-color);
 }
@@ -83,16 +80,13 @@ img[data-icon="themeIcon"]:hover{
 }
 header{
     display: flex;
-    min-width: 90vw;
+    min-width: 100px;
     max-width: 500px;
-    height: fit-content;
-    margin: auto 20px auto 20px;
+    margin: 20px 50px;
     border-radius: 5px;
     border: 1px solid rgb(222 200 200 / 10%);
     background: var(--glass);
-    position: relative;
-    backdrop-filter:blur(10px);
-    transition: .3s;
+    position: fixed;
     flex-flow: column;
     align-items: center;
 }
@@ -101,7 +95,6 @@ header{
     left: 0;
     top: 50%;
     background: rgb(59, 59, 59);
-    transition: .5s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -111,7 +104,6 @@ header{
     position: absolute;
     width: 90px;
     height: 90px;
-    transition: .4s ease;
 }
 #profilePicture>img:nth-child(1){
     border-radius: 50%;
@@ -119,12 +111,10 @@ header{
     height: 70px;
 }
 header:hover>#profilePicture>img:nth-child(1){transform:scale(1.1);}
-#profilePicture>img:nth-child(2){
-    rotate: 45deg;
-}
+header:hover> [data-effect="marquee"]>div{animation-play-state:paused;}
+#profilePicture>img:nth-child(2){rotate: 45deg;}
 header:hover #profilePicture>img:nth-child(2){rotate: 225deg;}
 code{
-    display: inline-block;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
@@ -138,18 +128,6 @@ code{
     from,to{border-color:transparent}
     50%{border-color: cyan;}
 }
-[data-effect="marquee"]> div{
-    height: 100%;
-    min-width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    animation: stripe-loop 10s linear infinite;
-    user-select: none;
-}
-[data-effect="marquee"]:hover>div{animation-play-state:paused;}
-@keyframes stripe-loop{to{transform:translateX(-100%)}}
-[data-effect="marquee"]>div>span::after{content:' ⬪ ';margin-left:5px;}
 
 [data-effect="marquee"]{
     margin-top: 10px;
@@ -159,9 +137,20 @@ code{
     width: 100%;
     height: 30px;
     overflow: hidden;
-    display: absolute;
-    /* top: 0; */
 }
+[data-effect="marquee"]> div{
+    height: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    animation: stripe-loop 10s linear infinite;
+    user-select: none;
+}
+
+@keyframes stripe-loop{to{transform:translateX(-100%)}}
+[data-effect="marquee"]>div>span::after{content:' ⬪ ';margin-left:5px;}
+
 sup{
     background: var(--decoration);
     border-radius: 50%;
@@ -174,10 +163,6 @@ sup{
 }
 sup::after{
     content:'i';
-}
-q{
-    font-style: italic;
-    margin: 0;
 }
 [data-icon="logomark"]{
     width: 50px;
@@ -203,7 +188,6 @@ nav > a{
     height: 20px;
     line-height: 20px;
     text-align: center;
-    transition: .5 ease;
     margin: 0 20px;
 }
 nav>a:hover{
@@ -231,15 +215,15 @@ main{
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    /* width: 70vw;
-    height: 100%; */
+    width: 100%;
+    margin-top: 100px;
     background: rgba(35, 35, 35, 0);
     overflow-x: hidden;
 }
 section{
     margin: 20px;
     background: rgba(81, 81, 81,.5);
-    overflow-y: scroll;
+    overflow-y: auto;
     width: 500px;
     min-height: 300px;
     border-radius: 3px;
@@ -289,13 +273,16 @@ footer{
     position: absolute;
     bottom: 0;
     display: flex;
-    flex-flow: column;
-    align-items: center;
+    height: 30px;
     left: 50%;
     transform: translateX(-50%);
 }
+footer>a{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
 menu{
-    display: none;
     border: 1px solid var(--text-color);
     padding: 20px;
     flex-flow: column;
@@ -314,7 +301,6 @@ mark{
 }
 #tooltip{
     position: absolute;
-    display: none;
     top: 50%;
     left: 0;
     margin: 0;
@@ -326,12 +312,17 @@ mark{
     border-radius: 5px;
 }
 #cursor{
-    display: none;
     position: absolute;
     width: 25px;
     height: 25px;
-    background: none;
     pointer-events: none;
     transform: translate(50%, 50%);
     z-index: 9999;
+    transition: none;
+}
+menu,#tooltip,#cursor{
+    display: none;
+}
+button,#cursor{
+    background: none;
 }

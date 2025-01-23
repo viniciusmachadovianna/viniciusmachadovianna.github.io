@@ -2,22 +2,16 @@ const $=(el)=>document.querySelector(el),
     langData = {
         en: {
             language: 'PT',
-            greeting: 'Hello!',
-            aboutme: "My name is ",
             role: "System Developer",
             sectionProjects:'Projects',
             sectionExperience:'Experience',
-            motto: 'Keep it simple, make it powerful',
             welcome: `This portfolio project isn't finished yet, but you can give me an feedback about what you are seeing for now. Reach me on LinkedIn  or in my e-mail: viniciusmachadovianna@outlook.com`,
         },
         pt: {
             language: 'EN',
-            greeting: 'Olá!',
-            aboutme: "Meu nome é ",
             role: "Desenvolvedor de Sistemas",
             sectionProjects:'Projetos',
             sectionExperience:'Experiência',
-            motto: 'Mantenha simples, torne poderoso.',
             welcome: `Olá, visitante. Ainda não terminei o meu portfólio, mas que tal me contar o que achou do que viu por aqui até agora? Espero seu contato pelo LinkedIn ou no meu e-mail viniciusmachadovianna@outlook.com`,
         }
     },
@@ -77,9 +71,9 @@ $("#themeSwitch").addEventListener("click",(e) => {
     const img = e.currentTarget.querySelector("img");
     document.querySelectorAll('.icon').forEach(icon => {
     document.documentElement.setAttribute("data-theme", theme);
-    icon.src = `/assets/icons/${icon.getAttribute("data-icon")}-${theme}-mode.svg`;
+    // icon.src = `/assets/icons/${icon.getAttribute("data-icon")}-${theme}-mode.svg`;
     });
-    theme==="light"?img.setAttribute("src",'/assets/icons/moon-light-mode.svg'): img.setAttribute("src",'/assets/icons/sun-dark-mode.svg');
+    // theme==="light"?img.setAttribute("src",'/assets/icons/moon-light-mode.svg'): img.setAttribute("src",'/assets/icons/sun-dark-mode.svg');
 });
 
 // apply to all articles pending:
