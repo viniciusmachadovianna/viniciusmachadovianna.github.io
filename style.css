@@ -315,3 +315,13 @@ menu,#tooltip,#cursor{
 button,#cursor{
     background: none;
 }
+#glow{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: cyan;
+    filter: blur(20px);
+    opacity: .7;
+}
