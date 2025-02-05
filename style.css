@@ -8,6 +8,7 @@
     --cursor-color: rgb(180, 254, 255);
     --bg-reverse: rgb(237, 237, 237);
     --glass: linear-gradient(135deg, #ffffff4d 0%, #7878784d 42%, #3232324d 100%);
+    --granite: url('assets/granite.png')
 }
 [data-theme="light"]{
     --bg-color: rgb(237, 237, 237);
@@ -39,16 +40,19 @@ body{
     height: 100vh;
     overflow: hidden;
     scroll-behavior: smooth;
+    background: url('assets/texture.png')
+    var(--bg-color);
+    backdrop-filter:  brightness(.4);
 }
 a{text-decoration: none;}
 polygon{fill:var(--cursor-color);}
 .icon{width: 25px;height: 25px;}
 #themeSwitch{
     border: none;
-    border-radius: 50%;
-}
-#themeSwitch:hover {
+    border-radius: 10px;
+    &:hover {
     animation: theme-pulse 2s infinite ease-in-out;
+    }
 }
 @keyframes theme-pulse {
     0% {background: none;}
@@ -60,9 +64,7 @@ polygon{fill:var(--cursor-color);}
     width: 32px;
     height: 32px;
     vertical-align: middle;
-}
-switch:hover{
-    animation: inverse-pulse 2s infinite ease-in-out;
+    &:hover{animation: inverse-pulse 2s infinite ease-in-out;}
 }
 @keyframes inverse-pulse {
     0% {filter: invert(0%);}
@@ -73,10 +75,10 @@ switch:hover{
 #languageSwitch{
     border: none;
     color: var(--text-color);
-}
-#languageSwitch:hover{
-    background: var(--bg-reverse);
-    color: var(--bg-color);
+    &:hover{
+        background-color: var(--bg-reverse);
+        color: var(--bg-color);
+    }
 }
 header{
     display: flex;
