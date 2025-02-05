@@ -26,20 +26,29 @@ const $=(el)=>document.querySelector(el),
     link: '60,0 80,20 35,20 80,65 65,80 20,35 20,80 0,60 0,0',
     oldlink: '80,0 100,20 35,20 100,85 85,100 20,35 20,100 0,80 0,0)',
     arrow: '0,0 100,50 70,60 50,50 60,70 50,100'
-    };
+    },
+    glow=$('#glow');
 arrow.style.display = "block";
 document.addEventListener("click",() => {
     document.querySelectorAll('*').forEach((element) => {
         element.style.cursor = 'none';
     });
 })
+function adjustPos(element,coord,ref=arrow){
+    element.style.left=`${coord.pageX-ref.clientWidth/2}px`;
+    element.style.top=`${coord.pageY-ref.clientHeight/2}px`;
+}
+glow.style.display='none';
+function toggleVisible(element){
+    element.style.display=element.style.display==='none'?'block':'none';
+}
 document.addEventListener('mousemove', (e) => {
-    arrow.style.left = `${e.pageX - arrow.clientWidth/2}px`;
-    arrow.style.top = `${e.pageY - arrow.clientHeight/2}px`;
+    adjustPos(arrow,e);
+    adjustPos(glow,e);
 })
-
 function changeCursor(state = 'up'){
     arrow.querySelector("polygon").setAttribute("points",cursor[state] || cursor.up);
+    glow.style.background=state==='down'?'rgb(180, 254, 255)':'rgb(255, 255, 255)'
 }
 document.addEventListener('mouseup', () => changeCursor('up'));
 document.addEventListener('mousedown', () => changeCursor("down"));
@@ -47,6 +56,10 @@ document.addEventListener('mouseup', () => changeCursor('up'));
 document.querySelectorAll('a').forEach(a => {
     a.addEventListener('mouseover', () => changeCursor('link'));
     a.addEventListener('mouseout', () => changeCursor('up'));
+});
+document.querySelectorAll('header,aside').forEach(item => {
+    item.addEventListener('mouseenter', () => toggleVisible(glow));
+    item.addEventListener('mouseleave', () => toggleVisible(glow));
 });
 function languageSelection(language) {
     const elements = document.querySelectorAll("[data-lang]");

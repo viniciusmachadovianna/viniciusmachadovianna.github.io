@@ -42,7 +42,7 @@ body{
     scroll-behavior: smooth;
     background: url('assets/texture.png')
     var(--bg-color);
-    backdrop-filter:  brightness(.4);
+    backdrop-filter:  brightness(.2);
 }
 a{text-decoration: none;}
 polygon{fill:var(--cursor-color);}
@@ -81,6 +81,7 @@ polygon{fill:var(--cursor-color);}
     }
 }
 header{
+    position: relative;
     display: flex;
     min-width: 50px;
     max-width: 80vw;
@@ -319,11 +320,14 @@ button,#cursor{
 }
 #glow{
     position: absolute;
+    display: none;
     bottom: 0;
     right: 0;
     width: 20px;
     height: 20px;
-    background: cyan;
+    background: var(--bg-reverse);
     filter: blur(20px);
     opacity: .7;
+    transition: none;
+    pointer-events: none;
 }
