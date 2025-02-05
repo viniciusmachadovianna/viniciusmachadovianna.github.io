@@ -42,7 +42,7 @@ body{
     scroll-behavior: smooth;
     background: url('assets/texture.png')
     var(--bg-color);
-    backdrop-filter:  brightness(.2);
+    backdrop-filter:  brightness(.3);
 }
 a{text-decoration: none;}
 polygon{fill:var(--cursor-color);}
