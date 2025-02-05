@@ -1,4 +1,4 @@
-*{transition: .4s ease;}
+*{transition: .1s ease;}
 :root, [data-theme="dark"]{
     --bg-color: rgb(31, 31, 31);
     --bg-rgb: 31,31,31;
@@ -108,6 +108,7 @@ header{
     position: absolute;
     width: 90px;
     height: 90px;
+    transition: .4s ease;
 }
 #profilePicture>img:nth-child(1){
     border-radius: 50%;
@@ -203,7 +204,8 @@ main{
     overflow-x: hidden;
 }
 nav{
-    position: sticky;
+    /* position: sticky; */
+    margin-top: 30px;
     display: flex;
     align-items: center;
     background: rgba(112,112,112,.5);

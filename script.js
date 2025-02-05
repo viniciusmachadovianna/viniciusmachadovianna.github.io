@@ -57,7 +57,7 @@ document.querySelectorAll('a').forEach(a => {
     a.addEventListener('mouseover', () => changeCursor('link'));
     a.addEventListener('mouseout', () => changeCursor('up'));
 });
-document.querySelectorAll('header,aside').forEach(item => {
+document.querySelectorAll('header,nav,section,aside').forEach(item => {
     item.addEventListener('mouseenter', () => toggleVisible(glow));
     item.addEventListener('mouseleave', () => toggleVisible(glow));
 });
