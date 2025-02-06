@@ -172,8 +172,8 @@ sup::after{
     content:'i';
 }
 [data-icon="logomark"]{
-    width: 50px;
-    height: 50px;
+    width: 36px;
+    height: 36px;
 }
 aside{
     position: absolute;
@@ -258,28 +258,7 @@ section{
 article{
     position: relative;
 }
-.readingProgress{
-    position: sticky;
-    top: 0;
-    left: 100%;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-}
-.readingProgress > circle{
-    fill: transparent;
-    stroke: white;
-    stroke-width: 1;
-}
-[data-effect="circularProgress"]{
-    animation: progress 3s linear forwards;
-}
-@keyframes progress{
-    to{
-        stroke-dashoffset: 0;
-    }
-}
+
 footer{
     position: absolute;
     bottom: 0;
