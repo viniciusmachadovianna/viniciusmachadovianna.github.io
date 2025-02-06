@@ -8,6 +8,7 @@
     --bg-color: rgb(31, 31, 31);
     --bg-rgb: 31,31,31;
     --decoration: rgb(180, 254, 255);
+    --dec-rgb: 180, 254, 255;
     --text-color: rgb(224, 224, 224);
     --text-reverse: rgb(28, 28, 28);
     --cursor-color: rgb(180, 254, 255);
@@ -44,9 +45,6 @@ body{
     height: 100vh;
     overflow: hidden;
     scroll-behavior: smooth;
-    /* background: url('assets/texture.png')
-    var(--bg-color);
-    backdrop-filter:  brightness(.3); */
 }
 a{text-decoration: none;}
 polygon{fill:var(--cursor-color);}
@@ -231,10 +229,7 @@ section{
     min-height: 300px;
     border-radius: 5px;
 }
-section{
-    position: relative;
-}
-header,nav{
+.shimmer{
     position: relative;
 }
 .shimmer::before{
@@ -244,13 +239,12 @@ header,nav{
     height: 100%;
     left: 0;
     top: 0;
-    background: var(--granite) rgba(255,255,255,.1);
+    background: var(--granite) rgb(var(--dec-rgb),.1);
     background-size: 100px,100%;
-    mix-blend-mode: screen;
     background-blend-mode: screen;
     mask-image: radial-gradient(200px circle at var(--m-x) var(--m-y), var(--decoration), transparent 70%);
     opacity: 0;
-    transition: .5s ease;
+    transition: opacity .5s ease;
 }
 .shimmer:hover::before{
     opacity: .5;

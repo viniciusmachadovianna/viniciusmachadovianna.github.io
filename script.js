@@ -50,10 +50,9 @@ document.querySelectorAll('a').forEach(a => {
 });
 document.querySelectorAll('.shimmer').forEach(item => {
     item.addEventListener('mousemove',(e)=>{
-        const square=item.getBoundingClientRect();
-              x=`${e.clientX-square.left}px`,
-              y=`${e.clientY-square.top}px`
-        console.log(x,y)
+        const square=item.getBoundingClientRect(),
+            x=`${e.clientX-square.left}px`,
+            y=`${e.clientY-square.top}px`
         document.documentElement.style.setProperty('--m-x',x)
         document.documentElement.style.setProperty('--m-y',y)
     });
