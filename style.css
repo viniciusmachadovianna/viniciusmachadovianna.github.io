@@ -38,7 +38,7 @@ body{
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     margin: 0;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     align-items: center;
     width: 100%;
     height: 100vh;
@@ -85,7 +85,6 @@ polygon{fill:var(--cursor-color);}
     }
 }
 header{
-    position: relative;
     display: flex;
     min-width: 50px;
     max-width: 80vw;
@@ -93,7 +92,6 @@ header{
     border-radius: 5px;
     border: 1px solid rgb(222 200 200 / 10%);
     background: var(--glass);
-    position: fixed;
     flex-flow: column;
     align-items: center;
     padding: 10px;
@@ -139,7 +137,7 @@ code{
 }
 
 [data-effect="marquee"]{
-    margin-right:-10px;
+    margin: 0 -10px 0 -10px;
     background: var(--bg-reverse);
     color: var(--text-reverse);
     white-space: nowrap;
@@ -179,7 +177,6 @@ sup::after{
     width: 50px;
     height: 50px;
 }
-
 aside{
     position: absolute;
     left: 20px;
@@ -203,19 +200,15 @@ main{
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin-top: 100px;
     background: rgba(35, 35, 35, 0);
     overflow-x: hidden;
 }
 nav{
-    margin-top: 30px;
     display: flex;
     align-items: center;
     background: rgba(112,112,112,.5);
     border-radius: 3px;
     height: 50px;
-    left: 50%;
-    top: 20px;
     z-index: 1;
 }
 nav > a{
@@ -232,14 +225,19 @@ nav>a:hover{
     text-decoration:line-through;
 }
 section{
-    position: relative;
     margin: 20px;
     background: rgba(81, 81, 81,.5);
     overflow-y: auto;
     min-height: 300px;
     border-radius: 5px;
 }
-section::before{
+section{
+    position: relative;
+}
+header,nav{
+    position: relative;
+}
+.shimmer::before{
     position: absolute;
     content: '';
     width: 100%;
@@ -254,7 +252,7 @@ section::before{
     opacity: 0;
     transition: .5s ease;
 }
-section:hover::before{
+.shimmer:hover::before{
     opacity: .5;
 }
 #projects{
