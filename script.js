@@ -39,7 +39,6 @@ document.addEventListener('mousemove',(e)=>{
 })
 function changeCursor(state = 'up'){
     arrow.querySelector("polygon").setAttribute("points",cursor[state] || cursor.up);
-    glow.style.background=state==='down'?'rgb(180, 254, 255)':'rgb(255, 255, 255)'
 }
 document.addEventListener('mouseup', () => changeCursor('up'));
 document.addEventListener('mousedown', () => changeCursor("down"));
@@ -82,10 +81,6 @@ $("#themeSwitch").addEventListener("click",(e) => {
     });
     // theme==="light"?img.setAttribute("src",'/assets/icons/moon-light-mode.svg'): img.setAttribute("src",'/assets/icons/sun-dark-mode.svg');
 });
-
-// apply to all articles pending:
-const readingTime = article => Math.ceil( article.textContent.trim().split(/\s+/).length / 220);
-$("time").textContent = `${readingTime($("article"))} ${readingTime($("article")) == 1 ? "min" : "mins"}`;
 document.addEventListener("DOMContentLoaded", function() {
     const article = document.querySelector("section");
     article.addEventListener("scroll", function() {
