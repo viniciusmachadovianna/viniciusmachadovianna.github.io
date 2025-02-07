@@ -1,5 +1,6 @@
 *{transition: .1s ease;}
 :root{
+    font-family: 'Roboto', sans-serif;
     --granite: url('assets/texture.png');
     --m-x: 0;
     --m-y:0;
@@ -36,7 +37,6 @@ body,a,sup,dialog{
 mark{color: var(--text-reverse);}
 mark{background: var(--decoration);}
 body{
-    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     margin: 0;
     display: flex;
     flex-flow: column;
@@ -144,8 +144,7 @@ code{
     max-width: 300px;
     height: 25px;
     overflow: hidden;
-}
-[data-effect="marquee"] > div {
+    &>div{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -153,6 +152,7 @@ code{
     min-width: max-content;
     animation: stripe-loop 10s linear infinite;
     user-select: none;
+    }
 }
 
 @keyframes stripe-loop{to{transform:translateX(-100%)}}
@@ -165,11 +165,9 @@ sup{
     color: var(--bg-color);
     font-weight: bold;
     padding: 1px 5px;
-    font-size: .6em;
+    font-size: .5em;
     margin: 0 -3px;
-}
-sup::after{
-    content:'i';
+    &::after{content:'i';}
 }
 [data-icon="logomark"]{
     width: 36px;
@@ -209,7 +207,7 @@ nav{
     height: 50px;
     z-index: 1;
 }
-nav > a{
+nav>a{
     border: 1px solid rgb(var(--dec-rgb),.2);
     padding: 5px;
     border-radius: 4px;
@@ -218,11 +216,18 @@ nav > a{
     line-height: 20px;
     text-align: center;
     margin: 0 20px;
-    transition: .4s;
+    overflow: hidden;
+    &:hover{border: 1px solid var(--decoration);background: var(--bg-color);}
+    &:hover>span{transform: translateY(-20px);}
+    &:hover>:first-child{opacity: 0;}
+    &:hover>:last-child{opacity: 1;}
 }
-nav>a:hover{
-    border: 1px solid var(--decoration);
-    text-decoration:line-through;
+nav>a>span{
+    display: block;
+    min-height: 20px;
+    transition:.6s cubic-bezier(.8,0,.2,1);
+    &:first-child{color: var(--bg-reverse);}
+    &:last-child{color: var(--decoration);opacity: 0;}
 }
 section{
     margin: 20px;
