@@ -34,8 +34,11 @@ body,menu,#languageSwitch:hover{
 body,a,sup,dialog{
     color: var(--text-color);
 }
-mark{color: var(--text-reverse);}
-mark{background: var(--decoration);}
+mark{
+    color: var(--text-reverse);
+    padding: 0px 2px;
+    background: var(--decoration);
+}
 body{
     margin: 0;
     display: flex;
@@ -266,33 +269,62 @@ article{
 
 footer{
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
     display: flex;
+    align-items: center;
     height: 30px;
     left: 50%;
     transform: translateX(-50%);
+    width: fit-content;
 }
 footer>a{
     display: flex;
     align-items: center;
     margin: 5px;
 }
-menu{
-    border: 1px solid var(--text-color);
-    padding: 20px;
-    flex-flow: column;
-    justify-content: center;
-    align-items: start;
-    width: fit-content;
-    overflow-y: scroll;
-    height: 200px;
-    scrollbar-color: var(--decoration);
+
+.btnHighlight{
+    position: relative;
+    background: var(--bg-reverse);
+    color: var(--text-reverse);
+    min-width: fit-content;
+    height: 20px;
+    border-radius: 10px;
+    padding: 3px 10px;
+    margin: 5px;
+}
+.btnHighlight>img{
+    filter: invert(1);
+    margin-left: 5px;
+    width: 20px;
+}
+.btnHighlight::after,.btnHighlight::before{
+    position: absolute;
+    content: '';
+    width: 50%;
+    height: 25px;
+    filter: blur(10px);
+    z-index: -1;
+    transition: .4s ease;
+}
+.btnHighlight::after{
+    background:#FFF4B5;
+    left: 0;
+}
+.btnHighlight::before{
+    background:#7bcfff;
+    right: 0;
+}
+.btnHighlight:hover::after{
+    height: 30px;
+    left: 20%;
+}
+.btnHighlight:hover::before{
+    height: 30px;
+    right: 20%;
 }
 li{
     list-style: none;
-}
-mark{
-    padding: 0px 2px;
 }
 #tooltip{
     position: absolute;
@@ -320,17 +352,4 @@ menu,#tooltip,#cursor{
 }
 button,#cursor{
     background: none;
-}
-#glow{
-    position: absolute;
-    display: none;
-    bottom: 0;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    background: var(--bg-reverse);
-    filter: blur(20px);
-    opacity: .7;
-    transition: none;
-    pointer-events: none;
 }
