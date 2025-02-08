@@ -4,6 +4,8 @@
     --granite: url('assets/texture.png');
     --m-x: 0;
     --m-y:0;
+    --lang: url('assets/icons/pt.svg');
+    --lang-alt: url('assets/icons/en.svg');
 }
 :root, [data-theme="dark"]{
     --bg-color: rgb(31, 31, 31);
@@ -25,11 +27,8 @@
     --cursor-color: rgb(49, 129, 131);
     --bg-reverse: rgb(31, 31, 31);
 }
-body,menu,#languageSwitch:hover{
+body,menu{
     background: var(--bg-color);
-}
-#languageSwitch:hover{
-    background: var(--bg-reverse);
 }
 body,a,sup,dialog{
     color: var(--text-color);
@@ -78,12 +77,63 @@ polygon{fill:var(--cursor-color);}
     100% {filter: invert(0%)};
 }
 #languageSwitch{
+    position: relative;
     border: none;
+    width: 40px;
+    height: 30px;
     color: var(--text-color);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &:hover{
-        background-color: var(--bg-reverse);
-        color: var(--bg-color);
+        color: transparent;
     }
+    &:hover::after{
+        opacity: 1;
+    }
+    &:hover>kbd::before{
+        opacity: 1;
+        transform: rotate(180deg);
+    }
+}
+#languageSwitch::before{
+    border-radius: 5px;
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--lang) no-repeat center/cover;
+
+    filter: brightness(0.6);
+}
+#languageSwitch::after{
+    border-radius: 5px;
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--lang-alt) no-repeat center/cover;
+    clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    opacity: 0;
+    filter: brightness(0.6);
+}
+kbd{
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+kbd::before{
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    inset: (0);
+    opacity: 0;
+    background: url('assets/icons/change.svg') no-repeat center/cover;
+    transition: .4s ease;
 }
 header{
     display: flex;

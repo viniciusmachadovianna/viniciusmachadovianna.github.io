@@ -1,13 +1,13 @@
 const $=(el)=>document.querySelector(el),
     langData = {
         en: {
-            language: 'PT',
+            language: 'PT-BR',
             role: "System Developer",
             sectionProjects:'Projects',
             sectionExperience:'Experience',
         },
         pt: {
-            language: 'EN',
+            language: 'EN-US',
             role: "Desenvolvedor de Sistemas",
             sectionProjects:'Projetos',
             sectionExperience:'Experiência',
@@ -18,20 +18,17 @@ const $=(el)=>document.querySelector(el),
     arrow = document.getElementById("cursor"),
     cursor = {
     up: '0,0 25,75 75,75 35,60 20,20 60,35 60,60 35,60 75,75 75,25',
-    // al: '0,0 0,80 45,90', //left
-    // ar: '0,0 45,90 60,50', //right
-    // a2: '0,0 0,80 45,90 60,50' //full
     down: '0,0 75,25 75,75 25,75',
     inside: '60,60 35,60 20,20, 60,35',
     link: '60,0 80,20 35,20 80,65 65,80 20,35 20,80 0,60 0,0',
     send: '0,0 100,50 70,60 50,50 60,70 50,100'
     }
 arrow.style.display = "block";
-document.addEventListener("click",() => {
-    document.querySelectorAll('html').forEach((element) => {
-        element.style.cursor = 'none';
-    });
-})
+// document.addEventListener("click",() => {
+//     document.querySelectorAll('html').forEach((element) => {
+//         element.style.cursor = 'none';
+//     });
+// })
 document.addEventListener('mousemove',(e)=>{
     arrow.style.left=`${e.pageX-arrow.clientWidth/2}px`,
     arrow.style.top=`${e.pageY-arrow.clientHeight/2}px`
@@ -66,8 +63,11 @@ function languageSelection(language) {
 document.documentElement.setAttribute("lang",language);
 languageSelection(language);
 $("#languageSwitch").addEventListener("click",() => {
-    const lang = document.documentElement.getAttribute("lang") === "pt" ? "en" : "pt";
-    languageSelection(lang);
+    const pre = document.documentElement.getAttribute("lang"),
+        lang = pre === "pt" ? "en" : "pt";
+    document.documentElement.style.setProperty('--lang',`url(assets/icons/${pre}.svg)`)
+    document.documentElement.style.setProperty('--lang-alt',`url(assets/icons/${lang}.svg)`)
+        languageSelection(lang);
     document.documentElement.setAttribute("lang",lang);
 });
 document.documentElement.setAttribute("data-theme", window.matchMedia('(prefers-color-scheme: light)').matches ? "light" : "dark");
@@ -85,11 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
     article.addEventListener("scroll", function() {
         console.log(`Scroll Height: ${article.scrollHeight} Scroll Top: ${article.scrollTop} e ${article.clientHeight}`);
     });
-});
-
-document.addEventListener("contextmenu",(e)=>{
-    console.log("right mouse button clicked");
-    // e.preventDefault();
 });
 document.querySelectorAll('sup').forEach(info => {
     const tooltip = $("#tooltip");
