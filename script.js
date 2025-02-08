@@ -24,12 +24,11 @@ const $=(el)=>document.querySelector(el),
     down: '0,0 75,25 75,75 25,75',
     inside: '60,60 35,60 20,20, 60,35',
     link: '60,0 80,20 35,20 80,65 65,80 20,35 20,80 0,60 0,0',
-    oldlink: '80,0 100,20 35,20 100,85 85,100 20,35 20,100 0,80 0,0)',
-    arrow: '0,0 100,50 70,60 50,50 60,70 50,100'
+    send: '0,0 100,50 70,60 50,50 60,70 50,100'
     }
 arrow.style.display = "block";
 document.addEventListener("click",() => {
-    document.querySelectorAll('*').forEach((element) => {
+    document.querySelectorAll('html').forEach((element) => {
         element.style.cursor = 'none';
     });
 })
