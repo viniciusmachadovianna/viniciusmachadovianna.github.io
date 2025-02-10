@@ -1,13 +1,10 @@
-*{transition: .1s ease;}
 :root{
     font-family: 'Roboto', sans-serif;
     --granite: url('assets/texture.png');
-    --m-x: 0;
-    --m-y:0;
-    --lang: url('assets/icons/pt.svg');
-    --lang-alt: url('assets/icons/en.svg');
+    --m-x: 0;--m-y:0;
+    --lang: url('assets/icons/pt.svg');--lang-alt: url('assets/icons/en.svg');
 }
-:root, [data-theme="dark"]{
+[data-theme="dark"]{
     --bg-color: rgb(31, 31, 31);
     --bg-rgb: 31,31,31;
     --decoration: rgb(180, 254, 255);
@@ -25,12 +22,8 @@
     --text-reverse: rgb(224, 224, 224);
     --bg-reverse: rgb(31, 31, 31);
 }
-body,a,sup{
-    color: var(--text-color);
-}
-button{
-    background: none;
-}
+body,a,sup{color: var(--text-color)}
+button{background: none}
 mark{
     color: var(--text-reverse);
     padding: 0px 2px;
@@ -48,31 +41,29 @@ body{
     scroll-behavior: smooth;
 }
 a{text-decoration: none;}
-.icon{width: 25px;height: 25px;}
+.icon{width: 25px;height: 25px}
 #themeSwitch{
     border: none;
     border-radius: 10px;
-    &:hover {
-    animation: theme-pulse 2s infinite ease-in-out;
+    &:hover {animation: theme-pulse 2s infinite ease-in-out}
+    & img{
+        width: 32px;
+        height: 32px;
+        vertical-align: middle;
+        &:hover{animation: inverse-pulse 2s infinite ease-in-out}
     }
 }
 @keyframes theme-pulse {
     0% {background: none;}
-    33% {background: var(--bg-reverse);}
-    66% {background: var(--bg-reverse);}
-    100% {background: none;}
-}
-#switch{
-    width: 32px;
-    height: 32px;
-    vertical-align: middle;
-    &:hover{animation: inverse-pulse 2s infinite ease-in-out;}
+    33% {background: var(--bg-reverse)}
+    66% {background: var(--bg-reverse)}
+    100% {background: none}
 }
 @keyframes inverse-pulse {
-    0% {filter: invert(0%);}
-    33% {filter: invert(100%);}
-    66% {filter: invert(100%);}
-    100% {filter: invert(0%)};
+    0% {filter: invert(0%)}
+    33% {filter: invert(100%)}
+    66% {filter: invert(100%)}
+    100% {filter: invert(0%)}
 }
 #languageSwitch{
     position: relative;
@@ -84,37 +75,23 @@ a{text-decoration: none;}
     display: flex;
     justify-content: center;
     align-items: center;
-    &:hover{
-        color: transparent;
+    &:hover{color:transparent}
+    &:hover::after{opacity: 1}
+    &:hover>kbd::before{opacity: 1;transform: rotate(180deg)}
+    &::before,&::after{
+        border-radius: 5px;
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        filter: brightness(0.6);
     }
-    &:hover::after{
-        opacity: 1;
+    &::before{background: var(--lang) no-repeat center/cover}
+    &::after{
+        background: var(--lang-alt) no-repeat center/cover;
+        clip-path: polygon(0 0, 0% 100%, 100% 100%);
+        opacity: 0;
     }
-    &:hover>kbd::before{
-        opacity: 1;
-        transform: rotate(180deg);
-    }
-}
-#languageSwitch::before{
-    border-radius: 5px;
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: var(--lang) no-repeat center/cover;
-
-    filter: brightness(0.6);
-}
-#languageSwitch::after{
-    border-radius: 5px;
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: var(--lang-alt) no-repeat center/cover;
-    clip-path: polygon(0 0, 0% 100%, 100% 100%);
-    opacity: 0;
-    filter: brightness(0.6);
 }
 kbd{
     position: relative;
@@ -122,16 +99,16 @@ kbd{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-kbd::before{
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    inset: (0);
-    opacity: 0;
-    background: url('assets/icons/change.svg') no-repeat center/cover;
-    transition: .4s ease;
+    &::before{
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        inset: (0);
+        opacity: 0;
+        background: url('assets/icons/change.svg') no-repeat center/cover;
+        transition: .4s ease;
+    }
 }
 header{
     display: flex;
@@ -154,17 +131,17 @@ header{
     align-items: center;
     justify-content: center;
     z-index: 1;
-}
-#profilePicture>*{
-    position: absolute;
-    width: 90px;
-    height: 90px;
-    transition: .4s ease;
-}
-#profilePicture>img:first-child{
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    & *{
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        transition: .4s ease;
+    }
+    & img:first-child{
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+    }
 }
 header:hover>#profilePicture>img:first-child{transform:scale(1.1);}
 header:hover> [data-effect="marquee"]>div{animation-play-state:paused;}
@@ -179,12 +156,11 @@ code{
     border-right: 1px solid cyan;
     animation: type-keep 4s steps(26,end), cursor-blink 1s infinite;
 }
-@keyframes type-keep{from{width: 0;}to{width:100%;}}
+@keyframes type-keep{from{width:0}to{width:100%}}
 @keyframes cursor-blink{
     from,to{border-color:transparent}
-    50%{border-color: cyan;}
+    50%{border-color: cyan}
 }
-
 [data-effect="marquee"]{
     margin: 0 -10px 0 -10px;
     background: var(--bg-reverse);
@@ -206,7 +182,7 @@ code{
     }
 }
 @keyframes stripe-loop{to{transform:translateX(-100%)}}
-[data-effect="marquee"]>div>span::after{content:' ⬪ ';margin: 0 10px;}
+[data-effect="marquee"]>div>span::after{content:' ⬪ ';margin: 0 10px}
 sup{
     background: var(--decoration);
     border-radius: 50%;
@@ -237,8 +213,8 @@ aside{
     height: 50px;
     width: fit-content;
     padding: 0 10px;
+    & button{margin:5px}
 }
-aside>button{margin: 10px;}
 main{
     display: flex;
     flex-flow: column;
@@ -255,28 +231,28 @@ nav{
     border-radius: 3px;
     height: 50px;
     z-index: 1;
-}
-nav>a{
-    border: 1px solid rgb(var(--dec-rgb),.2);
-    padding: 5px;
-    border-radius: 4px;
-    width: 120px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    margin: 0 20px;
-    overflow: hidden;
-    &:hover{border: 1px solid var(--decoration);background: var(--bg-color);}
-    &:hover>span{transform: translateY(-20px);}
-    &:hover>:first-child{opacity: 0;}
-    &:hover>:last-child{opacity: 1;}
-}
-nav>a>span{
-    display: block;
-    min-height: 20px;
-    transition:.6s cubic-bezier(.8,0,.2,1);
-    &:first-child{color: var(--bg-reverse);}
-    &:last-child{color: var(--decoration);opacity: 0;}
+    & a{
+        border: 1px solid rgb(var(--dec-rgb),.2);
+        padding: 5px;
+        border-radius: 4px;
+        width: 120px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        margin: 0 20px;
+        overflow: hidden;
+        &:hover{border: 1px solid var(--decoration);background: var(--bg-color);}
+        &:hover>span{transform: translateY(-20px);}
+        &:hover>:first-child{opacity: 0;}
+        &:hover>:last-child{opacity: 1;}
+        & span{
+            display: block;
+            min-height: 20px;
+            transition:.6s cubic-bezier(.8,0,.2,1);
+            &:first-child{color: var(--bg-reverse);}
+            &:last-child{color: var(--decoration);opacity: 0;}
+        }
+    }
 }
 section{
     margin: 20px;
@@ -303,16 +279,9 @@ section{
     opacity: 0;
     transition: opacity .5s ease;
 }
-.shimmer:hover::before{
-    opacity: .5;
-}
-section{
-    margin-top: 100px;
-}
-article{
-    position: relative;
-}
-
+.shimmer:hover::before{opacity: .5}
+section{margin-top: 100px}
+article{position: relative}
 footer{
     position: absolute;
     bottom: 10px;
@@ -322,14 +291,12 @@ footer{
     left: 50%;
     transform: translateX(-50%);
     width: fit-content;
-}
-footer>a{
-    display: flex;
-    align-items: center;
-    margin: 5px;
-}
-footer>a>img{
-    margin-left: 5px;
+    & a{
+        display: flex;
+        align-items: center;
+        margin: 5px;
+        & img{margin-left: 5px;}
+    }
 }
 .btnHighlight{
     position: relative;
@@ -340,37 +307,25 @@ footer>a>img{
     border-radius: 5px;
     padding: 3px 10px;
     margin: 5px;
-}
-.btnHighlight>img{
-    filter: invert(1);
-    width: 20px;
-}
-.btnHighlight::after,.btnHighlight::before{
-    position: absolute;
-    content: '';
-    width: 50%;
-    height: 25px;
-    filter: blur(10px);
-    z-index: -1;
-    transition: .4s ease;
-}
-.btnHighlight::after{
-    background:#FFF4B5;
-    left: 0;
-}
-.btnHighlight::before{
-    background:#7bcfff;
-    right: 0;
-}
-.btnHighlight:hover::after{
-    height: 30px;
-    left: 20%;
-}
-.btnHighlight:hover::before{
-    height: 30px;
-    right: 20%;
+    &:hover{
+        &::after{height: 30px;left: 20%;}
+        &::before {height: 30px;right: 20%;}
+    }
+    & img{width: 20px;}
+    &::after{background:#FFF4B5;left: 0;}
+    &::before{background:#7bcfff;right: 0;}
+    &::after,&::before {
+        position: absolute;
+        content: '';
+        width: 50%;
+        height: 25px;
+        filter: blur(10px);
+        z-index: -1;
+        transition: 0.4s ease;
+    }
 }
 #tooltip{
+    display: none;
     position: absolute;
     top: 50%;
     left: 0;
@@ -381,5 +336,4 @@ footer>a>img{
     background-color: rgba(var(--bg-rgb),.5);
     border: 1px solid var(--decoration);
     border-radius: 5px;
-    display: none;
 }
