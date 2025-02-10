@@ -14,7 +14,6 @@
     --dec-rgb: 180, 254, 255;
     --text-color: rgb(224, 224, 224);
     --text-reverse: rgb(28, 28, 28);
-    --cursor-color: rgb(180, 254, 255);
     --bg-reverse: rgb(237, 237, 237);
     --glass: linear-gradient(135deg, #ffffff4d 0%, #7878784d 42%, #3232324d 100%);
 }
@@ -24,14 +23,13 @@
     --decoration: rgb(49, 129, 131);
     --text-color: rgb(53, 44, 44);
     --text-reverse: rgb(224, 224, 224);
-    --cursor-color: rgb(49, 129, 131);
     --bg-reverse: rgb(31, 31, 31);
 }
-body,menu{
-    background: var(--bg-color);
-}
-body,a,sup,dialog{
+body,a,sup{
     color: var(--text-color);
+}
+button{
+    background: none;
 }
 mark{
     color: var(--text-reverse);
@@ -39,6 +37,7 @@ mark{
     background: var(--decoration);
 }
 body{
+    background: var(--bg-color);
     margin: 0;
     display: flex;
     flex-flow: column;
@@ -48,8 +47,7 @@ body{
     overflow: hidden;
     scroll-behavior: smooth;
 }
-a{text-decoration: none;cursor: none;}
-polygon{fill:var(--cursor-color);}
+a{text-decoration: none;}
 .icon{width: 25px;height: 25px;}
 #themeSwitch{
     border: none;
@@ -163,12 +161,12 @@ header{
     height: 90px;
     transition: .4s ease;
 }
-#profilePicture>img:nth-child(1){
+#profilePicture>img:first-child{
     border-radius: 50%;
     width: 70px;
     height: 70px;
 }
-header:hover>#profilePicture>img:nth-child(1){transform:scale(1.1);}
+header:hover>#profilePicture>img:first-child{transform:scale(1.1);}
 header:hover> [data-effect="marquee"]>div{animation-play-state:paused;}
 #profilePicture>img:nth-child(2){rotate: 45deg;}
 header:hover #profilePicture>img:nth-child(2){rotate: 225deg;}
@@ -207,10 +205,8 @@ code{
     user-select: none;
     }
 }
-
 @keyframes stripe-loop{to{transform:translateX(-100%)}}
 [data-effect="marquee"]>div>span::after{content:' ⬪ ';margin: 0 10px;}
-
 sup{
     background: var(--decoration);
     border-radius: 50%;
@@ -374,9 +370,6 @@ footer>a>img{
     height: 30px;
     right: 20%;
 }
-li{
-    list-style: none;
-}
 #tooltip{
     position: absolute;
     top: 50%;
@@ -388,19 +381,5 @@ li{
     background-color: rgba(var(--bg-rgb),.5);
     border: 1px solid var(--decoration);
     border-radius: 5px;
-}
-#cursor{
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    pointer-events: none;
-    transform: translate(50%, 50%);
-    z-index: 9999;
-    transition: none;
-}
-menu,#tooltip,#cursor{
     display: none;
-}
-button,#cursor{
-    background: none;
 }

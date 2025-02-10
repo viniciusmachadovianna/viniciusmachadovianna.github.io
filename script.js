@@ -5,44 +5,20 @@ const $=(el)=>document.querySelector(el),
             role: "System Developer",
             sectionProjects:'Projects',
             sectionExperience:'Experience',
+            project1title:'Tic Tac Toe Game',
+            project1description:'A classic, very easy to play. Is it easy to program as well?',
         },
         pt: {
             language: 'EN-US',
             role: "Desenvolvedor de Sistemas",
             sectionProjects:'Projetos',
             sectionExperience:'Experiência',
+            project1title:'Jogo da Velha',
+            project1description:'Um clássico, bem fácil de jogar. Será que é fácil de programar também?',
         }
     },
     userLang = (navigator.language || navigator.userLanguage).slice(0, 2),
-    language = userLang === 'en' || userLang === 'pt' ? userLang : 'en',
-    arrow = document.getElementById("cursor"),
-    cursor = {
-    up: '0,0 25,75 75,75 35,60 20,20 60,35 60,60 35,60 75,75 75,25',
-    down: '0,0 75,25 75,75 25,75',
-    inside: '60,60 35,60 20,20, 60,35',
-    link: '60,0 80,20 35,20 80,65 65,80 20,35 20,80 0,60 0,0',
-    send: '0,0 100,50 70,60 50,50 60,70 50,100'
-    }
-arrow.style.display = "block";
-// document.addEventListener("click",() => {
-//     document.querySelectorAll('html').forEach((element) => {
-//         element.style.cursor = 'none';
-//     });
-// })
-document.addEventListener('mousemove',(e)=>{
-    arrow.style.left=`${e.pageX-arrow.clientWidth/2}px`,
-    arrow.style.top=`${e.pageY-arrow.clientHeight/2}px`
-})
-function changeCursor(state = 'up'){
-    arrow.querySelector("polygon").setAttribute("points",cursor[state] || cursor.up);
-}
-document.addEventListener('mouseup', () => changeCursor('up'));
-document.addEventListener('mousedown', () => changeCursor("down"));
-document.addEventListener('mouseup', () => changeCursor('up'));
-document.querySelectorAll('a').forEach(a => {
-    a.addEventListener('mouseover', () => changeCursor('link'));
-    a.addEventListener('mouseout', () => changeCursor('up'));
-});
+    language = userLang === 'en' || userLang === 'pt' ? userLang : 'en';
 document.querySelectorAll('.shimmer').forEach(item => {
     item.addEventListener('mousemove',(e)=>{
         const square=item.getBoundingClientRect(),
