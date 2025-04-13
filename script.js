@@ -3,6 +3,7 @@ const $=(el)=>document.querySelector(el),
         en: {
             language: 'PT-BR',
             role: "System Developer",
+            dev: "DEVELOPER",
             sectionProjects:'Projects',
             sectionExperience:'Experience',
             project1title:'Tic Tac Toe Game',
@@ -11,6 +12,7 @@ const $=(el)=>document.querySelector(el),
         pt: {
             language: 'EN-US',
             role: "Desenvolvedor de Sistemas",
+            dev: "DESENVOLVEDOR",
             sectionProjects:'Projetos',
             sectionExperience:'Experiência',
             project1title:'Jogo da Velha',
@@ -50,10 +52,11 @@ document.documentElement.setAttribute("data-theme", window.matchMedia('(prefers-
 $("#themeSwitch").addEventListener("click",(e) => {
     const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
     const img = e.currentTarget.querySelector("img");
-    document.querySelectorAll('.icon').forEach(icon => {
+    // document.querySelectorAll('.icon').forEach(icon => {
     document.documentElement.setAttribute("data-theme", theme);
-    // icon.src = `/assets/icons/${icon.getAttribute("data-icon")}-${theme}-mode.svg`;
-    });
+        // icon.src = `/assets/icons/${icon.getAttribute("data-icon")}-${theme}-mode.svg`;
+        
+    // });
     // theme==="light"?img.setAttribute("src",'/assets/icons/moon-light-mode.svg'): img.setAttribute("src",'/assets/icons/sun-dark-mode.svg');
 });
 document.addEventListener("DOMContentLoaded", function() {
