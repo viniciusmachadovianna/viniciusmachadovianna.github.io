@@ -1,6 +1,6 @@
 :root{
     font-family: 'Roboto', sans-serif;
-    --granite: url('assets/texture.png');
+    --granite: url('assets/texture3.png');
     --m-x: 0;--m-y:0;
     --lang: url('assets/icons/pt.svg');--lang-alt: url('assets/icons/en.svg');
 }
@@ -232,16 +232,22 @@ nav{
     height: 50px;
     z-index: 1;
     & a{
-        border: 1px solid rgb(var(--dec-rgb),.2);
+        /* border: 1px solid rgb(var(--dec-rgb),.2); */
+        border: 1px solid var(--decoration);
+        padding: 20px;
+        mask:
+          conic-gradient(at 5px 5px,#0000 75%,#000 0)
+          0 0/calc(100% - 5px) calc(100% - 5px),
+          linear-gradient(#000 0 0) content-box;
         padding: 5px;
-        border-radius: 4px;
+        /* border-radius: 4px; */
         width: 120px;
         height: 20px;
         line-height: 20px;
         text-align: center;
         margin: 0 20px;
         overflow: hidden;
-        &:hover{border: 1px solid var(--decoration);background: var(--bg-color);}
+        /* &:hover{border: 1px solid var(--decoration);background: var(--bg-color);} */
         &:hover>span{transform: translateY(-20px);}
         &:hover>:first-child{opacity: 0;}
         &:hover>:last-child{opacity: 1;}
@@ -273,10 +279,12 @@ section{
     height: 100%;
     left: 0;
     top: 0;
-    background: var(--granite) rgb(var(--dec-rgb),.1);
-    background-size: 100px,100%;
+    background: var(--granite) rgb(var(--dec-rgb),.2);
+    z-index: -1;
+    background-size: 150px,100%;
     background-blend-mode: screen;
     mask-image: radial-gradient(200px circle at var(--m-x) var(--m-y), var(--decoration), transparent 70%);
+    /* filter: invert(1); */
     opacity: 0;
     transition: opacity .5s ease;
 }
@@ -304,7 +312,7 @@ footer{
     color: var(--text-reverse);
     min-width: fit-content;
     height: 20px;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     padding: 3px 10px;
     margin: 5px;
     &:hover{

@@ -49,11 +49,12 @@ $("#languageSwitch").addEventListener("click",() => {
     document.documentElement.setAttribute("lang",lang);
 });
 document.documentElement.setAttribute("data-theme", window.matchMedia('(prefers-color-scheme: light)').matches ? "light" : "dark");
+// document.documentElement.setAttribute("data-theme", "light");
 $("#themeSwitch").addEventListener("click",(e) => {
     const theme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
     const img = e.currentTarget.querySelector("img");
     // document.querySelectorAll('.icon').forEach(icon => {
-    document.documentElement.setAttribute("data-theme", theme);
+    // document.documentElement.setAttribute("data-theme", theme);
         // icon.src = `/assets/icons/${icon.getAttribute("data-icon")}-${theme}-mode.svg`;
         
     // });
