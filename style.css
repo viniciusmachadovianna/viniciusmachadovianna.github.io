@@ -1,5 +1,11 @@
+@font-face {
+    font-family: 'AvenirLight';
+    src: url('/assets/fonts/AvenirLight.otf') format('.otf');
+    font-weight: normal;
+    font-style: normal;
+}
 :root{
-    /* font-family: 'Avenir', sans-serif; */
+    font-family: 'AvenirLight', sans-serif;
 }
 [data-theme="dark"]{
     --bg: #333;
