@@ -1,11 +1,9 @@
 @font-face {
-    font-family: 'AvenirLight';
-    src: url('/assets/fonts/AvenirLight.otf') format('.otf');
+    font-family: 'Avenir Light';
+    src: url('/assets/fonts/AvenirLight.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-}
-:root{
-    font-family: 'AvenirLight', sans-serif;
+    font-display: swap;
 }
 [data-theme="dark"]{
     --bg: #333;
@@ -32,6 +30,7 @@
 [lang="pt"]{--f1: red;--f2: white;--f3: blue;}
 [lang="en"]{--f1: green;--f2: yellow;--f3: blue;}
 body{
+    font-family: 'Avenir Light', sans-serif;
     position: relative;
     margin: 0;
     padding: 0;
