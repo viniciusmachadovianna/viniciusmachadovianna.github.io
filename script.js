@@ -1,10 +1,12 @@
 const $=(el)=>document.querySelector(el),
     langData = {
         en: {
-            language: 'PT-BR'
+            language: 'PT-BR',
+            bio:'<b>FULLSTACK</b> WEB DEVELOPER FOCUSED ON <b>MINIMALIST</b> YET IMPACTFUL APLICATIONS, PROVIDING EFFICIENT AND <b>INTUITIVE</b> USER EXPERIENCE'
         },
         pt: {
-            language: 'EN-US'
+            language: 'EN-US',
+            bio: 'DESENVOLVEDOR WEB <b>FULLSTACK</b> FOCADO EM APLICAÇÕES  <b>MINIMALISTAS</b> E DE IMPACTO, ENTREGANDO UMA EXPERIÊNCIA  <b>INTUITIVA</b> E EFICIENTE'
         }
     },
     userLang = (navigator.language || navigator.userLanguage).slice(0, 2),
@@ -21,6 +23,6 @@ function changeLang(language) {
     const elements = document.querySelectorAll("[data-lang]");
     elements.forEach((element) => {
         const key = element.getAttribute("data-lang");
-        element.textContent = langData[language][key] || langData['en'][key];
+        element.innerHTML = langData[language][key] || langData['en'][key];
     });
 }

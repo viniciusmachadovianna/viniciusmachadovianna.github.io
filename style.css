@@ -7,27 +7,27 @@
 }
 [data-theme="dark"]{
     --bg: #333;
-    --bg-inv: ;
+    --bg-inv: #eee;
     --l2:#444;
     --l3:#555;
     --l4:#666;
     --btn: #ffb222; /* nope */
     --dec: ;
     --dec-alt: ;
-    --text: ;
-    --text-inv: ;
+    --text: #eee;
+    --text-inv: #333;
 }
 [data-theme="light"]{
-    --bg: #eeeeee;
-    --bg-inv: ;
+    --bg: #eee;
+    --bg-inv: #333;
     --l2:#f4f4f4;
     --l3:#f8f8f8;
     --l4:#fcfcfc;
     --btn: #004567;
     --dec: #7EE;
     --dec-alt: #EDCA2E;
-    --text: #eee;
-    --text-inv: ;
+    --text: #333;
+    --text-inv: #eee;
 }
 [lang="pt"]{--f1: red;--f2: white;--f3: blue;}
 [lang="en"]{--f1: green;--f2: yellow;--f3: blue;}
@@ -43,6 +43,33 @@ body{
     height: 1000vh;
     scroll-behavior: smooth;
     background: var(--bg);
+}
+header{
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row wrap;
+}
+mark{
+    background-color: var(--bg-inv);
+    color: var(--text-inv);
+    font-size: 2em;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 5% 100%);
+    padding: 10px 10px 10px 30px ;
+    max-height: 40px;
+    line-height: 40px;
+}
+header>div{
+    margin-left: 10px;
+    padding: 10px;
+    max-width: 400px;
+    border: 2px solid var(--text);
+    mask: conic-gradient(at 15px 15px,transparent 75%,#000 0)
+    0 0/calc(100% - 15px) calc(100% - 15px),
+    linear-gradient(#000 0 0) content-box;
+    &{
+        text-align: justify;
+    }
+
 }
 aside{
     position: fixed;
