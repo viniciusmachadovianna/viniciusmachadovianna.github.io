@@ -45,10 +45,11 @@ body{
 }
 aside{
     position: fixed;
-    /* display: flex;
-    flex-flow: row; */
+    display: flex;
+    flex-direction: row;
     bottom: 20px;
     left: 20px;
+    gap: 10px;
 }
 button{
     background: var(--btn);
@@ -66,6 +67,7 @@ button{
     height: 40px;
 }
 .flag{
+    position: relative;
     width: 100px;
     height: 100%;
     &>div{
@@ -90,10 +92,24 @@ button{
     }
 }
 #theme{
+
+    position: relative;
+    right: 0;
     height: 40px;
-    border: 1px solid var(--dec);
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    &>img{width: 40px;}
+}
+#theme:after{
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: -4px;
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--dec);
     mask: conic-gradient(at 15px 15px,transparent 75%,#000 0)
     0 0/calc(100% - 15px) calc(100% - 15px),
     linear-gradient(#000 0 0) content-box;
-    &>img{width: 40px;}
 }
