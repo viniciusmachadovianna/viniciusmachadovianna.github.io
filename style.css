@@ -83,14 +83,13 @@ button{
     background: var(--btn);
     border: none;
     cursor: pointer;
-    color: var(--text);
+    color: var(--text-inv);
 }
 #language{
     display: flex;
     align-items: center;
     border: none;
     font-size: 1.2em;
-    color: var(--text);
     padding: 0 10px;
     height: 40px;
 }

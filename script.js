@@ -11,7 +11,8 @@ const $=(el)=>document.querySelector(el),
     },
     userLang = (navigator.language || navigator.userLanguage).slice(0, 2),
     // language = userLang === 'en' || userLang === 'pt' ? userLang : 'en',
-    btnLanguage = $("#language");
+    btnLanguage = $("#language"),
+    btnTheme = $("#theme");
 btnLanguage.addEventListener('click',()=>{
     const pre = document.documentElement.getAttribute("lang"),
     lang = pre === "pt" ? "en" : "pt";
@@ -26,3 +27,6 @@ function changeLang(language) {
         element.innerHTML = langData[language][key] || langData['en'][key];
     });
 }
+btnTheme.addEventListener('click',()=>{
+    document.documentElement.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+})
