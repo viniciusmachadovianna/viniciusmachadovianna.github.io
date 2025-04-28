@@ -13,6 +13,7 @@
     --l4:#666;
     --btn: #ffb222; /* nope */
     --dec: ;
+    --dec-alt: ;
     --text: ;
     --text-inv: ;
 }
@@ -24,6 +25,7 @@
     --l4:#fcfcfc;
     --btn: #004567;
     --dec: #7EE;
+    --dec-alt: #EDCA2E;
     --text: #eee;
     --text-inv: ;
 }
@@ -98,7 +100,7 @@ button{
     width: 40px;
     display: flex;
     justify-content: center;
-    &>img{width: 40px;}
+    &>img{width: 40px;stroke: var(--dec);}
 }
 #theme:after{
     content: '';
@@ -111,4 +113,36 @@ button{
     mask: conic-gradient(at 15px 15px,transparent 75%,#000 0)
     0 0/calc(100% - 15px) calc(100% - 15px),
     linear-gradient(#000 0 0) content-box;
+}
+
+footer{
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    &>a{
+        position: relative;
+        margin: 5px 0;
+        background-color: var(--dec-alt);
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        &>img{
+            margin: 8px;
+            width: 40px;
+            height: 40px;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            transform: rotate(45deg) translateY(-50%);
+            top: 50%;
+            right: -10px;
+            background-color: var(--dec-alt);
+            width: 10px;
+            height: 10px;
+        }
+    }
 }
