@@ -2,7 +2,7 @@ const $=(el)=>document.querySelector(el),
     langData = {
         en: {
             language: 'PT-BR',
-            bio:'<b>FULLSTACK</b> WEB DEVELOPER FOCUSED ON <b>MINIMALIST</b> YET IMPACTFUL APLICATIONS, PROVIDING EFFICIENT AND <b>INTUITIVE</b> USER EXPERIENCE',
+            bio:'<b>FULLSTACK</b> WEB DEVELOPER FOCUSED ON INTUITIVE AND <b>MINIMALIST</b> APLICATIONS',
             ticTacToe:'TIC TAC TOE',
             projects:'PROJECTS VIEWED',
             db:'Database',
@@ -10,7 +10,7 @@ const $=(el)=>document.querySelector(el),
         },
         pt: {
             language: 'EN-US',
-            bio: 'DESENVOLVEDOR WEB <b>FULLSTACK</b> FOCADO EM APLICAÇÕES  <b>MINIMALISTAS</b> E DE IMPACTO, ENTREGANDO UMA EXPERIÊNCIA  <b>INTUITIVA</b> E EFICIENTE',
+            bio: 'DESENVOLVEDOR WEB <b>FULLSTACK</b> FOCADO EM APLICAÇÕES INTUITIVAS E <b>MINIMALISTAS</b>',
             ticTacToe:'JOGO DA VELHA',
             projects:'PROJETOS VISTOS',
             db:'Banco de Dados',
