@@ -8,6 +8,8 @@
 :root{
     --gray: #999;
     --orange: rgb(255, 190, 70);
+    --triangle: polygon(50% 0%, 0% 100%, 100% 100%);
+    --triangle-inv: polygon(50% 100%, 0 0, 100% 0);
 }
 [data-theme="dark"]{
     --bg: #333;--bg-inv: #eee;
@@ -34,7 +36,6 @@ body{
     flex-flow: column;
     align-items: center;
     width: 100%;
-    height: 1000vh;
     scroll-behavior: smooth;
     background: var(--bg);
 }
@@ -58,7 +59,7 @@ header{
     &>[data-lang="bio"]{
         margin: 10px;
         padding: 10px;
-        width: 330px;
+        width: 350px;
         border: 2px solid var(--text);
         mask: conic-gradient(at 15px 15px,transparent 75%,#000 0)
         0 0/calc(100% - 15px) calc(100% - 15px),
@@ -130,20 +131,19 @@ aside{
                 width: 40px;height: 40px;
                 position: absolute;
                 filter: brightness(.9);
+                clip-path: var(--triangle);
                 &:first-child{
                     right: 50px;
                     background-color: var(--flag1);
-                    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
                 }
                 &:nth-child(2){
                     right: 30px;
                     background-color: var(--flag2);
-                    clip-path: polygon(50% 100%, 0 0, 100% 0);
+                    clip-path: var(--triangle-inv);
                 }
                 &:last-child{
                     right: 10px;
                     background-color: var(--flag3);
-                    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
                 }
             }
         }
@@ -228,4 +228,16 @@ footer{
             height: 10px;
         }
     }
+}
+.shapes>div{
+    position: fixed;
+    z-index: -1;
+    background-color: var(--bg-inv);
+    clip-path: var(--triangle);
+    width: 200px;height: 200px;
+    opacity: .1;
+    &:nth-child(1){top: 50%;left: -50px;clip-path: var(--triangle-inv)}
+    &:nth-child(2){top: 60%;left: 40%;width: 100px;height: 100px;}
+    &:nth-child(3){top: 30%;left: 80%;clip-path: var(--triangle-inv)}
+    &:nth-child(4){top: 20%;left: 80%;width: 50px;height: 50px;}
 }
