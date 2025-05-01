@@ -2,11 +2,13 @@ const $=(el)=>document.querySelector(el),
     langData = {
         en: {
             language: 'PT-BR',
-            bio:'<b>FULLSTACK</b> WEB DEVELOPER FOCUSED ON <b>MINIMALIST</b> YET IMPACTFUL APLICATIONS, PROVIDING EFFICIENT AND <b>INTUITIVE</b> USER EXPERIENCE'
+            bio:'<b>FULLSTACK</b> WEB DEVELOPER FOCUSED ON <b>MINIMALIST</b> YET IMPACTFUL APLICATIONS, PROVIDING EFFICIENT AND <b>INTUITIVE</b> USER EXPERIENCE',
+            projects:'PROJECTS SEEN'
         },
         pt: {
             language: 'EN-US',
-            bio: 'DESENVOLVEDOR WEB <b>FULLSTACK</b> FOCADO EM APLICAÇÕES  <b>MINIMALISTAS</b> E DE IMPACTO, ENTREGANDO UMA EXPERIÊNCIA  <b>INTUITIVA</b> E EFICIENTE'
+            bio: 'DESENVOLVEDOR WEB <b>FULLSTACK</b> FOCADO EM APLICAÇÕES  <b>MINIMALISTAS</b> E DE IMPACTO, ENTREGANDO UMA EXPERIÊNCIA  <b>INTUITIVA</b> E EFICIENTE',
+            projects:'PROJETOS VISTOS'
         }
     },
     userLang = (navigator.language || navigator.userLanguage).slice(0, 2),

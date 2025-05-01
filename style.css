@@ -5,6 +5,10 @@
     font-style: normal;
     font-display: swap;
 }
+:root{
+    --gray: #999;
+    --orange: rgb(255, 190, 70);
+}
 [data-theme="dark"]{
     --bg: #333;
     --bg-inv: #eee;
@@ -29,8 +33,8 @@
     --text: #333;
     --text-inv: #eee;
 }
-[lang="pt"]{--f1: red;--f2: white;--f3: blue;--github:'Veja meus repositórios!';--linkedin:'Conecte-se comigo!';}
-[lang="en"]{--f1: green;--f2: yellow;--f3: blue;--github:'View my repositories!';--linkedin:'Connect with me!';}
+[lang="pt"]{--flag1: red;--flag2: white;--flag3: blue;--github:'Veja meus repositórios!';--linkedin:'Conecte-se comigo!';}
+[lang="en"]{--flag1: green;--flag2: yellow;--flag3: blue;--github:'View my repositories!';--linkedin:'Connect with me!';}
 body{
     font-family: 'Avenir Light', sans-serif;
     position: relative;
@@ -48,26 +52,60 @@ header{
     margin-top: 10px;
     display: flex;
     flex-flow: row wrap;
+    &>mark{
+        background-color: var(--bg-inv);
+        color: var(--text-inv);
+        font-size: 2em;
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 5% 100%);
+        padding: 10px 10px 10px 30px ;
+        max-height: 40px;
+        line-height: 40px;
+    }
+    &>[data-lang="bio"]{
+        margin-left: 10px;
+        padding: 10px;
+        max-width: 400px;
+        border: 2px solid var(--text);
+        mask: conic-gradient(at 15px 15px,transparent 75%,#000 0)
+        0 0/calc(100% - 15px) calc(100% - 15px),
+        linear-gradient(#000 0 0) content-box;
+        text-align: justify;
+    }
 }
-mark{
-    background-color: var(--bg-inv);
-    color: var(--text-inv);
-    font-size: 2em;
-    clip-path: polygon(0 0, 100% 0%, 100% 100%, 5% 100%);
-    padding: 10px 10px 10px 30px ;
-    max-height: 40px;
-    line-height: 40px;
-}
-header>div{
-    margin-left: 10px;
-    padding: 10px;
-    max-width: 400px;
-    border: 2px solid var(--text);
-    mask: conic-gradient(at 15px 15px,transparent 75%,#000 0)
-    0 0/calc(100% - 15px) calc(100% - 15px),
-    linear-gradient(#000 0 0) content-box;
-    &{text-align: justify;}
-
+main{
+    display: flex;
+    flex-flow: column;
+    &>section>article{
+        background-color: var(--l3);
+        width: 300px;
+        height: 200px;
+    }
+    &>#progress{
+        width: 300px;
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        &>#progressValue{font-size: 3em; color: var(--orange);}
+        &>[data-lang='projects']{margin-left:10px;font-size: 1.2em; color:var(--gray); width: 90px;}
+        &>div{
+            position: relative;
+            height: 10px;width: 300px;background-color: var(--gray);
+            &>#progressBar{
+                width:200px;height: 10px;top:0;background-color: var(--orange);
+                background: linear-gradient();
+            }
+        }
+    }
+    &>#experience{
+        width: 100px;
+        height: 100px;
+        background-color: var(--l2);
+        &>ul{display: flex;flex-flow: row wrap; width: 500px;
+            &>li{
+                width: 50px;height: 50px;background-color: var(--dec);margin: 10px;list-style: none;
+            }
+        }
+    }
 }
 aside{
     position: fixed;
@@ -76,68 +114,67 @@ aside{
     bottom: 20px;
     left: 20px;
     gap: 10px;
-}
-button{
-    background: var(--btn);
-    border: none;
-    cursor: pointer;
-    color: var(--text-inv);
-}
-#language{
-    display: flex;
-    align-items: center;
-    border: none;
-    font-size: 1.2em;
-    padding: 0 10px;
-    height: 40px;
-}
-.flag{
-    position: relative;
-    width: 100px;
-    height: 100%;
-    &>div{
-        width: 40px;height: 40px;
-        position: absolute;
-        filter: brightness(.9);
-        &:first-child{
-            right: 50px;
-            background-color: var(--f1);
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    &>button{
+        background: var(--btn);
+        border: none;
+        cursor: pointer;
+        color: var(--text-inv);
+    }
+    &>#language{
+        display: flex;
+        align-items: center;
+        border: none;
+        font-size: 1.2em;
+        padding: 0 10px;
+        height: 40px;
+        &>.flag{
+            position: relative;
+            width: 100px;
+            height: 100%;
+            &>div{
+                width: 40px;height: 40px;
+                position: absolute;
+                filter: brightness(.9);
+                &:first-child{
+                    right: 50px;
+                    background-color: var(--flag1);
+                    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                }
+                &:nth-child(2){
+                    right: 30px;
+                    background-color: var(--flag2);
+                    clip-path: polygon(50% 100%, 0 0, 100% 0);
+                }
+                &:last-child{
+                    right: 10px;
+                    background-color: var(--flag3);
+                    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+                }
+            }
         }
-        &:nth-child(2){
-            right: 30px;
-            background-color: var(--f2);
-            clip-path: polygon(50% 100%, 0 0, 100% 0);
-        }
-        &:last-child{
-            right: 10px;
-            background-color: var(--f3);
-            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    }
+    #theme{
+        position: relative;
+        right: 0;
+        height: 40px;
+        width: 40px;
+        display: flex;
+        justify-content: center;
+        &>img{width:40px;}
+        &:after{
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: -4px;
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--dec);
+            mask: conic-gradient(at 15px 15px,transparent 75%,#000 0)
+            0 0/calc(100% - 15px) calc(100% - 15px),
+            linear-gradient(#000 0 0) content-box;
         }
     }
 }
-#theme{
-    position: relative;
-    right: 0;
-    height: 40px;
-    width: 40px;
-    display: flex;
-    justify-content: center;
-    &>img{width:40px;}
-}
-#theme:after{
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: -4px;
-    width: 40px;
-    height: 40px;
-    border: 4px solid var(--dec);
-    mask: conic-gradient(at 15px 15px,transparent 75%,#000 0)
-    0 0/calc(100% - 15px) calc(100% - 15px),
-    linear-gradient(#000 0 0) content-box;
-}
-
 footer{
     position: fixed;
     bottom: 10px;
