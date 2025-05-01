@@ -10,28 +10,18 @@
     --orange: rgb(255, 190, 70);
 }
 [data-theme="dark"]{
-    --bg: #333;
-    --bg-inv: #eee;
-    --l2:#444;
-    --l3:#555;
-    --l4:#666;
+    --bg: #333;--bg-inv: #eee;
+    --l2:#444;--l3:#555;--l4:#666;
+    --dec: #EDCA2E;--dec-alt: #7EE;
+    --text: #eee;--text-inv: #333;
     --btn: #ffb222; /* nope */
-    --dec: #EDCA2E;
-    --dec-alt: #7EE;
-    --text: #eee;
-    --text-inv: #333;
 }
 [data-theme="light"]{
-    --bg: #eee;
-    --bg-inv: #333;
-    --l2:#f4f4f4;
-    --l3:#f8f8f8;
-    --l4:#fcfcfc;
+    --bg: #eee;--bg-inv: #333;
+    --l2:#f4f4f4;--l3:#f8f8f8;--l4:#fcfcfc;
+    --dec: #7EE;--dec-alt: #EDCA2E;
+    --text: #333;--text-inv: #eee;
     --btn: #004567;
-    --dec: #7EE;
-    --dec-alt: #EDCA2E;
-    --text: #333;
-    --text-inv: #eee;
 }
 [lang="pt"]{--flag1: red;--flag2: white;--flag3: blue;--github:'Veja meus repositórios!';--linkedin:'Conecte-se comigo!';}
 [lang="en"]{--flag1: green;--flag2: yellow;--flag3: blue;--github:'View my repositories!';--linkedin:'Connect with me!';}
@@ -100,6 +90,7 @@ main{
         width: 100px;
         height: 100px;
         background-color: var(--l2);
+        &>#techFilter>*{cursor: pointer;}
         &>ul{display: flex;flex-flow: row wrap; width: 500px;
             &>li{
                 width: 50px;height: 50px;background-color: var(--dec);margin: 10px;list-style: none;
