@@ -312,3 +312,49 @@ footer{
         animation: flicker 4s infinite;}
 }
 @keyframes flicker{0%,100%{opacity:0;}10%,90%{opacity:.1;}}
+.loading{
+    position: relative;
+    &>div{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        opacity: .25;
+        position: absolute;
+        &:first-child{
+            background: conic-gradient(var(--deepblue) 0deg 90deg, transparent 90deg 360deg);
+            mask: 
+            radial-gradient(farthest-side, transparent 80%, black 81%) center/100% 100% no-repeat,
+            conic-gradient(black 0deg 90deg, transparent 90deg 360deg);
+            animation: spin 4s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate-reverse;
+            mask-composite: intersect;
+        }
+        &:nth-child(2){
+            background: conic-gradient(var(--deepblue) 0deg 180deg, transparent 180deg 360deg);
+            mask: 
+            radial-gradient(farthest-side, transparent 80%, black 81%) center/100% 100% no-repeat,
+            conic-gradient(black 0deg 180deg, transparent 180deg 360deg);
+            animation: spin 6s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
+            mask-composite: intersect;
+        }
+        &:nth-child(3){
+            background: conic-gradient(var(--deepblue) 0deg 200deg, transparent 200deg 360deg);
+            mask: 
+            radial-gradient(farthest-side, transparent 80%, black 81%) center/100% 100% no-repeat,
+            conic-gradient(black 0deg 200deg, transparent 200deg 360deg);
+            animation: spin 8s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate-reverse;
+            mask-composite: intersect;
+        }
+        &:last-child{
+            background: conic-gradient(var(--deepblue) 0deg 170deg, transparent 170deg 360deg);
+            mask: 
+            radial-gradient(farthest-side, transparent 80%, black 81%) center/100% 100% no-repeat,
+            conic-gradient(black 0deg 170deg, transparent 170deg 360deg);
+            animation: spin 10s cubic-bezier(0.85, 0, 0.15, 1) infinite alternate;
+            mask-composite: intersect;
+        }
+    }
+}
+@keyframes spin {
+    0%,100% { transform: rotate(0deg); }
+    50% { transform: rotate(360deg); }
+  }
