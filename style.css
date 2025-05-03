@@ -107,6 +107,7 @@ main{
             &>.btnFigma{background-color: var(--purple);}
         }
         &>.projectDescription{
+            margin-top: 10px;
             height: fit-content;
             display: flex;
             flex-flow: row wrap;
@@ -123,13 +124,14 @@ main{
                 background-color: var(--deepblue);
                 color: var(--text-inv);
                 padding-left: 10px;
-                margin: 5px;
+                margin: 10px 10px 0 10px;
             }
             &>.projectTechs{
+                padding: 0 0 0 10px;
                 list-style: none;
                 display: flex;
                 flex-flow: row wrap;
-                &>li>.techIcon{width: 40px;}
+                &>li>.techIcon{width: 32px;}
             }
             &>.projectDate{margin:0 10px 0 auto;}
         }
