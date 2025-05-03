@@ -30,8 +30,12 @@
     --text: #333;--text-inv: #eee;
     --btn: #004567;
 }
-[lang="pt"]{--flag1: red;--flag2: white;--flag3: blue;--github:'Veja meus repositórios!';--linkedin:'Conecte-se comigo!';}
-[lang="en"]{--flag1: green;--flag2: yellow;--flag3: blue;--github:'View my repositories!';--linkedin:'Connect with me!';}
+[lang="pt"]{
+    --flag1: red;--flag2: white;--flag3: blue;
+    --email:'Me envie um email!';--github:'Veja meus repositórios!';--linkedin:'Conecte-se comigo!';}
+[lang="en"]{
+    --flag1: green;--flag2: yellow;--flag3: blue;
+    --email:'Send me an email!';--github:'View my repositories!';--linkedin:'Connect with me!';}
 body{
     font-family: 'Avenir Light', sans-serif;
     position: relative;
@@ -235,7 +239,7 @@ aside{
 footer{
     position: fixed;
     bottom: 10px;
-    right: 20px;
+    right: 25px;
     display: flex;
     flex-flow: column;
     align-items: flex-end;
@@ -274,6 +278,9 @@ footer{
             transform: scale(1);
         }
         &:first-child::before{
+            content: var(--email);
+        }
+        &:nth-child(2):before{
             content: var(--github);
         }
         &:last-child::before{
@@ -284,7 +291,7 @@ footer{
             position: absolute;
             transform: rotate(45deg) translateY(-50%);
             top: 50%;
-            right: -10px;
+            right: -15px;
             background-color: var(--dec-alt);
             width: 10px;
             height: 10px;
