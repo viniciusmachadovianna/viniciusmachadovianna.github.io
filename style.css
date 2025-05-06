@@ -74,72 +74,78 @@ header{
         0 0/calc(100% - 15px) calc(100% - 15px),
         linear-gradient(#000 0 0) content-box;
         text-align: justify;
+        color: var(--text);
     }
 }
-main{
-    display: flex;
-    flex-flow: column;
-    &>section>article{
-        width: 300px;
-        &>.shortcuts{
-            display: flex;
-            flex-flow: column;
-            background-color: var(--blue2);
-            background: linear-gradient(115deg, var(--blue1) 35%, var(--blue2) 35%, var(--blue2) 65%, var(--blue3) 35%);
-            clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
-            &>a{
-                position: relative;
-                width: 100px;
-                height: 24px;
-                color: var(--bg-inv);
-                text-decoration: none;
-                text-align: center;
-                line-height: 28px;
-                margin: 5px auto;
-                &::before{
-                    content: '_';
-                    color: transparent;
-                    position: absolute;
-                    left: 5px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    background: url('/assets/icons/link-ext.svg') no-repeat center;
+main{width: 100%;
+    &>#projects{
+        display: flex;
+        flex-flow: column;
+        align-items: start;
+        &>article.left{align-self: flex-end;}
+        &>article{
+            width: 300px;
+            &>.shortcuts{
+                height: 100px;
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                background-color: var(--blue2);
+                background: linear-gradient(115deg, var(--blue1) 35%, var(--blue2) 35%, var(--blue2) 65%, var(--blue3) 35%);
+                clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+                &>a{
+                    position: relative;
+                    width: 100px;
+                    height: 24px;
+                    color: var(--bg-inv);
+                    text-decoration: none;
+                    text-align: center;
+                    line-height: 28px;
+                    margin: 5px auto;
+                    &::before{
+                        content: '_';
+                        color: transparent;
+                        position: absolute;
+                        left: 5px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: url('/assets/icons/link-ext.svg') no-repeat center;
+                    }
                 }
+                &>.btnDeploy{background-color: var(--dec);}
+                &>.btnCode{background-color: var(--dec-alt);}
+                &>.btnFigma{background-color: var(--purple);}
             }
-            &>.btnDeploy{background-color: var(--dec);}
-            &>.btnCode{background-color: var(--dec-alt);}
-            &>.btnFigma{background-color: var(--purple);}
-        }
-        &>.projectDescription{
-            margin-top: 10px;
-            height: fit-content;
-            display: flex;
-            flex-flow: row wrap;
-            align-items: center;
-            border: 1px solid var(--text);
-            mask: conic-gradient(at 25px 25px,transparent 75%,#000 0)
-            0 0/calc(100% - 25px) calc(100% - 25px),
-            linear-gradient(#000 0 0) content-box;
-            &>.projectTitle{
-                width: 100%; 
-                height: 30px;
-                line-height: 30px;
-                text-align: left;
-                background-color: var(--deepblue);
-                color: var(--text-inv);
-                padding-left: 10px;
-                margin: 10px 10px 0 10px;
-            }
-            &>.projectTechs{
-                padding: 0 0 0 10px;
-                list-style: none;
+            &>.projectDescription{
+                margin-top: 10px;
+                height: fit-content;
                 display: flex;
                 flex-flow: row wrap;
-                &>li>.techIcon{width: 32px;}
+                align-items: center;
+                border: 1px solid var(--text);
+                mask: conic-gradient(at 25px 25px,transparent 75%,#000 0)
+                0 0/calc(100% - 25px) calc(100% - 25px),
+                linear-gradient(#000 0 0) content-box;
+                &>.projectTitle{
+                    width: 100%; 
+                    height: 30px;
+                    line-height: 30px;
+                    text-align: left;
+                    background-color: var(--deepblue);
+                    color: var(--text-inv);
+                    padding-left: 10px;
+                    margin: 10px 10px 0 10px;
+                }
+                &>.projectTechs{
+                    padding: 0 0 0 10px;
+                    list-style: none;
+                    display: flex;
+                    flex-flow: row wrap;
+                    &>li>.techIcon{width: 32px;}
+                }
+                &>.projectDate{margin:0 10px 0 auto; color:var(--text);user-select: none;}
             }
-            &>.projectDate{margin:0 10px 0 auto;}
         }
-
     }
     &>#progress{
         width: 300px;
@@ -276,6 +282,7 @@ footer{
         &:hover::before{
             opacity: 1;
             transform: scale(1);
+            pointer-events: none;
         }
         &:first-child::before{
             content: var(--email);
