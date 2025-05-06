@@ -1,0 +1,12 @@
+{
+    "arariama":{
+        "name":"Arariama",
+        "description":"teste",
+        "colors":["red","blue","green"]
+    },
+    "tic-tac-toe":{
+        "name":"tic-tac-toe",
+        "description":"teste"
+    
+    }
+}

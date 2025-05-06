@@ -7,6 +7,7 @@ const $=(el)=>document.querySelector(el),
             projects:'PROJECTS VIEWED',
             db:'Database',
             tools:'Tools',
+            month2:'FEB',month4:'APR',month5:'MAY',month8:'AUG',month9:'SEP',month10:'OCT',month12:'DEC',
         },
         pt: {
             language: 'EN-US',
@@ -15,6 +16,7 @@ const $=(el)=>document.querySelector(el),
             projects:'PROJETOS VISTOS',
             db:'Banco de Dados',
             tools:'Ferramentas',
+            month2:'FEV',month4:'ABR',month5:'MAI',month8:'AGO',month9:'SET',month10:'OUT',month12:'DEZ',
         }
     },
     userLang = (navigator.language || navigator.userLanguage).slice(0, 2),
@@ -38,3 +40,13 @@ function changeLang(language) {
 btnTheme.addEventListener('click',()=>{
     document.documentElement.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
 })
+
+async function getProjects() {
+    var data = fetch('projects.json');
+    data.forEach((dt) =>{
+        console.log(dt);
+    })
+    
+    
+}
+getProjects();
