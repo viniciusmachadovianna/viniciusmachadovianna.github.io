@@ -58,8 +58,9 @@ async function getProjects() {
 }
 getProjects();
 
-$('main').addEventListener("scroll", ()=>{
-    $('#progressBar').style.width = ($('main').scrollTop/($('main').scrollHeight - $('main').clientHeight)*100)+ "%";
+$('#projects').addEventListener("scroll", ()=>{
+    $('#scrollProgress').style.height = ($('#projects').scrollTop/($('#projects').scrollHeight - $('#projects').clientHeight)*100)+ "%";
+    
 })
 
 const titles = document.querySelectorAll('.projectTitle');
@@ -73,8 +74,11 @@ titles.forEach((el)=>{
 function updateProjectsSeen() {
     const seenProjects = document.querySelectorAll('[data-seen="true"]');
     $('#progressValue').innerText = `${seenProjects.length}/2`;
-    if (seenProjects.length === 2) {
+    $(`#bar${seenProjects.length}`).style.backgroundColor = '#ffbe46';
+    if (seenProjects.length === 2) { //change 2 later, make it dynamic
         $('#progressValue').style.color =  "#6cff76"
-        $('#progressBar').style.backgroundColor = "#6cff76";
+        document.querySelectorAll('.progressBar').forEach(bar => {
+            bar.style.backgroundColor = "#6cff76"; //dynamic color as well
+        });
     }
 }

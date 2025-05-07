@@ -89,16 +89,17 @@ main{
     margin-top: 10px;
     position: relative;
     width: 95%;
-    height: 65dvh;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    scrollbar-color: transparent transparent;
+    /* scrollbar-color: transparent transparent; */
     box-sizing: border-box;
     &>#projects{
         overflow: scroll;
         display: flex;
         flex-flow: column;
-        align-items: center;  /* left later */
+        align-items: center;
+        scrollbar-color: transparent transparent;
+        height: 60dvh;
         &>article.left{margin-left: 200px;}
         &>article{
             width: 300px;
@@ -177,7 +178,7 @@ main{
                         clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
                     }
                 }
-                &>.tags{
+                .tags{
                     padding: 0;
                     margin: 10px;
                     list-style: none;
@@ -195,14 +196,29 @@ main{
                         &::before{content:'# ';font-family: monospace;}
                     }
                 }
-                &>.projectTechs{
+                .projectTechs{
                     padding: 0 0 0 10px;
                     list-style: none;
                     display: flex;
                     flex-flow: row wrap;
                     &>li>.techIcon{width: 32px;}
                 }
-                &>.projectDate{margin:0 10px 0 auto; color:var(--text);user-select: none;}
+                .projectDate{margin:0 10px 0 auto; color:var(--text);user-select: none;}
+            }
+        }
+        #scroll{
+            position:absolute;
+            right: 5px;
+            border: 2px solid var(--deepblue);
+            color: var(--white);
+            width: 24px;
+            height: 70%;
+            display: flex;
+            flex-flow: column;
+            #scrollProgress{
+                margin: 5px auto;
+                background-color: var(--deepblue);
+                width: 15px;
             }
         }
     }
@@ -220,9 +236,12 @@ main{
         &>[data-lang='projects']{margin-left:10px;font-size: 1.2em; color:var(--gray); width: 90px;}
         &>div{
             position: relative;
-            height: 10px;width: 300px;background-color: var(--gray);
-            &>#progressBar{
-                width:0px;height: 10px;top:0;background-color: var(--orange);
+            height: 10px;width: 300px;
+            display: flex;
+            flex-flow: row;
+            .progressBar{
+                margin: 0 5px;
+                width:calc(300px/2);height: 10px;top:0;background-color: var(--gray);
                 background: linear-gradient();
             }
         }
@@ -428,4 +447,4 @@ footer{
 @keyframes spin {
     0%,100% { transform: rotate(0deg); }
     50% { transform: rotate(360deg); }
-  }
+}
