@@ -7,7 +7,11 @@
 }
 :root{
     --gray: #999;
+    --black:#333;
+    --white:#eee;
     --orange: #ffbe46;
+    --lightblue: #7EE;
+    --yellow: #EDCA2E;
     --purple:#CF67FF;
     --blue1:#4A6AAE;
     --blue2:#5A81D5;
@@ -94,22 +98,23 @@ main{
         display: flex;
         flex-flow: column;
         align-items: center;  /* left later */
-        /* &>article.left{align-self: flex-end;} */
+        &>article.left{margin-left: 400px;}
         &>article{
             width: 300px;
+            margin-top: 10px;
+            margin-right: 200px;
             &>.shortcuts{
                 height: 100px;
                 display: flex;
                 flex-flow: column;
                 justify-content: center;
-                background-color: var(--blue2);
                 background: linear-gradient(115deg, var(--blue1) 35%, var(--blue2) 35%, var(--blue2) 65%, var(--blue3) 35%);
                 clip-path: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
                 &>a{
                     position: relative;
                     width: 100px;
                     height: 24px;
-                    color: var(--bg-inv);
+                    color: var(--blac);
                     text-decoration: none;
                     text-align: center;
                     line-height: 28px;
@@ -124,9 +129,13 @@ main{
                         background: url('/assets/icons/link-ext.svg') no-repeat center;
                     }
                 }
-                &>.btnDeploy{background-color: var(--dec);}
-                &>.btnCode{background-color: var(--dec-alt);}
+                &>.btnDeploy{background-color: var(--lightblue);}
+                &>.btnCode{background-color: var(--yellow);}
                 &>.btnFigma{background-color: var(--purple);}
+            }
+
+            &#ticTacToe>.shortcuts{
+                background: linear-gradient(115deg, #bb00ff 35%, #a40094 35%, #a400a4 65%, #800080 35%);
             }
             &>.projectDescription{
                 margin-top: 10px;
@@ -139,6 +148,8 @@ main{
                 0 0/calc(100% - 25px) calc(100% - 25px),
                 linear-gradient(#000 0 0) content-box;
                 &>.projectTitle{
+                    cursor: pointer;
+                    position: relative;
                     width: 100%; 
                     height: 30px;
                     line-height: 30px;
@@ -147,6 +158,38 @@ main{
                     color: var(--text-inv);
                     padding-left: 10px;
                     margin: 10px 10px 0 10px;
+                    &::after{
+                        content: '+';
+                        position: absolute;
+                        right: 10px;
+                        top: 50%;
+                        width: 20px;height: 20px;
+                        color: var(--black);
+                        text-align: center;
+                        font-weight: bold;
+                        line-height: 23px;
+                        transform: translateY(-50%);
+                        background-color: var(--white);
+                        clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                    }
+                }
+                &>.tags{
+                    padding: 0;
+                    margin: 10px;
+                    list-style: none;
+                    display: flex;
+                    width: 100%;
+                    flex-flow: row wrap;
+                    justify-content: center;
+                    &>li{
+                        background-color: var(--dec);
+                        color: var(--black);
+                        padding: 5px 10px;
+                        margin: 5px;
+                        border-radius: 20px;
+                        font-size: .8em;
+                        &::before{content:'# ';font-family: monospace;}
+                    }
                 }
                 &>.projectTechs{
                     padding: 0 0 0 10px;
