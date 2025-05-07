@@ -10,6 +10,7 @@
     --black:#333;
     --white:#eee;
     --orange: #ffbe46;
+    --green:#6cff76;
     --lightblue: #7EE;
     --yellow: #EDCA2E;
     --purple:#CF67FF;
@@ -98,11 +99,11 @@ main{
         display: flex;
         flex-flow: column;
         align-items: center;  /* left later */
-        &>article.left{margin-left: 400px;}
+        &>article.left{margin-left: 200px;}
         &>article{
             width: 300px;
             margin-top: 10px;
-            margin-right: 200px;
+            margin-right: 100px;
             &>.shortcuts{
                 height: 100px;
                 display: flex;

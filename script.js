@@ -30,7 +30,8 @@ const $=(el)=>document.querySelector(el),
     userLang = (navigator.language || navigator.userLanguage).slice(0, 2),
     // language = userLang === 'en' || userLang === 'pt' ? userLang : 'en',
     btnLanguage = $("#language"),
-    btnTheme = $("#theme");
+    btnTheme = $("#theme"),
+    projectsSeen = [];
 btnLanguage.addEventListener('click',()=>{
     const pre = document.documentElement.getAttribute("lang"),
     lang = pre === "pt" ? "en" : "pt";
@@ -65,5 +66,15 @@ const titles = document.querySelectorAll('.projectTitle');
 titles.forEach((el)=>{
     el.addEventListener('click',()=>{
         el.nextElementSibling.style.display = el.nextElementSibling.style.display === 'flex' ? 'none' : 'flex';
+        el.parentNode.setAttribute('data-seen', 'true');
+        updateProjectsSeen();
     })
 })
+function updateProjectsSeen() {
+    const seenProjects = document.querySelectorAll('[data-seen="true"]');
+    $('#progressValue').innerText = `${seenProjects.length}/2`;
+    if (seenProjects.length === 2) {
+        $('#progressValue').style.color =  "#6cff76"
+        $('#progressBar').style.backgroundColor = "#6cff76";
+    }
+}
