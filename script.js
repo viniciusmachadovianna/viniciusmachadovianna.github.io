@@ -42,11 +42,9 @@ btnTheme.addEventListener('click',()=>{
 })
 
 async function getProjects() {
-    var data = fetch('projects.json');
-    data.forEach((dt) =>{
-        console.log(dt);
-    })
-    
-    
+    fetch('projects.json')
+    .then(response=>response.ok?response.json():Promise.reject(new Error('Network response was not ok')))
+    .then(data=>{console.log(data)})
+    .catch(error=>{console.error('Fetch error:',error)});
 }
 getProjects();
