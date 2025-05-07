@@ -48,6 +48,8 @@ function changeLang(language) {
 }
 btnTheme.addEventListener('click',()=>{
     document.documentElement.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    btnTheme.querySelector('img').src = document.documentElement.getAttribute("data-theme") === "dark" ? "assets/icons/lightmode.svg" : "assets/icons/darkmode.svg"
+
 })
 
 async function getProjects() {

@@ -20,6 +20,7 @@
     --deepblue: #004567;
     --triangle: polygon(50% 0%, 0% 100%, 100% 100%);
     --triangle-inv: polygon(50% 100%, 0 0, 100% 0);
+    --btn: #004567;
 }
 [data-theme="dark"]{
     --bg: #333;--bg-inv: #eee;
@@ -27,7 +28,6 @@
     --l2:#444;--l3:#555;--l4:#666;
     --dec: #EDCA2E;--dec-alt: #7EE;
     --text: #eee;--text-inv: #333;
-    --btn: #ffb222; /* nope */
 }
 [data-theme="light"]{
     --bg: #eee;--bg-inv: #333;
@@ -35,7 +35,6 @@
     --l2:#f4f4f4;--l3:#f8f8f8;--l4:#fcfcfc;
     --dec: #7EE;--dec-alt: #EDCA2E;
     --text: #333;--text-inv: #eee;
-    --btn: #004567;
 }
 [lang="pt"]{
     --flag1: red;--flag2: white;--flag3: blue;
@@ -269,7 +268,7 @@ aside{
         background: var(--btn);
         border: none;
         cursor: pointer;
-        color: var(--text-inv);
+        color: var(--white);
     }
     &>#language{
         display: flex;
