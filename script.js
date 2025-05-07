@@ -52,3 +52,10 @@ getProjects();
 $('main').addEventListener("scroll", ()=>{
     $('#progressBar').style.width = ($('main').scrollTop/($('main').scrollHeight - $('main').clientHeight)*100)+ "%";
 })
+
+const titles = document.querySelectorAll('.projectTitle');
+titles.forEach((el)=>{
+    el.addEventListener('click',()=>{
+        el.nextElementSibling.style.display = el.nextElementSibling.style.display === 'none' ? 'flex' : 'none';
+    })
+})
