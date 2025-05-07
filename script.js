@@ -8,6 +8,10 @@ const $=(el)=>document.querySelector(el),
             db:'Database',
             tools:'Tools',
             month2:'FEB',month4:'APR',month5:'MAY',month8:'AUG',month9:'SEP',month10:'OCT',month12:'DEC',
+            interactive:'Interactive',
+            minigame:'Minigame',
+            cart:'Cart',
+            responsivity:'Responsive',
         },
         pt: {
             language: 'EN-US',
@@ -17,6 +21,10 @@ const $=(el)=>document.querySelector(el),
             db:'Banco de Dados',
             tools:'Ferramentas',
             month2:'FEV',month4:'ABR',month5:'MAI',month8:'AGO',month9:'SET',month10:'OUT',month12:'DEZ',
+            interactive:'Interativo',
+            minigame:'Minijogo',
+            cart:'Carrinho',
+            responsivity:'Responsivo',
         }
     },
     userLang = (navigator.language || navigator.userLanguage).slice(0, 2),
@@ -56,6 +64,6 @@ $('main').addEventListener("scroll", ()=>{
 const titles = document.querySelectorAll('.projectTitle');
 titles.forEach((el)=>{
     el.addEventListener('click',()=>{
-        el.nextElementSibling.style.display = el.nextElementSibling.style.display === 'none' ? 'flex' : 'none';
+        el.nextElementSibling.style.display = el.nextElementSibling.style.display === 'flex' ? 'none' : 'flex';
     })
 })
