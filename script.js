@@ -43,27 +43,12 @@ btnTheme.addEventListener('click',()=>{
 
 async function getProjects() {
     fetch('projects.json')
-    .then(response=>response.ok?response.json():Promise.reject(new Error('Network response was not ok')))
+    .then(response=>response.ok?response.json():Promise.reject(new Error('Network not ok')))
     .then(data=>{console.log(data)})
     .catch(error=>{console.error('Fetch error:',error)});
 }
 getProjects();
 
-// window.onscroll = function() {myFunction()};
-$('main').addEventListener("scroll", myFunction);
-
-function myFunction() {
-    const articlesContainer = $('main'), progressBar = $('#progressBar');
-    // var winScroll = articles.scrollTop || articles.documentElement.scrollTop;
-    // var height = articles.documentElement.scrollHeight - articles.documentElement.clientHeight;
-
-
-    const scrollTop = articlesContainer.scrollTop;
-    const scrollHeight = articlesContainer.scrollHeight - articlesContainer.clientHeight;
-    const scrolled = (scrollTop / scrollHeight) * 100;
-
-    progressBar.style.width = scrolled + "%";
-
-    // var scrolled = (winScroll / height) * 100;
-    // progressBar.style.width = scrolled + "%";
-} 
+$('main').addEventListener("scroll", ()=>{
+    $('#progressBar').style.width = ($('main').scrollTop/($('main').scrollHeight - $('main').clientHeight)*100)+ "%";
+})
