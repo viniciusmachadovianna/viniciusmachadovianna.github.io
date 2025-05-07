@@ -81,8 +81,8 @@ main{width: 100%;
     &>#projects{
         display: flex;
         flex-flow: column;
-        align-items: start;
-        &>article.left{align-self: flex-end;}
+        align-items: center;  /* left later */
+        /* &>article.left{align-self: flex-end;} */
         &>article{
             width: 300px;
             &>.shortcuts{
