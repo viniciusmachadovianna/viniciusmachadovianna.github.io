@@ -52,18 +52,18 @@ btnTheme.addEventListener('click',()=>{
 
 })
 
-async function getProjects() {
-    fetch('projects.json')
-    .then(response=>response.ok?response.json():Promise.reject(new Error('Network not ok')))
-    .then(data=>{console.log(data)})
-    .catch(error=>{console.error('Fetch error:',error)});
-}
-getProjects();
+// async function getProjects() {
+//     fetch('projects.json')
+//     .then(response=>response.ok?response.json():Promise.reject(new Error('Network not ok')))
+//     .then(data=>{console.log(data)})
+//     .catch(error=>{console.error('Fetch error:',error)});
+// }
+// getProjects();
 
-$('#projects').addEventListener("scroll", ()=>{
-    $('#scrollProgress').style.height = ($('#projects').scrollTop/($('#projects').scrollHeight - $('#projects').clientHeight)*100)+ "%";
+// $('#projects').addEventListener("scroll", ()=>{
+//     $('#scrollProgress').style.height = ($('#projects').scrollTop/($('#projects').scrollHeight - $('#projects').clientHeight)*100)+ "%";
     
-})
+// })
 
 const titles = document.querySelectorAll('.projectTitle');
 titles.forEach((el)=>{
@@ -77,7 +77,7 @@ function updateProjectsSeen() {
     const seenProjects = document.querySelectorAll('[data-seen="true"]');
     $('#progressValue').innerText = `${seenProjects.length}/2`;
     $(`#bar${seenProjects.length}`).style.backgroundColor = '#ffbe46';
-    if (seenProjects.length === 2) { //change 2 later, make it dynamic
+    if (seenProjects.length === 2) { //change to dynamic later
         $('#progressValue').style.color =  "#6cff76"
         document.querySelectorAll('.progressBar').forEach(bar => {
             bar.style.backgroundColor = "#6cff76"; //dynamic color as well
