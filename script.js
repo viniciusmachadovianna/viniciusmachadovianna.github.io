@@ -48,3 +48,22 @@ async function getProjects() {
     .catch(error=>{console.error('Fetch error:',error)});
 }
 getProjects();
+
+// window.onscroll = function() {myFunction()};
+$('main').addEventListener("scroll", myFunction);
+
+function myFunction() {
+    const articlesContainer = $('main'), progressBar = $('#progressBar');
+    // var winScroll = articles.scrollTop || articles.documentElement.scrollTop;
+    // var height = articles.documentElement.scrollHeight - articles.documentElement.clientHeight;
+
+
+    const scrollTop = articlesContainer.scrollTop;
+    const scrollHeight = articlesContainer.scrollHeight - articlesContainer.clientHeight;
+    const scrolled = (scrollTop / scrollHeight) * 100;
+
+    progressBar.style.width = scrolled + "%";
+
+    // var scrolled = (winScroll / height) * 100;
+    // progressBar.style.width = scrolled + "%";
+} 
