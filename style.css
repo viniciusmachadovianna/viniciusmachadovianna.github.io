@@ -262,7 +262,7 @@ main{
             flex-flow: row;
             [id^='bar']{
                 margin: 0 3px;
-                width:calc(300px/9);height: 5px;top:0;background-color: var(--gray);
+                width:calc(300px/3);height: 5px;top:0;background-color: var(--gray);
                 background: linear-gradient();
             }
         }
