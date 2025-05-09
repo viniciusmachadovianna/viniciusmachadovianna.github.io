@@ -24,14 +24,14 @@
 }
 [data-theme="dark"]{
     --bg: #333;--bg-inv: #eee;
-    --wallpaper: url('/assets/dark-bg.png');
+    --wallpaper: url('/assets/bg/dark.png');
     --l2:#444;--l3:#555;--l4:#666;
     --dec: #EDCA2E;--dec-alt: #7EE;
     --text: #eee;--text-inv: #333;
 }
 [data-theme="light"]{
     --bg: #eee;--bg-inv: #333;
-    --wallpaper: url('/assets/light-bg.png');
+    --wallpaper: url('/assets/bg/light.png');
     --l2:#f4f4f4;--l3:#f8f8f8;--l4:#fcfcfc;
     --dec: #7EE;--dec-alt: #EDCA2E;
     --text: #333;--text-inv: #eee;
@@ -90,14 +90,13 @@ main{
     width: 95%;
     overflow-y: scroll;
     scroll-behavior: smooth;
-    /* scrollbar-color: transparent transparent; */
     box-sizing: border-box;
     &>#projects{
         overflow: scroll;
         display: flex;
         flex-flow: column;
         align-items: center;
-        scrollbar-color: transparent transparent;
+        scrollbar-color: var(--deepblue) transparent;
         height: 60dvh;
         &>article.left{margin-left: 200px;}
         &>article{
@@ -205,19 +204,42 @@ main{
                 .projectDate{margin:0 10px 0 auto; color:var(--text);user-select: none;}
             }
         }
-        #scroll{
+        #goTop{
             position:absolute;
-            right: 5px;
-            border: 2px solid var(--deepblue);
+            right: 15px;
+            bottom: 15px;
+        }
+
+        #scrollSuggestion{
+            position:absolute;
+            right: 10px;
+            bottom: 10px;
             color: var(--white);
-            width: 24px;
-            height: 70%;
+            width: 45px;
+            height: 45px;
+            background-color: var(--deepblue);
             display: flex;
             flex-flow: column;
-            #scrollProgress{
-                margin: 5px auto;
-                background-color: var(--deepblue);
-                width: 15px;
+            &>span:first-child{
+                position: absolute;
+                right: calc(100% + 5px);
+                top: 50%;transform: translateY(-50%);
+                color: var(--text);
+                font-size: 2em;
+            }
+            &>span:last-child{
+                position: absolute;
+                bottom: calc(100% + 5px);
+                color: var(--text);
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: .7em;
+            }
+            div{
+                overflow: hidden;
+                display: flex;justify-content: center;
+                height: 50px;
+                &>img{animation: down 4s linear infinite;}
             }
         }
     }
@@ -238,9 +260,9 @@ main{
             height: 10px;width: 300px;
             display: flex;
             flex-flow: row;
-            .progressBar{
-                margin: 0 5px;
-                width:calc(300px/2);height: 10px;top:0;background-color: var(--gray);
+            [id^='bar']{
+                margin: 0 3px;
+                width:calc(300px/9);height: 5px;top:0;background-color: var(--gray);
                 background: linear-gradient();
             }
         }
@@ -333,6 +355,7 @@ footer{
     align-items: flex-end;
     &>a{
         position: relative;
+        height: 50px;
         margin: 5px 0;
         background-color: var(--dec-alt);
         display: flex;
@@ -349,21 +372,16 @@ footer{
             white-space: nowrap;
             padding: 0 10px;
             right: 60px;
-            height: 56px;
+            height: 50px;
             background-color: var(--dec-alt);
             text-align: center;
             color: var(--black);
             font-size: 1.2em;
-            line-height: 56px;
-            opacity: 0;
-            transform: scale(0.95);
-            transition: 
-                opacity 0.2s cubic-bezier(0.8, 0, 1, 1),
-                transform 0.2s cubic-bezier(0.8, 0, 1, 1);
+            line-height: 50px;
+            display: none;
         }
         &:hover::before{
-            opacity: 1;
-            transform: scale(1);
+            display: flex;
             pointer-events: none;
         }
         &:first-child::before{
@@ -444,6 +462,15 @@ footer{
     }
 }
 @keyframes spin {
-    0%,100% { transform: rotate(0deg); }
-    50% { transform: rotate(360deg); }
+    0%,100% { transform: rotate(0deg)}
+    50%{transform:rotate(360deg)}
 }
+
+@keyframes down{
+    0%{transform:translateY(-50px);opacity:0}
+    50%{opacity:1}
+    100%{transform:translateY(50px);opacity:0}
+}
+
+@media (max-width:680px){#scrollSuggestion{display:none !important}}
+@media (max-width:530px){footer>a::before{display:none}}

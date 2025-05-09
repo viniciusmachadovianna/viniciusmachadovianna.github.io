@@ -4,6 +4,7 @@ const $=(el)=>document.querySelector(el),
             language: 'PT-BR',
             bio:'<b>FULLSTACK</b> WEB DEVELOPER FOCUSED ON INTUITIVE AND <b>MINIMALIST</b> APLICATIONS',
             ticTacToe:'TIC TAC TOE',
+            portfolio:'PORTFOLIO',
             projects:'PROJECTS VIEWED',
             db:'Database',
             tools:'Tools',
@@ -12,11 +13,13 @@ const $=(el)=>document.querySelector(el),
             minigame:'Minigame',
             cart:'Cart',
             responsivity:'Responsive',
+            scroll:'SCROLL'
         },
         pt: {
             language: 'EN-US',
             bio: 'DESENVOLVEDOR WEB <b>FULLSTACK</b> FOCADO EM APLICAÇÕES INTUITIVAS E <b>MINIMALISTAS</b>',
             ticTacToe:'JOGO DA VELHA',
+            portfolio:'PORTIFÓLIO',
             projects:'PROJETOS VISTOS',
             db:'Banco de Dados',
             tools:'Ferramentas',
@@ -25,25 +28,24 @@ const $=(el)=>document.querySelector(el),
             minigame:'Minijogo',
             cart:'Carrinho',
             responsivity:'Responsivo',
+            scroll:'ROLE'
         }
     },
     userLang = (navigator.language || navigator.userLanguage).slice(0, 2),
     // language = userLang === 'en' || userLang === 'pt' ? userLang : 'en',
     btnLanguage = $("#language"),
     btnTheme = $("#theme"),
-    projectsSeen = [];
-btnLanguage.addEventListener('click',()=>{
-    const pre = document.documentElement.getAttribute("lang"),
-    lang = pre === "pt" ? "en" : "pt";
-    document.documentElement.setAttribute("lang",lang);
-    changeLang(lang)
-})
+    projectsSeen = [],
+    projects = document.querySelectorAll('article').length,
+    green = getComputedStyle(document.documentElement).getPropertyValue('--green').trim();
+btnLanguage.addEventListener('click',()=>{changeLang()})
     
-function changeLang(language) {
-    const elements = document.querySelectorAll("[data-lang]");
-    elements.forEach((element) => {
+function changeLang() {
+    const lang=document.documentElement.getAttribute("lang")==='pt'?'en':'pt';
+    document.documentElement.setAttribute("lang",lang);
+    document.querySelectorAll("[data-lang]").forEach((element) => {
         const key = element.getAttribute("data-lang");
-        element.innerHTML = langData[language][key] || langData['en'][key];
+        element.innerHTML = langData[lang][key] || langData['en'][key];
     });
 }
 btnTheme.addEventListener('click',()=>{
@@ -52,18 +54,7 @@ btnTheme.addEventListener('click',()=>{
 
 })
 
-// async function getProjects() {
-//     fetch('projects.json')
-//     .then(response=>response.ok?response.json():Promise.reject(new Error('Network not ok')))
-//     .then(data=>{console.log(data)})
-//     .catch(error=>{console.error('Fetch error:',error)});
-// }
-// getProjects();
-
-// $('#projects').addEventListener("scroll", ()=>{
-//     $('#scrollProgress').style.height = ($('#projects').scrollTop/($('#projects').scrollHeight - $('#projects').clientHeight)*100)+ "%";
-    
-// })
+$('#projects').addEventListener("scroll",()=>{$('#scrollProgress').innerText=`${parseInt($('#projects').scrollTop/($('#projects').scrollHeight-$('#projects').clientHeight)*100)}%`})
 
 const titles = document.querySelectorAll('.projectTitle');
 titles.forEach((el)=>{
@@ -75,12 +66,13 @@ titles.forEach((el)=>{
 })
 function updateProjectsSeen() {
     const seenProjects = document.querySelectorAll('[data-seen="true"]');
-    $('#progressValue').innerText = `${seenProjects.length}/2`;
+    $('#progressValue').innerText = `${seenProjects.length}/${projects}`;
     $(`#bar${seenProjects.length}`).style.backgroundColor = '#ffbe46';
-    if (seenProjects.length === 2) { //change to dynamic later
-        $('#progressValue').style.color =  "#6cff76"
-        document.querySelectorAll('.progressBar').forEach(bar => {
-            bar.style.backgroundColor = "#6cff76"; //dynamic color as well
+    if (seenProjects.length === projects) {
+        $('#progressValue').style.color =  green
+        document.querySelectorAll('[id^="bar"]').forEach(bar => {
+            bar.style.backgroundColor = green;
         });
     }
 }
+window.addEventListener('wheel',function(e){e.preventDefault();document.getElementById('projects').scrollTop+=e.deltaY},{passive:false});
