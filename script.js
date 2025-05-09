@@ -37,9 +37,30 @@ const $=(el)=>document.querySelector(el),
     btnTheme = $("#theme"),
     projectsSeen = [],
     projects = document.querySelectorAll('article').length,
-    green = getComputedStyle(document.documentElement).getPropertyValue('--green').trim();
-btnLanguage.addEventListener('click',()=>{changeLang()})
+    green = getComputedStyle(document.documentElement).getPropertyValue('--green').trim(),
+    textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim(),
+    titles = document.querySelectorAll('.projectTitle');
+
     
+    window.addEventListener('wheel',function(e){e.preventDefault();document.getElementById('projects').scrollTop+=e.deltaY},{passive:false});
+    
+btnTheme.addEventListener('click',()=>{
+    document.documentElement.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    btnTheme.querySelector('img').src = document.documentElement.getAttribute("data-theme") === "dark" ? "assets/icons/lightmode.svg" : "assets/icons/darkmode.svg"
+
+})
+$('#projects').addEventListener("scroll",()=>{$('#scrollProgress').innerText=`${parseInt($('#projects').scrollTop/($('#projects').scrollHeight-$('#projects').clientHeight)*100)}%`})
+
+titles.forEach((el)=>{
+    el.addEventListener('click',()=>{
+        el.nextElementSibling.style.display = el.nextElementSibling.style.display === 'flex' ? 'none' : 'flex';
+        el.parentNode.setAttribute('data-seen', 'true');
+        updateProjectsSeen();
+    })
+})
+
+btnLanguage.addEventListener('click',()=>{changeLang()})
+   
 function changeLang() {
     const lang=document.documentElement.getAttribute("lang")==='pt'?'en':'pt';
     document.documentElement.setAttribute("lang",lang);
@@ -48,22 +69,7 @@ function changeLang() {
         element.innerHTML = langData[lang][key] || langData['en'][key];
     });
 }
-btnTheme.addEventListener('click',()=>{
-    document.documentElement.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
-    btnTheme.querySelector('img').src = document.documentElement.getAttribute("data-theme") === "dark" ? "assets/icons/lightmode.svg" : "assets/icons/darkmode.svg"
 
-})
-
-$('#projects').addEventListener("scroll",()=>{$('#scrollProgress').innerText=`${parseInt($('#projects').scrollTop/($('#projects').scrollHeight-$('#projects').clientHeight)*100)}%`})
-
-const titles = document.querySelectorAll('.projectTitle');
-titles.forEach((el)=>{
-    el.addEventListener('click',()=>{
-        el.nextElementSibling.style.display = el.nextElementSibling.style.display === 'flex' ? 'none' : 'flex';
-        el.parentNode.setAttribute('data-seen', 'true');
-        updateProjectsSeen();
-    })
-})
 function updateProjectsSeen() {
     const seenProjects = document.querySelectorAll('[data-seen="true"]');
     $('#progressValue').innerText = `${seenProjects.length}/${projects}`;
@@ -75,4 +81,3 @@ function updateProjectsSeen() {
         });
     }
 }
-window.addEventListener('wheel',function(e){e.preventDefault();document.getElementById('projects').scrollTop+=e.deltaY},{passive:false});

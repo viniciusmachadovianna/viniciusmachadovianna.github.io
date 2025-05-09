@@ -213,7 +213,7 @@ main{
         #scrollSuggestion{
             position:absolute;
             right: 10px;
-            bottom: 10px;
+            top: 20px;
             color: var(--white);
             width: 45px;
             height: 45px;
