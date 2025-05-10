@@ -1,34 +1,51 @@
 const $=(el)=>document.querySelector(el),
     langData = {
         en: {
+            // GENERAL UI
             language: 'PT-BR',
             bio:'<b>FULLSTACK</b> WEB DEVELOPER FOCUSED ON INTUITIVE AND <b>MINIMALIST</b> APLICATIONS',
-            ticTacToe:'TIC TAC TOE',
-            portfolio:'PORTFOLIO',
             projects:'PROJECTS VIEWED',
+            scroll:'SCROLL',
+
+            // PROJECTS
+            ticTacToe:'TIC TAC TOE',
+            ticTacToeDesc:'The classic tic-tac-toe game, with a <b>minimalist</b> and colorful design <b>aimed at children</b>',
+            portfolio:'PORTFOLIO',
+            converter:'YOUTUBE CONVERTER',
+
+            // FILTERS
             db:'Database',
             tools:'Tools',
             month2:'FEB',month4:'APR',month5:'MAY',month8:'AUG',month9:'SEP',month10:'OCT',month12:'DEC',
+
+            // TAGS
             interactive:'Interactive',
             minigame:'Minigame',
             cart:'Cart',
+            practical:"Practical",
             responsivity:'Responsive',
-            scroll:'SCROLL'
+
         },
         pt: {
             language: 'EN-US',
             bio: 'DESENVOLVEDOR WEB <b>FULLSTACK</b> FOCADO EM APLICAÇÕES INTUITIVAS E <b>MINIMALISTAS</b>',
-            ticTacToe:'JOGO DA VELHA',
-            portfolio:'PORTIFÓLIO',
             projects:'PROJETOS VISTOS',
+            scroll:'ROLE',
+
+            ticTacToe:'JOGO DA VELHA',
+            ticTacToeDesc:'O clássico jogo da velha, com um design <b>minimalista</b> voltado para o <b>público infantil</b>',
+            portfolio:'PORTIFÓLIO',
+            converter:"CONVERSOR DO YOUTUBE",
+
             db:'Banco de Dados',
             tools:'Ferramentas',
             month2:'FEV',month4:'ABR',month5:'MAI',month8:'AGO',month9:'SET',month10:'OUT',month12:'DEZ',
+            
             interactive:'Interativo',
             minigame:'Minijogo',
             cart:'Carrinho',
+            practical:"Prático",
             responsivity:'Responsivo',
-            scroll:'ROLE'
         }
     },
     userLang = (navigator.language || navigator.userLanguage).slice(0, 2),
@@ -41,8 +58,22 @@ const $=(el)=>document.querySelector(el),
     textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim(),
     titles = document.querySelectorAll('.projectTitle');
 
+
+function setProjectCounter(){
+    document.documentElement.style.setProperty('--projectCount', projects);
+    $('#progressValue').innerText = `0/${projects}`;
+    const projectList = $('#progress').querySelector('div');
+    for (let i = 0; i < projects; i++) {
+        console.log(projects , i);
+        
+        const div = document.createElement('div');
+        div.setAttribute('id',`bar${i+1}`);
+        projectList.appendChild(div);
+    }
+}
+setProjectCounter();
     
-    window.addEventListener('wheel',function(e){e.preventDefault();document.getElementById('projects').scrollTop+=e.deltaY},{passive:false});
+window.addEventListener('wheel',function(e){e.preventDefault();document.getElementById('projects').scrollTop+=e.deltaY},{passive:false});
     
 btnTheme.addEventListener('click',()=>{
     document.documentElement.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");

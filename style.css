@@ -6,6 +6,7 @@
     font-display: swap;
 }
 :root{
+    --projectCount:5;
     --gray: #999;
     --black:#333;
     --white:#eee;
@@ -176,22 +177,30 @@ main{
                         clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
                     }
                 }
-                .tags{
-                    padding: 0;
-                    margin: 10px;
-                    list-style: none;
+                .more{
                     display: none;
+                    flex-flow: column;
                     width: 100%;
-                    flex-flow: row wrap;
-                    justify-content: center;
-                    &>li{
-                        background-color: var(--dec);
-                        color: var(--black);
-                        padding: 5px 10px;
-                        margin: 5px;
-                        border-radius: 20px;
-                        font-size: .8em;
-                        &::before{content:'# ';font-family: monospace;}
+                    &>.description{
+                        text-align: justify;
+                        padding: 5px 20px;
+                    }
+                    &>.tags{
+                        padding: 0;
+                        margin: 10px;
+                        display: flex;
+                        list-style: none;
+                        flex-flow: row wrap;
+                        justify-content: center;
+                        &>li{
+                            background-color: var(--dec);
+                            color: var(--black);
+                            padding: 5px 10px;
+                            margin: 5px;
+                            border-radius: 20px;
+                            font-size: .8em;
+                            &::before{content:'# ';font-family: monospace;}
+                        }
                     }
                 }
                 .projectTechs{
@@ -262,7 +271,7 @@ main{
             flex-flow: row;
             [id^='bar']{
                 margin: 0 3px;
-                width:calc(300px/3);height: 5px;top:0;background-color: var(--gray);
+                width:calc(300px/var(--projectCount));height: 5px;top:0;background-color: var(--gray);
                 background: linear-gradient();
             }
         }
