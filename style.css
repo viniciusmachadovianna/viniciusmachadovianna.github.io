@@ -38,10 +38,10 @@
     --text: #333;--text-inv: #eee;
 }
 [lang="pt"]{
-    --flag1: red;--flag2: white;--flag3: blue;
+    --flag1: #1c6fff;--flag2: #efefef;--flag3: #ff6060;
     --email:'Me envie um email!';--github:'Veja meus repositórios!';--linkedin:'Conecte-se comigo!';}
 [lang="en"]{
-    --flag1: green;--flag2: yellow;--flag3: blue;
+    --flag1: #4ba74b;--flag2: #ffe865;--flag3: #1c6fff;
     --email:'Send me an email!';--github:'View my repositories!';--linkedin:'Connect with me!';}
 body{
     font-family: 'Avenir Light', sans-serif;
@@ -154,7 +154,10 @@ main{
                 background: linear-gradient(115deg, #b28059 35%, #7e5a3d 35%, #7e5a3d 65%, #402f23 35%);
             }
             &#chatbot>.shortcuts{
-                background: linear-gradient(115deg, hsl(120, 48%, 58%) 35%, #d3d3d3 35%, #d3d3d3 65%, #008000 35%);
+                background: linear-gradient(115deg, #60c760 35%, #d3d3d3 35%, #d3d3d3 65%, #008000 35%);
+            }
+            &#betterYou>.shortcuts{
+                background: linear-gradient(115deg, #39ceba 35%, #484848 35%, #484848 65%, #2d977b 35%);
             }
             &#speedLog>.shortcuts{
                 background: linear-gradient(115deg, #333 35%, #00c49d 35%, #00c49d 65%, #c9c9c9 35%);
@@ -217,7 +220,7 @@ main{
                             padding: 5px 10px;
                             margin: 5px;
                             border-radius: 20px;
-                            font-size: .8em;
+                            font-size: .9em;
                             &::before{content:'# ';font-family: monospace;}
                         }
                     }
@@ -326,29 +329,36 @@ aside{
         align-items: center;
         border: none;
         font-size: 1.2em;
-        padding: 0 10px;
+        padding-left: 10px;
         height: 40px;
+        overflow: hidden;
+        &>span{width: 60px;text-align: left;}
         &>.flag{
             position: relative;
-            width: 100px;
-            height: 100%;
+            width: 100px;height: inherit;
+            margin-right: -5px;
             &>div{
-                width: 40px;height: 40px;
                 position: absolute;
                 filter: brightness(.9);
                 clip-path: var(--triangle);
                 &:first-child{
-                    right: 50px;
+                    width: 25px;height: 25px;
+                    left: 30px;
+                    top: 50%;transform: translateY(-50%);
                     background-color: var(--flag1);
                 }
                 &:nth-child(2){
-                    right: 30px;
+                    width: 40px;height: 35px;
+                    left: 50px;
                     background-color: var(--flag2);
                     clip-path: var(--triangle-inv);
                 }
                 &:last-child{
-                    right: 10px;
+                    width: 40px;height: 35px;
+                    left: 80px;
+                    bottom: 0px;
                     background-color: var(--flag3);
+                    clip-path: polygon(50% 0%, 0% 100%, 51% 100%);
                 }
             }
         }
@@ -364,11 +374,11 @@ aside{
         &:after{
             content: '';
             position: absolute;
-            bottom: -4px;
-            left: -4px;
+            bottom: -3px;
+            left: -3px;
             width: 40px;
             height: 40px;
-            border: 4px solid var(--dec);
+            border: 3px solid var(--dec);
             mask: conic-gradient(at 15px 15px,transparent 75%,#000 0)
             0 0/calc(100% - 15px) calc(100% - 15px),
             linear-gradient(#000 0 0) content-box;

@@ -92,11 +92,8 @@ const $=(el)=>document.querySelector(el),
     textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim(),
     articles = document.querySelectorAll('article');
 
-document.querySelectorAll('article').forEach((article, index) => {
-  if ((index + 1) % 2 === 0) {
-    article.classList.add('right');
-  }
-});
+document.querySelectorAll('article').forEach((project,i)=>{(i+1)%2===0&&project.classList.add('right')});
+
 function setProjectCounter(){
     document.documentElement.style.setProperty('--projectCount', projects);
     $('#progressValue').innerText = `0/${projects}`;
@@ -108,7 +105,21 @@ function setProjectCounter(){
     }
 }
 setProjectCounter();
-    
+
+function setProjectColors(){
+    const colors = {
+        arariama:           ['#25344f','#b2becb','#632024'],
+        betterYou:          ['#39ceba','#484848','#2d977b'],
+        chatbot:            ['#60c760','#d3d3d3','#008000'],
+        portfolio:          ['#63c3c3','#013854','#dab71f'],
+        speedLog:           ['#333333','#00c49d','#c9c9c9'],
+        sublime:            ['#b28059','#7e5a3d','#402f23'],
+        talesTrails:        ['#606060','#b4b4b4','#313131'],
+        ticTacToe:          ['#bb00ff','#a40094','#800080'],
+        youtubeConverter:   ['#9b1f00','#dcdcdc','#9b1f00'],
+    };
+}
+
 window.addEventListener('wheel',function(e){e.preventDefault();document.getElementById('projects').scrollTop+=e.deltaY},{passive:false});
     
 btnTheme.addEventListener('click',()=>{
