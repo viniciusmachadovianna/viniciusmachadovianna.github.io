@@ -1,12 +1,10 @@
 import { lang } from './lang.js';
 
-const btnLanguage = document.getElementById("language"),
-    btnTheme = document.getElementById("theme"),
+const btnLanguage = document.getElementById('language'),
+    btnTheme = document.getElementById('theme'),
     projectsSection = document.getElementById('projects'),
     scrollProgress = document.getElementById('scrollProgress'),
     projectCount = document.querySelectorAll('article').length,
-    orange = getComputedStyle(document.documentElement).getPropertyValue('--orange').trim(),
-    green = getComputedStyle(document.documentElement).getPropertyValue('--green').trim(),
     articles = document.querySelectorAll('article');
      
 function setProjectCounter(){
@@ -56,7 +54,10 @@ function changeLang() {
 }
 
 function updateProjectsSeen() {
-    const seenProjects = document.querySelectorAll('[data-seen="true"]');
+    const seenProjects = document.querySelectorAll('[data-seen="true"]'),
+
+    orange = getComputedStyle(document.documentElement).getPropertyValue('--orange').trim(),
+    green = getComputedStyle(document.documentElement).getPropertyValue('--green').trim();
     document.getElementById('progressValue').innerText = `${seenProjects.length}/${projectCount}`;
     document.querySelector(`#bar${seenProjects.length}`).style.backgroundColor = orange;
     if (seenProjects.length === projectCount) {
@@ -71,14 +72,13 @@ function zigZagAlignArticles(){articles.forEach((p,i)=>{p.classList.toggle('righ
 
 function handleScroll(e){projectsSection.scrollTop+=e.deltaY;updateProgress()}
 
-function updateProgress(){
-    const percent = parseInt(projectsSection.scrollTop / (projectsSection.scrollHeight - projectsSection.clientHeight) * 100);
-    scrollProgress.innerText = `${percent}%`;
-}
+function updateProgress(){scrollProgress.innerText = `${parseInt(projectsSection.scrollTop / (projectsSection.scrollHeight - projectsSection.clientHeight) * 100)}%`}
   
 function changeTheme(){
-    document.documentElement.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
-    btnTheme.querySelector('img').src = document.documentElement.getAttribute("data-theme") === "dark" ? "assets/icons/lightmode.svg" : "assets/icons/darkmode.svg"
+    const theme = document.documentElement.getAttribute("data-theme"),
+        newTheme=theme==='dark'?'light':'dark';
+    btnTheme.querySelector('img').src =`assets/icons/${theme}mode.svg`;
+    document.documentElement.setAttribute("data-theme", newTheme);
 }
 
 function setupEventListeners(){
