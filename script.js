@@ -11,7 +11,10 @@ const $=(el)=>document.querySelector(el),
             ticTacToe:'TIC TAC TOE',
             ticTacToeDesc:'The classic tic-tac-toe game, with a <b>minimalist</b> and colorful design <b>aimed at children</b>',
             portfolio:'PORTFOLIO',
+            portfolioDesc:'PORTFOLIO',
             converter:'YOUTUBE CONVERTER',
+            converterDesc:'YOUTUBE CONVERTER',
+            speedLogDesc:'',
 
             // FILTERS
             db:'Database',
@@ -35,7 +38,10 @@ const $=(el)=>document.querySelector(el),
             ticTacToe:'JOGO DA VELHA',
             ticTacToeDesc:'O clássico jogo da velha, com um design <b>minimalista</b> voltado para o <b>público infantil</b>',
             portfolio:'PORTIFÓLIO',
+            portfolioDesc:'PORTFOLIO',
             converter:"CONVERSOR DO YOUTUBE",
+            converterDesc:'YOUTUBE CONVERTER',
+            speedLogDesc:'',
 
             db:'Banco de Dados',
             tools:'Ferramentas',
@@ -56,7 +62,7 @@ const $=(el)=>document.querySelector(el),
     projects = document.querySelectorAll('article').length,
     green = getComputedStyle(document.documentElement).getPropertyValue('--green').trim(),
     textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim(),
-    titles = document.querySelectorAll('.projectTitle');
+    articles = document.querySelectorAll('article');
 
 
 function setProjectCounter(){
@@ -64,8 +70,6 @@ function setProjectCounter(){
     $('#progressValue').innerText = `0/${projects}`;
     const projectList = $('#progress').querySelector('div');
     for (let i = 0; i < projects; i++) {
-        console.log(projects , i);
-        
         const div = document.createElement('div');
         div.setAttribute('id',`bar${i+1}`);
         projectList.appendChild(div);
@@ -82,9 +86,10 @@ btnTheme.addEventListener('click',()=>{
 })
 $('#projects').addEventListener("scroll",()=>{$('#scrollProgress').innerText=`${parseInt($('#projects').scrollTop/($('#projects').scrollHeight-$('#projects').clientHeight)*100)}%`})
 
-titles.forEach((el)=>{
+articles.forEach((el)=>{
+    const infoContainer = el.querySelector('.projectDescription').querySelector('.more')
     el.addEventListener('click',()=>{
-        el.nextElementSibling.style.display = el.nextElementSibling.style.display === 'flex' ? 'none' : 'flex';
+        infoContainer.style.display = infoContainer.style.display === 'flex' ? 'none' : 'flex';
         el.parentNode.setAttribute('data-seen', 'true');
         updateProjectsSeen();
     })

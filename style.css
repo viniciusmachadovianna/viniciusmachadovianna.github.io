@@ -141,6 +141,12 @@ main{
             &#arariama>.shortcuts{
                 background: linear-gradient(115deg, #25344f 35%, #b2becb 35%, #b2becb 65%,#632024 35%);
             }
+            &#portfolio>.shortcuts{
+                background: linear-gradient(115deg, #63c3c3 35%, #013854 35%, #013854 65%, #dab71f 35%);
+            }
+            &#youtubeConverter>.shortcuts{
+                background: linear-gradient(115deg, #9b1f00 35%, #dcdcdc 35%, #dcdcdc 65%, #9b1f00 35%);
+            }
             &>.projectDescription{
                 margin-top: 10px;
                 height: fit-content;
@@ -208,7 +214,7 @@ main{
                     list-style: none;
                     display: flex;
                     flex-flow: row wrap;
-                    &>li>.techIcon{width: 32px;}
+                    &>li>.techIcon{width: 32px;margin: 0 3px;}
                 }
                 .projectDate{margin:0 10px 0 auto; color:var(--text);user-select: none;}
             }
