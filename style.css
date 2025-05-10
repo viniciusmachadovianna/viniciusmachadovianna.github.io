@@ -97,7 +97,7 @@ main{
         display: flex;
         flex-flow: column;
         align-items: center;
-        scrollbar-color: var(--deepblue) transparent;
+        scrollbar-color: transparent transparent;
         height: 60dvh;
         &>article.left{margin-left: 200px;}
         &>article{
@@ -147,7 +147,14 @@ main{
             &#youtubeConverter>.shortcuts{
                 background: linear-gradient(115deg, #9b1f00 35%, #dcdcdc 35%, #dcdcdc 65%, #9b1f00 35%);
             }
+            &#sublime>.shortcuts{
+                background: linear-gradient(115deg, #b28059 35%, #7e5a3d 35%, #7e5a3d 65%, #402f23 35%);
+            }
+            &#speedLog>.shortcuts{
+                background: linear-gradient(115deg, #333 35%, #00c49d 35%, #00c49d 65%, #c9c9c9 35%);
+            }
             &>.projectDescription{
+                cursor: pointer;
                 margin-top: 10px;
                 height: fit-content;
                 display: flex;
@@ -158,7 +165,6 @@ main{
                 0 0/calc(100% - 25px) calc(100% - 25px),
                 linear-gradient(#000 0 0) content-box;
                 &>.projectTitle{
-                    cursor: pointer;
                     position: relative;
                     width: 100%; 
                     height: 30px;
@@ -190,6 +196,7 @@ main{
                     &>.description{
                         text-align: justify;
                         padding: 5px 20px;
+                        color: var(--text);
                     }
                     &>.tags{
                         padding: 0;

@@ -15,6 +15,7 @@ const $=(el)=>document.querySelector(el),
             converter:'YOUTUBE CONVERTER',
             converterDesc:'YOUTUBE CONVERTER',
             speedLogDesc:'',
+            sublimeDesc:'',
 
             // FILTERS
             db:'Database',
@@ -27,6 +28,9 @@ const $=(el)=>document.querySelector(el),
             cart:'Cart',
             practical:"Practical",
             responsivity:'Responsive',
+            colaboration:'Colaboration',
+            logistics:'Logistics',
+            permissions:'Permissions',
 
         },
         pt: {
@@ -42,6 +46,7 @@ const $=(el)=>document.querySelector(el),
             converter:"CONVERSOR DO YOUTUBE",
             converterDesc:'YOUTUBE CONVERTER',
             speedLogDesc:'',
+            sublimeDesc:'',
 
             db:'Banco de Dados',
             tools:'Ferramentas',
@@ -52,6 +57,9 @@ const $=(el)=>document.querySelector(el),
             cart:'Carrinho',
             practical:"Prático",
             responsivity:'Responsivo',
+            colaboration:'Colaboração',
+            logistics:'Logística',
+            permissions:'Permissões',
         }
     },
     userLang = (navigator.language || navigator.userLanguage).slice(0, 2),
@@ -88,7 +96,7 @@ $('#projects').addEventListener("scroll",()=>{$('#scrollProgress').innerText=`${
 
 articles.forEach((el)=>{
     const infoContainer = el.querySelector('.projectDescription').querySelector('.more')
-    el.addEventListener('click',()=>{
+    el.querySelector('.projectDescription').addEventListener('click',()=>{
         infoContainer.style.display = infoContainer.style.display === 'flex' ? 'none' : 'flex';
         el.parentNode.setAttribute('data-seen', 'true');
         updateProjectsSeen();
