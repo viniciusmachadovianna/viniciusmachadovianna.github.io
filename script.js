@@ -1,27 +1,26 @@
 import { lang } from './lang.js';
-const $=(el)=>document.querySelector(el),
-    projectsSeen = [];
-    
-const btnLanguage = $("#language"),
-    btnTheme = $("#theme"),
-    projects = document.querySelectorAll('article').length,
+
+const btnLanguage = document.getElementById("language"),
+    btnTheme = document.getElementById("theme"),
+    projects = document.getElementById('projects'),
+    scrollProgress = document.getElementById('scrollProgress'),
+    projectCount = document.querySelectorAll('article').length,
     orange = getComputedStyle(document.documentElement).getPropertyValue('--orange').trim(),
     green = getComputedStyle(document.documentElement).getPropertyValue('--green').trim(),
     articles = document.querySelectorAll('article');
      
-
 function setProjectCounter(){
-    document.documentElement.style.setProperty('--projectCount', projects);
-    $('#progressValue').innerText = `0/${projects}`;
-    const projectList = $('#progress').querySelector('div');
-    for (let i = 0; i < projects; i++) {
+    document.documentElement.style.setProperty('--projectCount', projectCount);
+    document.getElementById('progressValue').innerText = `0/${projectCount}`;
+    const projectList = document.getElementById('progress').querySelector('div');
+    for (let i = 0; i < projectCount; i++) {
         const div = document.createElement('div');
         div.setAttribute('id',`bar${i+1}`);
         projectList.appendChild(div);
     }
 }
 
-function setProjectColors(){
+function setArticlesColors(){
     const colors = {
         arariama:           ['#25344f','#b2becb','#632024'],
         betterYou:          ['#39ceba','#484848','#2d977b'],
@@ -35,17 +34,7 @@ function setProjectColors(){
     };
 }
 
-window.addEventListener('wheel',function(e){e.preventDefault();document.getElementById('projects').scrollTop+=e.deltaY},{passive:false});
-    
-btnTheme.addEventListener('click',()=>{
-    document.documentElement.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
-    btnTheme.querySelector('img').src = document.documentElement.getAttribute("data-theme") === "dark" ? "assets/icons/lightmode.svg" : "assets/icons/darkmode.svg"
-
-})
-
-function updateProgress(){
-    $('#scrollProgress').innerText=`${parseInt($('#projects').scrollTop/($('#projects').scrollHeight-$('#projects').clientHeight)*100)}%`
-}
+  
 
 articles.forEach((el)=>{
     const infoContainer = el.querySelector('.projectDescription').querySelector('.more')
@@ -68,25 +57,50 @@ function changeLang() {
 
 function updateProjectsSeen() {
     const seenProjects = document.querySelectorAll('[data-seen="true"]');
-    $('#progressValue').innerText = `${seenProjects.length}/${projects}`;
-    $(`#bar${seenProjects.length}`).style.backgroundColor = orange;
-    if (seenProjects.length === projects) {
-        $('#progressValue').style.color =  green
+    document.getElementById('progressValue').innerText = `${seenProjects.length}/${projectCount}`;
+    document.querySelector(`#bar${seenProjects.length}`).style.backgroundColor = orange;
+    if (seenProjects.length === projectCount) {
+        document.getElementById('progressValue').style.color =  green
         document.querySelectorAll('[id^="bar"]').forEach(bar => {
             bar.style.backgroundColor = green;
         });
     }
 }
 
+function zigZagAlignArticles(){
+    document.querySelectorAll('article').forEach((project,i)=>{(i+1)%2===0&&project.classList.add('right')});
+}
+
+function handleScroll(e){projects.scrollTop+=e.deltaY;updateProgress()}
+
+function updateProgress(){
+    const percent = parseInt(projects.scrollTop / (projects.scrollHeight - projects.clientHeight) * 100);
+    scrollProgress.innerText = `${percent}%`;
+}
+  
+function changeTheme(){
+    document.documentElement.setAttribute("data-theme", document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    btnTheme.querySelector('img').src = document.documentElement.getAttribute("data-theme") === "dark" ? "assets/icons/lightmode.svg" : "assets/icons/darkmode.svg"
+}
+
 function setupEventListeners(){
+    window.addEventListener('wheel',handleScroll,{passive:false});
+    btnTheme.addEventListener('click',changeTheme)
     btnLanguage.addEventListener('click',changeLang)
-    $('#projects').addEventListener("scroll",updateProgress)
 }
 
 function init(){
     setupEventListeners();
     setProjectCounter();
+    zigZagAlignArticles();
 }
-document.querySelectorAll('article').forEach((project,i)=>{(i+1)%2===0&&project.classList.add('right')});
 
+
+// 1. Constants and Configuration
+// 2. DOM Elements
+// 3. Utility Functions
+// 4. Core Logic / Feature-Specific Functions
+// 5. Event Listeners
+// 6. Initialization
 document.addEventListener('DOMContentLoaded', init);
+
