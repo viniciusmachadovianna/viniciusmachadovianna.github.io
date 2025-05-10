@@ -2,7 +2,7 @@ import { lang } from './lang.js';
 
 const btnLanguage = document.getElementById("language"),
     btnTheme = document.getElementById("theme"),
-    projects = document.getElementById('projects'),
+    projectsSection = document.getElementById('projects'),
     scrollProgress = document.getElementById('scrollProgress'),
     projectCount = document.querySelectorAll('article').length,
     orange = getComputedStyle(document.documentElement).getPropertyValue('--orange').trim(),
@@ -67,14 +67,12 @@ function updateProjectsSeen() {
     }
 }
 
-function zigZagAlignArticles(){
-    document.querySelectorAll('article').forEach((project,i)=>{(i+1)%2===0&&project.classList.add('right')});
-}
+function zigZagAlignArticles(){articles.forEach((p,i)=>{p.classList.toggle('right',i%2===1);})}
 
-function handleScroll(e){projects.scrollTop+=e.deltaY;updateProgress()}
+function handleScroll(e){projectsSection.scrollTop+=e.deltaY;updateProgress()}
 
 function updateProgress(){
-    const percent = parseInt(projects.scrollTop / (projects.scrollHeight - projects.clientHeight) * 100);
+    const percent = parseInt(projectsSection.scrollTop / (projectsSection.scrollHeight - projectsSection.clientHeight) * 100);
     scrollProgress.innerText = `${percent}%`;
 }
   
