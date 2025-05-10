@@ -22,6 +22,7 @@
     --btn: #004567;
 }
 [data-theme="dark"]{
+    --gray: #bbbbbb;
     --green:#6cff76;
     --orange: #ffbe46;
     --bg: #333;--bg-inv: #eee;
@@ -31,6 +32,7 @@
     --text: #eee;--text-inv: #333;
 }
 [data-theme="light"]{
+    --gray: #575757;
     --green:#2a9b31;
     --orange: #DB8000;
     --bg: #eee;--bg-inv: #333;
@@ -101,11 +103,11 @@ main{
         align-items: center;
         scrollbar-color: transparent transparent;
         height: 60dvh;
-        &>article.right{margin-left: 200px;}
+        &>article.right{margin-left: 180px;}
         &>article{
             width: 300px;
-            margin-top: 10px;
-            margin-right: 100px;
+            margin-top: 50px;
+            margin-right: 90px;
             &>.shortcuts{
                 height: 100px;
                 display: flex;
