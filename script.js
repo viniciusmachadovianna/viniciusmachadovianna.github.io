@@ -1,96 +1,14 @@
+import { lang } from './lang.js';
 const $=(el)=>document.querySelector(el),
-    langData = {
-        en: {
-            // GENERAL UI
-            language: 'PT-BR',
-            bio:'<b>FULLSTACK</b> WEB DEVELOPER FOCUSED ON INTUITIVE AND <b>MINIMALIST</b> APLICATIONS',
-            projects:'PROJECTS VIEWED',
-            scroll:'SCROLL',
-            // PROJECTS
-            arariamaDesc:'',
-            betterYouDesc:'',
-            chatbotDesc:'',
-            portfolio:'PORTFOLIO',
-            portfolioDesc:'pt',
-            speedLogDesc:'sp',
-            sublimeDesc:'',
-            talesTrailsDesc:'',
-            ticTacToe:'TIC TAC TOE',
-            ticTacToeDesc:'The classic tic-tac-toe game, with a <b>minimalist</b> and colorful design <b>aimed at children</b>',
-            youtubeConverter:'YOUTUBE CONVERTER',
-            youtubeConverterDesc:'yt',
-            // FILTERS
-            db:'Database',
-            tools:'Tools',
-            month2:'FEB',month4:'APR',month5:'MAY',month8:'AUG',month9:'SEP',month10:'OCT',month12:'DEC',
-            // TAGS
-            interactive:'Interactive',
-            minigame:'Minigame',
-            cart:'Cart',
-            practical:"Practical",
-            responsivity:'Responsive',
-            colaboration:'Colaboration',
-            logistics:'Logistics',
-            permissions:'Permissions',
-            showcase:'Showcase',
-            vanilla:'Vanilla',
-            mobile:'Mobile',
-            ml:'Machine Learning',
-            ai:'Artificial Intelligence',
-            ux:'User Experience',
-            ui:'User Interface',
-        },
-        pt: {
-            language: 'EN-US',
-            bio: 'DESENVOLVEDOR WEB <b>FULLSTACK</b> FOCADO EM APLICAÇÕES INTUITIVAS E <b>MINIMALISTAS</b>',
-            projects:'PROJETOS VISTOS',
-            scroll:'ROLE',
-
-            arariamaDesc:'Comércio digital de livros usados',
-            betterYouDesc:'',
-            chatbotDesc:'',
-            portfolio:'PORTFOLIO',
-            portfolioDesc:'pt',
-            speedLogDesc:'sp',
-            sublimeDesc:'',
-            talesTrailsDesc:'',
-            ticTacToe:'JOGO DA VELHA',
-            ticTacToeDesc:'O clássico jogo da velha, com um design <b>minimalista</b> voltado para o <b>público infantil</b>',
-            youtubeConverter:"CONVERSOR DO YOUTUBE",
-            youtubeConverterDesc:'YOUTUBE CONVERTER',
-
-            db:'Banco de Dados',
-            tools:'Ferramentas',
-            month2:'FEV',month4:'ABR',month5:'MAI',month8:'AGO',month9:'SET',month10:'OUT',month12:'DEZ',
-            
-            interactive:'Interativo',
-            minigame:'Minijogo',
-            cart:'Carrinho',
-            practical:"Prático",
-            responsivity:'Responsivo',
-            colaboration:'Colaboração',
-            logistics:'Logística',
-            permissions:'Permissões',
-            showcase:'Amostragem',
-            vanilla:'Puro',
-            mobile:'Celular',
-            ml:'Aprendizado Máquina',
-            ai:'Inteligência Artificial',
-            ux:'Experiência do Usuário',
-            ui:'Interface do Usuário',
-        }
-    },
-    userLang = (navigator.language || navigator.userLanguage).slice(0, 2),
-    // language = userLang === 'en' || userLang === 'pt' ? userLang : 'en',
-    btnLanguage = $("#language"),
+    projectsSeen = [];
+    
+const btnLanguage = $("#language"),
     btnTheme = $("#theme"),
-    projectsSeen = [],
     projects = document.querySelectorAll('article').length,
     orange = getComputedStyle(document.documentElement).getPropertyValue('--orange').trim(),
     green = getComputedStyle(document.documentElement).getPropertyValue('--green').trim(),
     articles = document.querySelectorAll('article');
-
-document.querySelectorAll('article').forEach((project,i)=>{(i+1)%2===0&&project.classList.add('right')});
+     
 
 function setProjectCounter(){
     document.documentElement.style.setProperty('--projectCount', projects);
@@ -102,7 +20,6 @@ function setProjectCounter(){
         projectList.appendChild(div);
     }
 }
-setProjectCounter();
 
 function setProjectColors(){
     const colors = {
@@ -136,14 +53,13 @@ articles.forEach((el)=>{
     })
 })
 
-btnLanguage.addEventListener('click',()=>{changeLang()})
    
 function changeLang() {
-    const lang=document.documentElement.getAttribute("lang")==='pt'?'en':'pt';
-    document.documentElement.setAttribute("lang",lang);
+    const docLang=document.documentElement.getAttribute("lang")==='pt'?'en':'pt';
+    document.documentElement.setAttribute("lang",docLang);
     document.querySelectorAll("[data-lang]").forEach((element) => {
         const key = element.getAttribute("data-lang");
-        element.innerHTML = langData[lang][key] || langData['en'][key];
+        element.innerHTML = lang[docLang][key] || lang['en'][key];
     });
 }
 
@@ -158,3 +74,16 @@ function updateProjectsSeen() {
         });
     }
 }
+
+function setupEventListeners(){
+    btnLanguage.addEventListener('click',changeLang)
+
+}
+
+function init(){
+    setupEventListeners();
+    setProjectCounter();
+}
+document.querySelectorAll('article').forEach((project,i)=>{(i+1)%2===0&&project.classList.add('right')});
+
+document.addEventListener('DOMContentLoaded', init);
