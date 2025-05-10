@@ -42,7 +42,10 @@ btnTheme.addEventListener('click',()=>{
     btnTheme.querySelector('img').src = document.documentElement.getAttribute("data-theme") === "dark" ? "assets/icons/lightmode.svg" : "assets/icons/darkmode.svg"
 
 })
-$('#projects').addEventListener("scroll",()=>{$('#scrollProgress').innerText=`${parseInt($('#projects').scrollTop/($('#projects').scrollHeight-$('#projects').clientHeight)*100)}%`})
+
+function updateProgress(){
+    $('#scrollProgress').innerText=`${parseInt($('#projects').scrollTop/($('#projects').scrollHeight-$('#projects').clientHeight)*100)}%`
+}
 
 articles.forEach((el)=>{
     const infoContainer = el.querySelector('.projectDescription').querySelector('.more')
@@ -77,7 +80,7 @@ function updateProjectsSeen() {
 
 function setupEventListeners(){
     btnLanguage.addEventListener('click',changeLang)
-
+    $('#projects').addEventListener("scroll",updateProgress)
 }
 
 function init(){
