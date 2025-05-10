@@ -7,7 +7,7 @@
 }
 :root{
     --projectCount:5;
-    --gray: #999;
+    --gray: #575757;
     --black:#333;
     --white:#eee;
     --orange: #ffbe46;
@@ -99,7 +99,7 @@ main{
         align-items: center;
         scrollbar-color: transparent transparent;
         height: 60dvh;
-        &>article.left{margin-left: 200px;}
+        &>article.right{margin-left: 200px;}
         &>article{
             width: 300px;
             margin-top: 10px;
@@ -135,6 +135,9 @@ main{
                 &>.btnFigma{background-color: var(--purple);}
             }
 
+            &#talesTrails>.shortcuts{
+                background: linear-gradient(115deg, #606060 35%, #b4b4b4 35%, #b4b4b4 65%, #313131 35%);
+            }
             &#ticTacToe>.shortcuts{
                 background: linear-gradient(115deg, #bb00ff 35%, #a40094 35%, #a400a4 65%, #800080 35%);
             }
@@ -149,6 +152,9 @@ main{
             }
             &#sublime>.shortcuts{
                 background: linear-gradient(115deg, #b28059 35%, #7e5a3d 35%, #7e5a3d 65%, #402f23 35%);
+            }
+            &#chatbot>.shortcuts{
+                background: linear-gradient(115deg, hsl(120, 48%, 58%) 35%, #d3d3d3 35%, #d3d3d3 65%, #008000 35%);
             }
             &#speedLog>.shortcuts{
                 background: linear-gradient(115deg, #333 35%, #00c49d 35%, #00c49d 65%, #c9c9c9 35%);
@@ -221,6 +227,7 @@ main{
                     list-style: none;
                     display: flex;
                     flex-flow: row wrap;
+                    align-items: center;
                     &>li>.techIcon{width: 32px;margin: 0 3px;}
                 }
                 .projectDate{margin:0 10px 0 auto; color:var(--text);user-select: none;}

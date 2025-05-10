@@ -16,6 +16,9 @@ const $=(el)=>document.querySelector(el),
             converterDesc:'YOUTUBE CONVERTER',
             speedLogDesc:'',
             sublimeDesc:'',
+            talesTrailsDesc:'',
+            betterYouDesc:'',
+            chatbotDesc:'',
 
             // FILTERS
             db:'Database',
@@ -31,6 +34,13 @@ const $=(el)=>document.querySelector(el),
             colaboration:'Colaboration',
             logistics:'Logistics',
             permissions:'Permissions',
+            showcase:'Showcase',
+            vanilla:'Vanilla',
+            mobile:'Mobile',
+            ml:'Machine Learning',
+            ai:'Artificial Intelligence',
+            ux:'User Experience',
+            ui:'User Interface',
 
         },
         pt: {
@@ -47,6 +57,9 @@ const $=(el)=>document.querySelector(el),
             converterDesc:'YOUTUBE CONVERTER',
             speedLogDesc:'',
             sublimeDesc:'',
+            talesTrailsDesc:'',
+            betterYouDesc:'',
+            chatbotDesc:'',
 
             db:'Banco de Dados',
             tools:'Ferramentas',
@@ -60,6 +73,13 @@ const $=(el)=>document.querySelector(el),
             colaboration:'Colaboração',
             logistics:'Logística',
             permissions:'Permissões',
+            showcase:'Amostragem',
+            vanilla:'Puro',
+            mobile:'Celular',
+            ml:'Aprendizado Máquina',
+            ai:'Inteligência Artificial',
+            ux:'Experiência do Usuário',
+            ui:'Interface do Usuário',
         }
     },
     userLang = (navigator.language || navigator.userLanguage).slice(0, 2),
@@ -72,7 +92,11 @@ const $=(el)=>document.querySelector(el),
     textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim(),
     articles = document.querySelectorAll('article');
 
-
+document.querySelectorAll('article').forEach((article, index) => {
+  if ((index + 1) % 2 === 0) {
+    article.classList.add('right');
+  }
+});
 function setProjectCounter(){
     document.documentElement.style.setProperty('--projectCount', projects);
     $('#progressValue').innerText = `0/${projects}`;
@@ -98,7 +122,7 @@ articles.forEach((el)=>{
     const infoContainer = el.querySelector('.projectDescription').querySelector('.more')
     el.querySelector('.projectDescription').addEventListener('click',()=>{
         infoContainer.style.display = infoContainer.style.display === 'flex' ? 'none' : 'flex';
-        el.parentNode.setAttribute('data-seen', 'true');
+        el.setAttribute('data-seen', 'true');
         updateProjectsSeen();
     })
 })
