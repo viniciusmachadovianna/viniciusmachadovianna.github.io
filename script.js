@@ -88,6 +88,7 @@ const $=(el)=>document.querySelector(el),
     btnTheme = $("#theme"),
     projectsSeen = [],
     projects = document.querySelectorAll('article').length,
+    orange = getComputedStyle(document.documentElement).getPropertyValue('--orange').trim(),
     green = getComputedStyle(document.documentElement).getPropertyValue('--green').trim(),
     textColor = getComputedStyle(document.documentElement).getPropertyValue('--text').trim(),
     articles = document.querySelectorAll('article');
@@ -152,7 +153,7 @@ function changeLang() {
 function updateProjectsSeen() {
     const seenProjects = document.querySelectorAll('[data-seen="true"]');
     $('#progressValue').innerText = `${seenProjects.length}/${projects}`;
-    $(`#bar${seenProjects.length}`).style.backgroundColor = '#ffbe46';
+    $(`#bar${seenProjects.length}`).style.backgroundColor = orange;
     if (seenProjects.length === projects) {
         $('#progressValue').style.color =  green
         document.querySelectorAll('[id^="bar"]').forEach(bar => {

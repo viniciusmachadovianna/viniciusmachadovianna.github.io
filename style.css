@@ -10,8 +10,6 @@
     --gray: #575757;
     --black:#333;
     --white:#eee;
-    --orange: #ffbe46;
-    --green:#6cff76;
     --lightblue: #7EE;
     --yellow: #EDCA2E;
     --purple:#CF67FF;
@@ -24,6 +22,8 @@
     --btn: #004567;
 }
 [data-theme="dark"]{
+    --green:#6cff76;
+    --orange: #ffbe46;
     --bg: #333;--bg-inv: #eee;
     --wallpaper: url('/assets/bg/dark.png');
     --l2:#444;--l3:#555;--l4:#666;
@@ -31,6 +31,8 @@
     --text: #eee;--text-inv: #333;
 }
 [data-theme="light"]{
+    --green:#2a9b31;
+    --orange: #DB8000;
     --bg: #eee;--bg-inv: #333;
     --wallpaper: url('/assets/bg/light.png');
     --l2:#f4f4f4;--l3:#f8f8f8;--l4:#fcfcfc;
