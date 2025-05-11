@@ -36,9 +36,13 @@ function addProgressBars(){
     }
 }
 function zigZagAlignArticles(){articles.forEach((p,i)=>{p.classList.toggle('bottom',i%2===1);})}
-function handleScroll(e){
-    projectsSection.scrollLeft += e.deltaY;
+function handleScroll(e){projectsSection.scrollLeft+=e.deltaY;updateProgress()}
+function handleKeys(e){
+    if(!(e.type==='keydown'&&['ArrowDown','ArrowUp','ArrowLeft','ArrowRight'].includes(e.key)))return;
+    if(e.key==='ArrowDown'||e.key==='ArrowRight')projectsSection.scrollLeft+=200
+    else if(e.key==='ArrowUp'||e.key==='ArrowLeft')projectsSection.scrollLeft-=200
     updateProgress()
+    
 }
 function updateProgress(){
     const max = projectsSection.scrollWidth - projectsSection.clientWidth;
@@ -71,7 +75,8 @@ function updateProjectsSeenCounter(){
     seenProjects!==projectCount?document.getElementById(`bar${seenProjects}`).classList.add('seen'):progressContainer.classList.add('completed');
 }
 function setupEventListeners(){
-    window.addEventListener('wheel',handleScroll,{passive:false});
+    window.addEventListener('wheel',handleScroll,{passive:false})
+    window.addEventListener('keydown',handleKeys,{passive:false})
     btnTheme.addEventListener('click',changeTheme)
     btnLanguage.addEventListener('click',changeLang)
     projectDescriptions.forEach((desc =>{desc.addEventListener('click',()=>{toggleInfoVisibility(desc)})}))

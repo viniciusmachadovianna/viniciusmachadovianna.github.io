@@ -147,7 +147,7 @@ main{
         }
         &>article{
             min-width: 300px;
-            margin:auto 50px;
+            margin:auto 200px;
             &>.shortcuts{
                 height: 100px;
                 display: flex;
