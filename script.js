@@ -4,26 +4,17 @@ const btnLanguage = document.getElementById('language'),
     btnTheme = document.getElementById('theme'),
     projectsSection = document.getElementById('projects'),
     scrollProgress = document.getElementById('scrollProgress'),
-    projectCount = document.querySelectorAll('article').length,
     articles = document.querySelectorAll('article'),
+    progressContainer = document.getElementById('progress'),
     progressBars = document.getElementById('progress').querySelector('div'),
     progressSlash = document.getElementById('progressValue'),
-    projectDescriptions = document.querySelectorAll('.projectDescription');
-     
+    projectDescriptions = document.querySelectorAll('.projectDescription'),
+    projectCount = document.querySelectorAll('article').length;
 function setProjectCounter(){
     document.documentElement.style.setProperty('--projectCount', projectCount);
     progressSlash.textContent=`0/${projectCount}`;
 }
-
-
-function addProgressBars(){
-    for (let i = 0; i < projectCount; i++) {
-        const div = document.createElement('div');
-        div.setAttribute('id',`bar${i+1}`);
-        progressBars.appendChild(div);
-    }
-}
-function setArticlesColors(){
+function setProjectsColors(){
     const colors = {
         arariama:           ['#25344f','#b2becb','#632024'],
         betterYou:          ['#39ceba','#484848','#2d977b'],
@@ -35,21 +26,23 @@ function setArticlesColors(){
         ticTacToe:          ['#bb00ff','#a40094','#800080'],
         youtubeConverter:   ['#9b1f00','#dcdcdc','#9b1f00'],
     };
+    articles.forEach((p)=>{p.querySelector('.shortcuts').style.background = `linear-gradient(115deg, ${colors[p.id][0]} 35%, ${colors[p.id][1]} 35%, ${colors[p.id][1]} 65%, ${colors[p.id][2]} 35%)`})
 }
-
+function addProgressBars(){
+    for (let i = 0; i < projectCount; i++) {
+        const div = document.createElement('div');
+        div.setAttribute('id',`bar${i+1}`);
+        progressBars.appendChild(div);
+    }
+}
 function zigZagAlignArticles(){articles.forEach((p,i)=>{p.classList.toggle('right',i%2===1);})}
-
 function handleScroll(e){projectsSection.scrollTop+=e.deltaY;updateProgress()}
-
 function updateProgress(){scrollProgress.innerText = `${parseInt(projectsSection.scrollTop / (projectsSection.scrollHeight - projectsSection.clientHeight) * 100)}%`}
-  
 function changeTheme(){
-    const theme = document.documentElement.getAttribute("data-theme"),
-        newTheme=theme==='dark'?'light':'dark';
+    const theme = document.documentElement.getAttribute("data-theme");
     btnTheme.querySelector('img').src =`assets/icons/${theme}mode.svg`;
-    document.documentElement.setAttribute("data-theme", newTheme);
+    document.documentElement.setAttribute("data-theme", theme==='dark'?'light':'dark');
 }
-
 function changeLang() {
     const newLang=document.documentElement.getAttribute("lang")==='pt'?'en':'pt';
     document.documentElement.setAttribute("lang",newLang);
@@ -58,46 +51,31 @@ function changeLang() {
         element.innerHTML=lang[newLang][key]||lang['pt'][key];
     });
 }
-
 function toggleInfoVisibility(tgt){
     const info = tgt.querySelector('.more');
     info.style.display=info.style.display==='flex'?'none':'flex';
-    !tgt.parentNode.getAttribute('data-seen') && markProjectAsSeen(tgt.parentNode);
+    !tgt.parentNode.getAttribute('data-seen')&&tgt.parentNode.setAttribute('data-seen','true');
+    updateProjectsSeenCounter();
 }
-
-function markProjectAsSeen(proj){
-    proj.setAttribute('data-seen', 'true');
-    const seenProjects = document.querySelectorAll('[data-seen="true"]'),
-    orange = getComputedStyle(document.documentElement).getPropertyValue('--orange').trim(),
-    green = getComputedStyle(document.documentElement).getPropertyValue('--green').trim();
+function updateProjectsSeenCounter(){
+    const seenProjects = document.querySelectorAll('[data-seen="true"]');
     document.getElementById('progressValue').innerText = `${seenProjects.length}/${projectCount}`;
-    document.querySelector(`#bar${seenProjects.length}`).classList.add('seen');
-    if (seenProjects.length === projectCount) {
-        document.getElementById('progressValue').classList.add('completed');
-        document.getElementById('progress').querySelector('div').classList.add('completed');
-    }
+    changeBarColor(seenProjects.length);
 }
-
+function changeBarColor(length){
+    length!==projectCount?document.getElementById(`bar${length}`).classList.add('seen'):progressContainer.classList.add('completed');
+}
 function setupEventListeners(){
     window.addEventListener('wheel',handleScroll,{passive:false});
     btnTheme.addEventListener('click',changeTheme)
     btnLanguage.addEventListener('click',changeLang)
     projectDescriptions.forEach((desc =>{desc.addEventListener('click',()=>{toggleInfoVisibility(desc)})}))
 }
-
 function init(){
     setupEventListeners();
-    zigZagAlignArticles();
     setProjectCounter();
+    setProjectsColors();
     addProgressBars();
+    zigZagAlignArticles();
 }
-
-
-// 1. Constants and Configuration
-// 2. DOM Elements
-// 3. Utility Functions
-// 4. Core Logic / Feature-Specific Functions
-// 5. Event Listeners
-// 6. Initialization
 document.addEventListener('DOMContentLoaded', init);
-

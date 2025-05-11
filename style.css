@@ -138,34 +138,6 @@ main{
                 &>.btnCode{background-color: var(--yellow);}
                 &>.btnFigma{background-color: var(--purple);}
             }
-
-            &#talesTrails>.shortcuts{
-                background: linear-gradient(115deg, #606060 35%, #b4b4b4 35%, #b4b4b4 65%, #313131 35%);
-            }
-            &#ticTacToe>.shortcuts{
-                background: linear-gradient(115deg, #bb00ff 35%, #a40094 35%, #a400a4 65%, #800080 35%);
-            }
-            &#arariama>.shortcuts{
-                background: linear-gradient(115deg, #25344f 35%, #b2becb 35%, #b2becb 65%,#632024 35%);
-            }
-            &#portfolio>.shortcuts{
-                background: linear-gradient(115deg, #63c3c3 35%, #013854 35%, #013854 65%, #dab71f 35%);
-            }
-            &#youtubeConverter>.shortcuts{
-                background: linear-gradient(115deg, #9b1f00 35%, #dcdcdc 35%, #dcdcdc 65%, #9b1f00 35%);
-            }
-            &#sublime>.shortcuts{
-                background: linear-gradient(115deg, #b28059 35%, #7e5a3d 35%, #7e5a3d 65%, #402f23 35%);
-            }
-            &#chatbot>.shortcuts{
-                background: linear-gradient(115deg, #60c760 35%, #d3d3d3 35%, #d3d3d3 65%, #008000 35%);
-            }
-            &#betterYou>.shortcuts{
-                background: linear-gradient(115deg, #39ceba 35%, #484848 35%, #484848 65%, #2d977b 35%);
-            }
-            &#speedLog>.shortcuts{
-                background: linear-gradient(115deg, #333 35%, #00c49d 35%, #00c49d 65%, #c9c9c9 35%);
-            }
             &>.projectDescription{
                 cursor: pointer;
                 margin-top: 10px;
@@ -290,7 +262,6 @@ main{
         flex-flow: row wrap;
         align-items: center;
         &>#progressValue{font-size: 3em; color: var(--orange)}
-        &>#progressValue.completed{color: var(--green)}
         &>[data-lang='projects']{margin-left:10px;font-size: 1.2em; color:var(--gray); width: 90px;}
         &>div{
             position: relative;
@@ -304,8 +275,9 @@ main{
             }
             .seen{background-color: var(--orange)}
         }
-        .completed>div{background-color: var(--green)}
     }
+    .completed>#bars>div{background-color: var(--green)}
+    .completed>#progressValue{color: var(--green) !important}
     &>#experience{
         width: 100px;
         height: 100px;
