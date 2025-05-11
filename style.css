@@ -191,8 +191,8 @@ main{
                         flex-flow: row wrap;
                         justify-content: center;
                         &>li{
-                            background-color: var(--dec);
-                            color: var(--black);
+                            background-color: var(--bg-inv);
+                            color: var(--text-inv);
                             padding: 5px 10px;
                             margin: 5px;
                             border-radius: 20px;
