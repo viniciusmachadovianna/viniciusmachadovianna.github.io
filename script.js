@@ -35,9 +35,29 @@ function addProgressBars(){
         progressBars.appendChild(div);
     }
 }
-function zigZagAlignArticles(){articles.forEach((p,i)=>{p.classList.toggle('right',i%2===1);})}
-function handleScroll(e){projectsSection.scrollTop+=e.deltaY;updateProgress()}
-function updateProgress(){scrollProgress.innerText = `${parseInt(projectsSection.scrollTop / (projectsSection.scrollHeight - projectsSection.clientHeight) * 100)}%`}
+function zigZagAlignArticles(){articles.forEach((p,i)=>{p.classList.toggle('bottom',i%2===1);})}
+function handleScroll(e){
+    projectsSection.scrollLeft += e.deltaY;
+    updateProgress()
+}
+function updateProgress(){
+
+    const max = projectsSection.scrollWidth - projectsSection.clientWidth;
+    const progress = (projectsSection.scrollLeft / max) * 100;
+    scrollProgress.innerText = `${Math.min(100, parseInt(progress))}%`;
+
+    // const max = projectsSection.scrollHeight - projectsSection.clientHeight;
+    // const progress = (projectsSection.scrollTop / max) * 100;
+    // scrollProgress.innerText = `${parseInt(progress)}%`;
+
+    // console.log(`h: ${projectsSection.scrollHeight} t:${projectsSection.scrollTop}`);
+    // console.log(`w: ${projectsSection.scrollWidth} l:${projectsSection.scrollLeft}`);
+
+    //height n muda, top s
+}
+
+
+
 function changeTheme(){
     const theme = document.documentElement.getAttribute("data-theme");
     btnTheme.querySelector('img').src =`assets/icons/${theme}mode.svg`;
@@ -58,12 +78,9 @@ function toggleInfoVisibility(tgt){
     updateProjectsSeenCounter();
 }
 function updateProjectsSeenCounter(){
-    const seenProjects = document.querySelectorAll('[data-seen="true"]');
-    document.getElementById('progressValue').innerText = `${seenProjects.length}/${projectCount}`;
-    changeBarColor(seenProjects.length);
-}
-function changeBarColor(length){
-    length!==projectCount?document.getElementById(`bar${length}`).classList.add('seen'):progressContainer.classList.add('completed');
+    const seenProjects = document.querySelectorAll('[data-seen="true"]').length;
+    document.getElementById('progressValue').innerText = `${seenProjects}/${projectCount}`;
+    seenProjects!==projectCount?document.getElementById(`bar${seenProjects}`).classList.add('seen'):progressContainer.classList.add('completed');
 }
 function setupEventListeners(){
     window.addEventListener('wheel',handleScroll,{passive:false});

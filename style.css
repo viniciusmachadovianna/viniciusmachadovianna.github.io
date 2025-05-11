@@ -97,17 +97,23 @@ main{
     scroll-behavior: smooth;
     box-sizing: border-box;
     &>#projects{
+        margin-top: 50px;
         overflow: scroll;
         display: flex;
-        flex-flow: column;
+        flex-flow: row;
+        min-height: 60dvh;
         align-items: center;
+        justify-content: space-evenly;
         scrollbar-color: transparent transparent;
-        height: 60dvh;
-        &>article.right{margin-left: 180px;}
+        &>#scrollPos{
+            background-color: gray; 
+            width: 100px;
+            height: 100px;
+        }
+        &>article.bottom{align-self: flex-end;margin-bottom: 100px;}
         &>article{
-            width: 300px;
-            margin-top: 50px;
-            margin-right: 90px;
+            min-width: 300px;
+            margin:auto 50px;
             &>.shortcuts{
                 height: 100px;
                 display: flex;
@@ -177,8 +183,9 @@ main{
                 .more{
                     display: none;
                     flex-flow: column;
-                    width: 100%;
+                    width: inherit;
                     &>.description{
+                        white-space: normal;
                         text-align: justify;
                         padding: 5px 20px;
                         color: var(--text);
@@ -186,8 +193,8 @@ main{
                     &>.tags{
                         padding: 0;
                         margin: 10px;
-                        display: flex;
                         list-style: none;
+                        display: flex;
                         flex-flow: row wrap;
                         justify-content: center;
                         &>li{
@@ -212,16 +219,10 @@ main{
                 .projectDate{margin:0 10px 0 auto; color:var(--text);user-select: none;}
             }
         }
-        #goTop{
-            position:absolute;
-            right: 15px;
-            bottom: 15px;
-        }
-
         #scrollSuggestion{
-            position:absolute;
-            right: 10px;
-            top: 20px;
+            position:fixed;
+            left: 100px;
+            top: 150px;
             color: var(--white);
             width: 45px;
             height: 45px;
