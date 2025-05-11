@@ -1,5 +1,4 @@
 import { lang } from './lang.js';
-
 const btnLanguage = document.getElementById('language'),
     btnTheme = document.getElementById('theme'),
     projectsSection = document.getElementById('projects'),
@@ -41,23 +40,10 @@ function handleScroll(e){
     updateProgress()
 }
 function updateProgress(){
-
     const max = projectsSection.scrollWidth - projectsSection.clientWidth;
     const progress = (projectsSection.scrollLeft / max) * 100;
-    scrollProgress.innerText = `${Math.min(100, parseInt(progress))}%`;
-
-    // const max = projectsSection.scrollHeight - projectsSection.clientHeight;
-    // const progress = (projectsSection.scrollTop / max) * 100;
-    // scrollProgress.innerText = `${parseInt(progress)}%`;
-
-    // console.log(`h: ${projectsSection.scrollHeight} t:${projectsSection.scrollTop}`);
-    // console.log(`w: ${projectsSection.scrollWidth} l:${projectsSection.scrollLeft}`);
-
-    //height n muda, top s
+    scrollProgress.innerText = `${parseInt(progress)}%`;
 }
-
-
-
 function changeTheme(){
     const theme = document.documentElement.getAttribute("data-theme");
     btnTheme.querySelector('img').src =`assets/icons/${theme}mode.svg`;
