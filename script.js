@@ -2,8 +2,9 @@ import { lang } from './lang.js';
 const btnLanguage = document.getElementById('language'),
     btnTheme = document.getElementById('theme'),
     projectsSection = document.getElementById('projects'),
-    scrollProgress = document.getElementById('scrollProgress'),
+    scrollProgress = document.getElementById('percentNumber'),
     articles = document.querySelectorAll('article'),
+    progressBar = document.getElementById('progressBar'),
     progressContainer = document.getElementById('progress'),
     progressBars = document.getElementById('progress').querySelector('div'),
     progressSlash = document.getElementById('progressValue'),
@@ -41,8 +42,9 @@ function handleScroll(e){
 }
 function updateProgress(){
     const max = projectsSection.scrollWidth - projectsSection.clientWidth;
-    const progress = (projectsSection.scrollLeft / max) * 100;
-    scrollProgress.innerText = `${parseInt(progress)}%`;
+    const progress = `${parseInt((projectsSection.scrollLeft/max)*100)}%`;
+    progressBar.style.width=progress
+    scrollProgress.innerText=progress
 }
 function changeTheme(){
     const theme = document.documentElement.getAttribute("data-theme");
