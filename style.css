@@ -6,7 +6,7 @@
     font-display: swap;
 }
 :root{
-    --projectCount:5;
+    --projectCount:10;
     --gray: #575757;
     --black:#333;
     --white:#eee;
@@ -289,7 +289,8 @@ main{
         display: flex;
         flex-flow: row wrap;
         align-items: center;
-        &>#progressValue{font-size: 3em; color: var(--orange);}
+        &>#progressValue{font-size: 3em; color: var(--orange)}
+        &>#progressValue.completed{color: var(--green)}
         &>[data-lang='projects']{margin-left:10px;font-size: 1.2em; color:var(--gray); width: 90px;}
         &>div{
             position: relative;
@@ -301,7 +302,9 @@ main{
                 width:calc(300px/var(--projectCount));height: 5px;top:0;background-color: var(--gray);
                 background: linear-gradient();
             }
+            .seen{background-color: var(--orange)}
         }
+        .completed>div{background-color: var(--green)}
     }
     &>#experience{
         width: 100px;
