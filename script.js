@@ -9,6 +9,7 @@ const btnLanguage = document.getElementById('language'),
     progressBars = document.getElementById('progress').querySelector('div'),
     progressSlash = document.getElementById('progressValue'),
     projectDescriptions = document.querySelectorAll('.projectDescription'),
+    shortcuts = document.querySelectorAll('.shortcuts'),
     projectCount = document.querySelectorAll('article').length;
 function setProjectCounter(){
     document.documentElement.style.setProperty('--projectCount', projectCount);
@@ -23,6 +24,7 @@ function setProjectsColors(){
         speedLog:           ['#333333','#00c49d','#c9c9c9'],
         sublime:            ['#b28059','#7e5a3d','#402f23'],
         talesTrails:        ['#606060','#b4b4b4','#313131'],
+        taskit:             ['#41B783','#34495E','#333333'],
         ticTacToe:          ['#bb00ff','#a40094','#800080'],
         youtubeConverter:   ['#9b1f00','#dcdcdc','#9b1f00'],
     };
@@ -80,6 +82,7 @@ function setupEventListeners(){
     btnTheme.addEventListener('click',changeTheme)
     btnLanguage.addEventListener('click',changeLang)
     projectDescriptions.forEach((desc =>{desc.addEventListener('click',()=>{toggleInfoVisibility(desc)})}))
+    // shortcuts.forEach((desc =>{desc.addEventListener('click',()=>{})}))
 }
 function init(){
     setupEventListeners();
