@@ -85,7 +85,7 @@ main{
         margin-bottom: 100px;
     }
     &>article{
-        min-width: 300px;
+        max-width: 300px;
         margin:auto 200px;
         &>.shortcuts{
             height: 100px;

@@ -39,7 +39,10 @@ function addProgressBars(){
     }
 }
 function zigZagAlignArticles(){articles.forEach((p,i)=>{p.classList.toggle('bottom',i%2===1);})}
-function handleScroll(e){projectsSection.scrollLeft+=e.deltaY;updateProgress()}
+function handleScroll(e){
+    projectsSection.scrollTop+=e.deltaY;
+    updateProgress();
+}
 function handleTouch(e){
     projectsSection.scrollLeft = scrollLeft + startX - e.touches[0].pageX;updateProgress()
 }
@@ -51,8 +54,8 @@ function handleKeys(e){
     
 }
 function updateProgress(){
-    const max = projectsSection.scrollWidth - projectsSection.clientWidth;
-    const progress = parseInt((projectsSection.scrollLeft/max)*100);
+    const max = projectsSection.scrollHeight - projectsSection.clientHeight;
+    const progress = parseInt((projectsSection.scrollTop/max)*100);
     const scrollTip = document.querySelector('[data-lang="scroll"]');
     const percent = `${progress}%`;
     progressBar.style.width=percent
