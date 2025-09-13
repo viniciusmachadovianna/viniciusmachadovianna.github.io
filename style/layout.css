@@ -1,4 +1,5 @@
 header{
+    position: relative;
     margin-top: 10px;
     display: flex;
     flex-flow: row wrap;
@@ -27,11 +28,14 @@ header{
         color: var(--text);
     }
     &>#scrollPos{
-        /* position: absolute; */
         margin-top: 40px;
-        background-color: var(--bg-inv); 
+        background-color: var(--bg-inv);
         width: 66%;
         height: 10px;
+        top: 100px;
+        right: 0;
+        width: calc(100% - 50px);
+        /* transform: rotate(-90deg); */
         &>#progressBar{
             background: linear-gradient(to left, var(--lightblue), var(--deepblue));
             width: 0;height: inherit;
@@ -64,11 +68,9 @@ header{
     }
 }
 main{
-    margin-top: 10px;
     flex: 1;
     position: relative;
-    width: 95%;
-    overflow-y: scroll;
+    width: 80%;
     scroll-behavior: smooth;
     box-sizing: border-box;
     margin-top: 50px;
@@ -77,16 +79,15 @@ main{
     flex-flow: column;
     max-height: 60dvh;
     overflow-y: scroll;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-evenly;
     scrollbar-color: transparent transparent;
     &>article.bottom{
         align-self: flex-end;
-        margin-bottom: 100px;
     }
     &>article{
         max-width: 300px;
-        margin:auto 200px;
+        margin:50px 200px;
         &>.shortcuts{
             height: 100px;
             display: flex;
@@ -237,5 +238,6 @@ aside{
 nav{
     position: absolute;
     right: 30px;
-    bottom: 0;
+    bottom: 50%;
+    transform: translateY(50%);
 }

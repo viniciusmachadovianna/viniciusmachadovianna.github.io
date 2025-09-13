@@ -50,37 +50,40 @@
     }
 }
 button#language{
+    position: relative;
     display: flex;
     align-items: center;
     border: none;
     font-size: 1.2em;
     padding-left: 10px;
+    width: 140px;
     height: 40px;
     overflow: hidden;
-    &>span{width: 60px;text-align: left;}
+    &>span{max-width: 60px;text-wrap: nowrap; text-align: left;}
     &>.flag{
-        position: relative;
-        width: 100px;height: inherit;
-        margin-right: -5px;
+        position: absolute;
+        width: 100px;
+        height: inherit;
+        right: 0;
         &>div{
             position: absolute;
             filter: brightness(.9);
             clip-path: var(--triangle);
             &:first-child{
                 width: 25px;height: 25px;
-                left: 30px;
+                right: 45px;
                 top: 50%;transform: translateY(-50%);
                 background-color: var(--flag1);
             }
             &:nth-child(2){
                 width: 40px;height: 35px;
-                left: 50px;
+                right: 10px;
                 background-color: var(--flag2);
                 clip-path: var(--triangle-inv);
             }
             &:last-child{
                 width: 40px;height: 35px;
-                left: 80px;
+                right: -20px;
                 bottom: 0px;
                 background-color: var(--flag3);
                 clip-path: polygon(50% 0%, 0% 100%, 51% 100%);

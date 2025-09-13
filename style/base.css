@@ -7,6 +7,7 @@ body{
     flex-flow: column;
     align-items: center;
     width: 100%;
+    height: 100dvh;
     scroll-behavior: smooth;
     background: var(--wallpaper) no-repeat center/cover fixed;
     user-select: none;
