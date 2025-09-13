@@ -222,7 +222,7 @@ footer{
         .seen{background-color: var(--orange)}
     }
 }
-.completed>#bars>div{background-color: var(--green)}
+.completed>#bars>a{background-color: var(--green)!important}
 .completed>#progressValue{color: var(--green) !important}
 
 /* ok */
