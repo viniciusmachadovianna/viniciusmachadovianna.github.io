@@ -6,308 +6,219 @@
     <meta name="description" lang="en" content="Explore my portfolio of skills as a developer, with custom and modern solutions focused on innovation and user experience.">
     <meta name="description" lang="pt" content="Conheça meu portfólio de habilidades como desenvolvedor, com soluções personalizadas e modernas, focadas em inovação e experiência do usuário.">
     <title>Vinícius Machado</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/base.css">
+    <link rel="stylesheet" href="style/components.css">
+    <link rel="stylesheet" href="style/layout.css">
+    <link rel="stylesheet" href="style/root.css">
+    <link rel="stylesheet" href="style/themes.css">
+    <link rel="stylesheet" href="style/utils.css">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 </head>
 <body>
     <header>
         <mark>VINICIUS MACHADO</mark>
-        <span data-lang="bio">DESENVOLVEDOR WEB <b>FULLSTACK</b> FOCADO EM APLICAÇÕES INTUITIVAS E <b>MINIMALISTAS</b></span>
-        <div id="scrollPos">
+        <span class="headline" data-lang="bio">DESENVOLVEDOR WEB <b>FULLSTACK</b> FOCADO EM APLICAÇÕES INTUITIVAS E <b>MINIMALISTAS</b></span>
+        <!-- <div id="scrollPos">
             <div id="progressBar">
                 <span id="percentNumber">0%</span>
                 <span data-lang="scroll">ROLE</span>
             </div>
-        </div> 
+        </div>  -->
     </header>
-    <main>
-        <section id="projects">
-            <article id="ticTacToe">
-                <div class="shortcuts">
-                    <a class="btnDeploy" href="http://tic-tac-toe-vmv.vercel.app/" target="_blank" rel="noopener noreferrer">DEPLOY</a>
-                    <a class="btnCode" href="https://github.com/viniciusmachadovianna/tic-tac-toe" target="_blank" rel="noopener noreferrer">CODE</a>
-                </div>
-                <div class="projectDescription">
-                    <span class="projectTitle" data-lang="ticTacToe">JOGO DA VELHA</span>
-                    <div class="more">
-                        <span class="description" data-lang="ticTacToeDesc">O clássico jogo da velha, com um design <b>minimalista</b> voltado para o <b>público infantil</b></span>
-                        <ul class="tags">
-                            <li>Frontend</li>
-                            <li data-lang="interactive">Interativo</li>
-                            <li data-lang="minigame">Minijogo</li>
-                            <li title="User Experience">Experiência do Usuário</li>
-                        </ul>
-                    </div>
-                    <ul class="projectTechs">
-                        <li title="HTML"><img class="techIcon" src="assets/icons/techs/html5.svg" alt="HTML icon"></li>
-                        <li title="CSS"><img class="techIcon" src="assets/icons/techs/css3.svg" alt="CSS icon"></li>
-                        <li title="JavaScript"><img class="techIcon" src="assets/icons/techs/js.svg" alt="JavaScript icon" ></li>
-                    </ul>
-                    <span class="projectDate"><span data-lang="month12">DEZ</span> 2024</span>
-                </div>
-            </article>
-            <article id="portfolio">
-                <div class="shortcuts">
-                    <a class="btnCode" href="https://github.com/viniciusmachadovianna/viniciusmachadovianna.github.io" target="_blank" rel="noopener noreferrer">CODE</a>
-                    <a class="btnFigma" href="" target="_blank" rel="noopener noreferrer">FIGMA</a>
-                </div>
-                <div class="projectDescription">
-                    <span class="projectTitle" data-lang="portfolio">PORTIFÓLIO</span>
-                    <div class="more">
-                        <span class="description" data-lang="portfolioDesc">Feito com tecnologia e <b>criatividade pura</b>, aqui você conhece minhas habilidades e pode se conectar comigo.
-                        Alguns projetos contam com referências de design e prototipação, aproveite para comparar a <b>expectativa vs realidade</b>.</span>    
-                        <ul class="tags">
-                            <li>Design</li>
-                            <li data-lang="showcase">Amostragem</li>
-                            <li data-lang="vanilla">Puro</li>
-                            <li>Interface do Usuário</li>
-                        </ul>
-                    </div>
-                    <ul class="projectTechs">
-                        <li title="HTML"><img class="techIcon" src="assets/icons/techs/html5.svg" alt="HTML icon"></li>
-                        <li title="CSS"><img class="techIcon" src="assets/icons/techs/css3.svg" alt="CSS icon"></li>
-                        <li title="JavaScript"><img class="techIcon" src="assets/icons/techs/js.svg" alt="JavaScript icon" ></li>
-                    </ul>
-                    <span class="projectDate"><span>JUN</span> 2025</span>
-                </div>
-            </article>
-            <article id="taskit">
-                <div class="shortcuts">
-                    <a class="btnDeploy" href="https://taskit-vmv.vercel.app/" target="_blank" rel="noopener noreferrer">DEPLOY</a>
-                    <a class="btnCode" href="https://github.com/viniciusmachadovianna/taskit" target="_blank" rel="noopener noreferrer">CODE</a>
-                </div>
-                <div class="projectDescription">
-                    <span class="projectTitle">TASKIT</span>
-                    <div class="more">
-                        <span class="description" data-lang="taskitDesc">Gerenciador de tarefas, o clássico <b>To Do List</b>. Produzido com o framework Vue.js, é meu primeiro projeto com a tecnologia.</span>    
-                        <ul class="tags">
-                            <li data-lang="classic">Clássico</li>
-                            <li>Framework</li>
-                            <li data-lang="tools">Ferramentas</li>
-                            <li data-lang="minimalist">Minimalista</li>
-                        </ul>
-                    </div>
-                    <ul class="projectTechs">
-                        <li title="Vue.js"><img class="techIcon" src="assets/icons/techs/vuejs.svg" alt="Vue.js icon"></li>
-                        <li title="CSS"><img class="techIcon" src="assets/icons/techs/css3.svg" alt="CSS icon"></li>
-                        <li title="JavaScript"><img class="techIcon" src="assets/icons/techs/js.svg" alt="JavaScript icon" ></li>
-                    </ul>
-                    <span class="projectDate"><span data-lang="month5">MAI</span> 2025</span>
-                </div>
-            </article>
-            <article id="sublime">
-                <div class="shortcuts">
-                    <a class="btnCode" href="https://github.com/viniciusmachadovianna/sublime" target="_blank" rel="noopener noreferrer">CODE</a>
-                    <a class="btnFigma" href="https://www.behance.net/moodboard/203336973/Fashion#" target="_blank" rel="noopener noreferrer">REFS</a>
-
-                </div>
-                <div class="projectDescription">
-                    <span class="projectTitle">SUBLIME</span>
-                    <div class="more">
-                        <span class="description" data-lang="sublimeDesc"></span>    
-                        <ul class="tags">
-                            <li>E-commerce</li>
-                            <li data-lang="cart">Carrinho</li>
-                            <li>Design</li>
-                            <li data-lang="colaboration">Colaboração</li>
-                        </ul>
-                    </div>
-                    <ul class="projectTechs">
-                        <li title="React"><img class="techIcon" src="assets/icons/techs/react.svg" alt="React icon" ></li>
-                        <li title="SASS"><img class="techIcon" src="assets/icons/techs/sass.svg" alt="SASS icon" ></li>
-                    </ul>
-                    <span class="projectDate"><span>JUL</span> 2023</span>
-                </div>
-            </article>
-            <article id="youtubeConverter">
-                <div class="shortcuts">
-                    <a class="btnCode" href="https://github.com/viniciusmachadovianna/youtubeConverter" target="_blank" rel="noopener noreferrer">CODE</a>
-                </div>
-                <div class="projectDescription">
-                    <span class="projectTitle" data-lang="youtubeConverter">CONVERSOR DO YOUTUBE</span>
-                    <div class="more">
-                        <span class="description" data-lang="youtubeConverterDesc"></span>    
-                        <ul class="tags">
-                            <li data-lang="tools">Ferramentas</li>
-                            <li data-lang="practical">Prático</li>
-                            <li>Terminal</li>
-                            <li>Conversor</li>
-                        </ul>
-                    </div>
-                    <ul class="projectTechs">
-                        <li title="Python"><img class="techIcon" src="assets/icons/techs/python.svg" alt="Python icon" ></li>
-                    </ul>
-                    <span class="projectDate"><span>NOV</span> 2024</span>
-                </div>
-            </article>
-            <article id="talesTrails">
-                <div class="shortcuts">
-                    <a class="btnCode" href="https://github.com/viniciusmachadovianna/tales-trails" target="_blank" rel="noopener noreferrer">CODE</a>
-                </div>
-                <div class="projectDescription">
-                    <span class="projectTitle">TALES TRAILS</span>
-                    <div class="more">
-                        <span class="description" data-lang="talesTrailsDesc"></span>    
-                        <ul class="tags">
-                            <li data-lang="mobile">Celular</li>
-                            <li>GPS</li>
-                            <li>Login</li>
-                            <li data-lang="interactive">Interativo</li>
-                        </ul>
-                    </div>
-                    <ul class="projectTechs">
-                        <li title="React"><img class="techIcon" src="assets/icons/techs/react.svg" alt="React icon" ></li>
-                    </ul>
-                    <span class="projectDate"><span data-lang="month5">MAI</span> 2025</span>
-                </div>
-            </article>
-            <article  id="arariama">
-                <div class="shortcuts">
-                    <a class="btnCode" href="https://github.com/viniciusmachadovianna/arariama" target="_blank" rel="noopener noreferrer">CODE</a>
-                </div>
-                <div class="projectDescription">
-                    <span class="projectTitle">ARARIAMA</span>
-                    <div class="more">
-                        <span class="description"></span>   
-                        <ul class="tags">
-                            <li>Fullstack</li>
-                            <li>E-commerce</li>
-                            <li data-lang="cart">Carrinho</li>
-                            <li data-lang="responsivity">Responsividade</li>
-                        </ul>
-                    </div>
-                    <ul class="projectTechs">
-                        <li title="HTML"><img class="techIcon" src="assets/icons/techs/html5.svg" alt="HTML icon"></li>
-                        <li title="CSS"><img class="techIcon" src="assets/icons/techs/css3.svg" alt="CSS icon"></li>
-                        <li title="JavaScript"><img class="techIcon" src="assets/icons/techs/js.svg" alt="JavaScript icon" ></li>
-                    </ul>
-                    <span class="projectDate"><span data-lang="month4">ABR</span> 2025</span>
-                </div>
-            </article>
-            <article id="speedLog">
-                <div class="shortcuts">
-                    <a class="btnCode" href="https://github.com/viniciusmachadovianna/speedLog" target="_blank" rel="noopener noreferrer">CODE</a>
-                </div>
-                <div class="projectDescription">
-                    <span class="projectTitle">SPEEDLOG</span>
-                    <div class="more">
-                        <span class="description" data-lang="speedLogDesc"></span>    
-                        <ul class="tags">
-                            <li data-lang="logistics">Logística</li>
-                            <li>Login</li>
-                            <li data-lang="permissions">Permissões</li>
-                            <li data-lang="colaboration">Colaboração</li>
-                        </ul>
-                    </div>
-                    <ul class="projectTechs">
-                        <li title="PHP"><img class="techIcon" src="assets/icons/techs/php.svg" alt="PHP icon" ></li>
-                        <li title="JavaScript"><img class="techIcon" src="assets/icons/techs/js.svg" alt="JavaScript icon" ></li>
-                        <li title="Bootstrap"><img class="techIcon" src="assets/icons/techs/bootstrap.svg" alt="Bootstrap icon" ></li>
-                        <li title="jQuery"><img class="techIcon" src="assets/icons/techs/jquery.svg" alt="jQuery icon" ></li>
-
-                    </ul>
-                    <span class="projectDate"><span>MAR</span> 2023</span>
-                </div>
-            </article>
-            <article id="chatbot">
-                <div class="shortcuts">
-                    <a class="btnCode" href="https://github.com/viniciusmachadovianna/chatbot" target="_blank" rel="noopener noreferrer">CODE</a>
-                </div>
-                <div class="projectDescription">
-                    <span class="projectTitle">EXCEL CHATBOT</span>
-                    <div class="more">
-                        <span class="description" data-lang="chatbotDesc"></span>    
-                        <ul class="tags">
-                            <li data-lang="ml">Aprendizado Máquina</li>
-                            <li data-lang="colaboration">Colaboração</li>
-                            <li>Excel</li>
-                            <li data-lang="ai">Inteligência Artificial </li>
-                        </ul>
-                    </div>
-                    <ul class="projectTechs">
-                        <li title="Python"><img class="techIcon" src="assets/icons/techs/python.svg" alt="Python icon" ></li>
-                        <li title="JavaScript"><img class="techIcon" src="assets/icons/techs/js.svg" alt="JavaScript icon" ></li>
-                        <li title="NLTK">NLTK</li>
-                    </ul>
-                    <span class="projectDate"><span data-lang="month5">MAI</span> 2025</span>
-                </div>
-            </article>
-            <article id="betterYou">
-                <div class="shortcuts">
-                    <a class="btnCode" href="https://github.com/viniciusmachadovianna/speedLog" target="_blank" rel="noopener noreferrer">CODE</a>
-                </div>
-                <div class="projectDescription">
-                    <span class="projectTitle">BETTER YOU</span>
-                    <div class="more">
-                        <span class="description" data-lang="betterYouDesc"></span>    
-                        <ul class="tags">
-                            <li data-lang="tools">Ferramentas</li>
-                            <li>Desktop</li>
-                            <li data-lang="practical">Prático</li>
-                            <li data-lang="colaboration">Colaboração</li>
-                        </ul>
-                    </div>
-                    <ul class="projectTechs">
-                        <li title="C#"><img class="techIcon" src="assets/icons/techs/csharp.svg" alt="C# icon" ></li>
-                    </ul>
-                    <span class="projectDate"><span data-lang="month2">FEV</span> 2023</span>
-                </div>
-            </article>
-        </section>
-        <section id="progress">
-            <span id="progressValue">0/9</span>
-            <span data-lang="projects">PROJETOS VISTOS</span>
-            <div id="bars"></div> 
-        </section>
-        <!-- <section id="experience">
-            <div id="techFilter">
-                <span>Techs</span>
-                <div id="filterLIst">
-                    <p>Backend</p>
-                    <p>Frontend</p>
-                    <p data-lang="db">Banco de dados</p>
-                    <p data-lang="tools">Ferramentas</p>
-                </div>
+    <main id="projects">
+        <article id="ticTacToe">
+            <div class="shortcuts">
+                <a class="btnDeploy" href="http://tic-tac-toe-vmv.vercel.app/" target="_blank" rel="noopener noreferrer">DEPLOY</a>
+                <a class="btnCode" href="https://github.com/viniciusmachadovianna/tic-tac-toe" target="_blank" rel="noopener noreferrer">CODE</a>
             </div>
-            <ul id="techs">
-                <li>C#</li>
-                <li>CSS</li>
-                <li>Figma</li>
-                <li>Git</li>
-                <li>HTML</li>
-                <li>Java</li>
-                <li>JavaScript</li>
-                <li>MongoDB</li>
-                <li>MySQL</li>
-                <li>Node.js</li>
-                <li>PHP</li>
-                <li>Python</li>
-                <li>React</li>
-                <li>React Native</li>
-            </ul>
-        </section> -->
+            <div class="projectDescription">
+                <span class="projectTitle" data-lang="ticTacToe">JOGO DA VELHA</span>
+                <div class="more hidden">
+                    <span class="description" data-lang="ticTacToeDesc">O clássico jogo da velha, com um design <b>minimalista</b> voltado para o <b>público infantil</b></span>
+                    <ul class="tags">
+                        <li>Frontend</li>
+                        <li data-lang="interactive">Interativo</li>
+                        <li data-lang="minigame">Minijogo</li>
+                        <li title="User Experience">Experiência do Usuário</li>
+                    </ul>
+                </div>
+                <ul class="projectTechs">
+                    <li title="HTML"><img class="techIcon" src="assets/icons/techs/html5.svg" alt="HTML icon"></li>
+                    <li title="CSS"><img class="techIcon" src="assets/icons/techs/css3.svg" alt="CSS icon"></li>
+                    <li title="JavaScript"><img class="techIcon" src="assets/icons/techs/js.svg" alt="JavaScript icon" ></li>
+                </ul>
+                <span class="projectDate"><span data-lang="month12">DEZ</span> 2024</span>
+            </div>
+        </article>
+        <article id="portfolio">
+            <div class="shortcuts">
+                <a class="btnCode" href="https://github.com/viniciusmachadovianna/viniciusmachadovianna.github.io" target="_blank" rel="noopener noreferrer">CODE</a>
+                <a class="btnFigma" href="" target="_blank" rel="noopener noreferrer">FIGMA</a>
+            </div>
+            <div class="projectDescription">
+                <span class="projectTitle" data-lang="portfolio">PORTIFÓLIO</span>
+                <div class="more hidden">
+                    <span class="description" data-lang="portfolioDesc">Feito com tecnologia e <b>criatividade pura</b>, aqui você conhece minhas habilidades e pode se conectar comigo.
+                    Alguns projetos contam com referências de design e prototipação, aproveite para comparar a <b>expectativa vs realidade</b>.</span>    
+                    <ul class="tags">
+                        <li>Design</li>
+                        <li data-lang="showcase">Amostragem</li>
+                        <li data-lang="vanilla">Puro</li>
+                        <li>Interface do Usuário</li>
+                    </ul>
+                </div>
+                <ul class="projectTechs">
+                    <li title="HTML"><img class="techIcon" src="assets/icons/techs/html5.svg" alt="HTML icon"></li>
+                    <li title="CSS"><img class="techIcon" src="assets/icons/techs/css3.svg" alt="CSS icon"></li>
+                    <li title="JavaScript"><img class="techIcon" src="assets/icons/techs/js.svg" alt="JavaScript icon" ></li>
+                </ul>
+                <span class="projectDate"><span>JUN</span> 2025</span>
+            </div>
+        </article>
+        <article id="taskit">
+            <div class="shortcuts">
+                <a class="btnDeploy" href="https://taskit-vmv.vercel.app/" target="_blank" rel="noopener noreferrer">DEPLOY</a>
+                <a class="btnCode" href="https://github.com/viniciusmachadovianna/taskit" target="_blank" rel="noopener noreferrer">CODE</a>
+            </div>
+            <div class="projectDescription">
+                <span class="projectTitle">TASKIT</span>
+                <div class="more hidden">
+                    <span class="description" data-lang="taskitDesc">Gerenciador de tarefas, o clássico <b>To Do List</b>. Produzido com o framework Vue.js, é meu primeiro projeto com a tecnologia.</span>    
+                    <ul class="tags">
+                        <li data-lang="classic">Clássico</li>
+                        <li>Framework</li>
+                        <li data-lang="tools">Ferramentas</li>
+                        <li data-lang="minimalist">Minimalista</li>
+                    </ul>
+                </div>
+                <ul class="projectTechs">
+                    <li title="Vue.js"><img class="techIcon" src="assets/icons/techs/vuejs.svg" alt="Vue.js icon"></li>
+                    <li title="CSS"><img class="techIcon" src="assets/icons/techs/css3.svg" alt="CSS icon"></li>
+                    <li title="JavaScript"><img class="techIcon" src="assets/icons/techs/js.svg" alt="JavaScript icon" ></li>
+                </ul>
+                <span class="projectDate"><span data-lang="month5">MAI</span> 2025</span>
+            </div>
+        </article>
+        <article id="sublime">
+            <div class="shortcuts">
+                <a class="btnCode" href="https://github.com/viniciusmachadovianna/sublime" target="_blank" rel="noopener noreferrer">CODE</a>
+                <a class="btnFigma" href="https://www.behance.net/moodboard/203336973/Fashion#" target="_blank" rel="noopener noreferrer">REFS</a>
+
+            </div>
+            <div class="projectDescription">
+                <span class="projectTitle">SUBLIME</span>
+                <div class="more hidden">
+                    <span class="description" data-lang="sublimeDesc"></span>    
+                    <ul class="tags">
+                        <li>E-commerce</li>
+                        <li data-lang="cart">Carrinho</li>
+                        <li>Design</li>
+                        <li data-lang="colaboration">Colaboração</li>
+                    </ul>
+                </div>
+                <ul class="projectTechs">
+                    <li title="React"><img class="techIcon" src="assets/icons/techs/react.svg" alt="React icon" ></li>
+                    <li title="SASS"><img class="techIcon" src="assets/icons/techs/sass.svg" alt="SASS icon" ></li>
+                </ul>
+                <span class="projectDate"><span>JUL</span> 2023</span>
+            </div>
+        </article>
+        <article id="speedLog">
+            <div class="shortcuts">
+                <a class="btnCode" href="https://github.com/viniciusmachadovianna/speedLog" target="_blank" rel="noopener noreferrer">CODE</a>
+            </div>
+            <div class="projectDescription">
+                <span class="projectTitle">SPEEDLOG</span>
+                <div class="more hidden">
+                    <span class="description" data-lang="speedLogDesc"></span>    
+                    <ul class="tags">
+                        <li data-lang="logistics">Logística</li>
+                        <li>Login</li>
+                        <li data-lang="permissions">Permissões</li>
+                        <li data-lang="colaboration">Colaboração</li>
+                    </ul>
+                </div>
+                <ul class="projectTechs">
+                    <li title="PHP"><img class="techIcon" src="assets/icons/techs/php.svg" alt="PHP icon" ></li>
+                    <li title="JavaScript"><img class="techIcon" src="assets/icons/techs/js.svg" alt="JavaScript icon" ></li>
+                    <li title="Bootstrap"><img class="techIcon" src="assets/icons/techs/bootstrap.svg" alt="Bootstrap icon" ></li>
+                    <li title="jQuery"><img class="techIcon" src="assets/icons/techs/jquery.svg" alt="jQuery icon" ></li>
+
+                </ul>
+                <span class="projectDate"><span>MAR</span> 2023</span>
+            </div>
+        </article>
+        <article id="chatbot">
+            <div class="shortcuts">
+                <a class="btnCode" href="https://github.com/viniciusmachadovianna/chatbot" target="_blank" rel="noopener noreferrer">CODE</a>
+            </div>
+            <div class="projectDescription">
+                <span class="projectTitle">EXCEL CHATBOT</span>
+                <div class="more hidden">
+                    <span class="description" data-lang="chatbotDesc"></span>    
+                    <ul class="tags">
+                        <li data-lang="ml">Aprendizado Máquina</li>
+                        <li data-lang="colaboration">Colaboração</li>
+                        <li>Excel</li>
+                        <li data-lang="ai">Inteligência Artificial </li>
+                    </ul>
+                </div>
+                <ul class="projectTechs">
+                    <li title="Python"><img class="techIcon" src="assets/icons/techs/python.svg" alt="Python icon" ></li>
+                    <li title="JavaScript"><img class="techIcon" src="assets/icons/techs/js.svg" alt="JavaScript icon" ></li>
+                    <li title="NLTK">NLTK</li>
+                </ul>
+                <span class="projectDate"><span data-lang="month5">MAI</span> 2025</span>
+            </div>
+        </article>
+        <article id="betterYou">
+            <div class="shortcuts">
+                <a class="btnCode" href="https://github.com/viniciusmachadovianna/speedLog" target="_blank" rel="noopener noreferrer">CODE</a>
+            </div>
+            <div class="projectDescription">
+                <span class="projectTitle">BETTER YOU</span>
+                <div class="more hidden">
+                    <span class="description" data-lang="betterYouDesc"></span>    
+                    <ul class="tags">
+                        <li data-lang="tools">Ferramentas</li>
+                        <li>Desktop</li>
+                        <li data-lang="practical">Prático</li>
+                        <li data-lang="colaboration">Colaboração</li>
+                    </ul>
+                </div>
+                <ul class="projectTechs">
+                    <li title="C#"><img class="techIcon" src="assets/icons/techs/csharp.svg" alt="C# icon" ></li>
+                </ul>
+                <span class="projectDate"><span data-lang="month2">FEV</span> 2023</span>
+            </div>
+        </article>
     </main>
     <aside>
         <button id="language">
             <span data-lang="language">EN-US</span>
             <div class="flag"><div></div><div></div><div></div></div>
         </button>
-        <button id="theme"><img src="assets/icons/darkmode.svg" alt="LIght/Dark Theme icon"></button>
+        <button id="theme"><img src="assets/icons/darkmode.svg" alt="Light/Dark Theme icon"></button>
     </aside>
     <footer>
-        <a href="mailto:viniciusmachadovianna.dev+portfolio@gmail.com?subject=Portfolio" target="_blank" rel="noopener noreferrer">
+        <span id="progressValue">0/9</span>
+        <span data-lang="projects">PROJETOS VISTOS</span>
+        <div id="bars"></div> 
+        <sub data-lang="progressTip">Clique no título ou links para visualizar</sub>
+    </footer>
+    <nav>
+        <a class="contactLink" href="mailto:viniciusmachadovianna.contato+portfolio@gmail.com?subject=Portfolio" target="_blank" rel="noopener noreferrer">
             <img src="assets/icons/mail.svg" alt="E-mail icon">
         </a>
-        <a href="https://github.com/viniciusmachadovianna" target="_blank" rel="noopener noreferrer">
+        <a class="contactLink" href="https://github.com/viniciusmachadovianna" target="_blank" rel="noopener noreferrer">
             <img src="assets/icons/github.svg" alt="GitHub">
         </a>
-        <a href="http://www.linkedin.com/in/viniciusmachadovianna/" target="_blank" rel="noopener noreferrer">
+        <a class="contactLink" href="http://www.linkedin.com/in/viniciusmachadovianna/" target="_blank" rel="noopener noreferrer">
             <img src="assets/icons/linkedin.svg" alt="LinkedIn">
         </a>
-    </footer>
+    </nav>
     <div class="shapes"><div></div><div></div><div></div><div></div></div>
-    <!-- <div class="loading"><div></div><div></div><div></div><div></div></div> -->
 </body>
-<script type="module" src="lang.js"></script>
-<script type="module" src="script.js"></script>
+<script type="module" src="scripts/lang.js"></script>
+<script type="module" src="scripts/main.js"></script>
 </html>

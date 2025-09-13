@@ -1,0 +1,23 @@
+:root{
+    --projectCount:10;
+    --gray: #575757;
+    --black:#333;
+    --white:#eee;
+    --lightblue: #ADD8E6;
+    --yellow: #edd56c;
+    --purple:#e1a0ff;
+    --blue1:#4A6AAE;
+    --blue2:#5A81D5;
+    --blue3:#698EDE;
+    --deepblue: #004567;
+    --triangle: polygon(50% 0%, 0% 100%, 100% 100%);
+    --triangle-inv: polygon(50% 100%, 0 0, 100% 0);
+    --btn: #004567;
+}
+
+[lang="pt"]{
+    --flag1: #1c6fff;--flag2: #efefef;--flag3: #ff6060;
+    --email:'Me envie um email!';--github:'Veja meus repositórios!';--linkedin:'Conecte-se comigo!';}
+[lang="en"]{
+    --flag1: #4ba74b;--flag2: #ffe865;--flag3: #1c6fff;
+    --email:'Send me an email!';--github:'View my repositories!';--linkedin:'Connect with me!';}

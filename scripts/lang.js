@@ -1,9 +1,10 @@
-export const lang = {
+const lang = {
     en: {
         // GENERAL UI
         language: 'PT-BR',
         bio:'<b>FULLSTACK</b> WEB DEVELOPER FOCUSED ON INTUITIVE AND <b>MINIMALIST</b> APLICATIONS',
         projects:'PROJECTS VIEWED',
+        progressTip:'Click on a project title or links to view it',
         scroll:'SCROLL',
         // PROJECTS
         arariamaDesc:'',
@@ -47,6 +48,7 @@ export const lang = {
         language: 'EN-US',
         bio: 'DESENVOLVEDOR WEB <b>FULLSTACK</b> FOCADO EM APLICAÇÕES INTUITIVAS E <b>MINIMALISTAS</b>',
         projects:'PROJETOS VISTOS',
+        progressTip:'Clique no título ou links para visualizar',
         scroll:'ROLE',
 
         arariamaDesc:'Comércio digital de livros usados',
@@ -86,3 +88,12 @@ export const lang = {
         ux:'Experiência do Usuário',
     }
 };
+
+export function changeLang() {
+    const newLang=document.documentElement.getAttribute("lang")==='pt'?'en':'pt';
+    document.documentElement.setAttribute("lang",newLang);
+    document.querySelectorAll("[data-lang]").forEach((element)=>{
+        const key=element.getAttribute("data-lang");
+        element.innerHTML=lang[newLang][key]||lang['pt'][key];
+    });
+}

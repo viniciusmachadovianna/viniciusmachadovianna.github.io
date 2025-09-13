@@ -1,0 +1,20 @@
+[data-theme="dark"]{
+    --gray: #bbbbbb;
+    --green:#6cff76;
+    --orange: #ffbe46;
+    --bg: #333;--bg-inv: #eee;
+    --wallpaper: url('/assets/bg/dark.png');
+    --l2:#444;--l3:#555;--l4:#666;
+    --dec: #edd56c;--dec-alt: #abffff;
+    --text: #eee;--text-inv: #333;
+}
+[data-theme="light"]{
+    --gray: #575757;
+    --green:#2a9b31;
+    --orange: #DB8000;
+    --bg: #eee;--bg-inv: #333;
+    --wallpaper: url('/assets/bg/light.png');
+    --l2:#f4f4f4;--l3:#f8f8f8;--l4:#fcfcfc;
+    --dec: #ADD8E6;--dec-alt: #edd56c;
+    --text: #333;--text-inv: #eee;
+}

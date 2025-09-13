@@ -1,15 +1,14 @@
-import { lang } from './lang.js';
+import { changeLang } from './lang.js';
 const btnLanguage = document.getElementById('language'),
     btnTheme = document.getElementById('theme'),
     projectsSection = document.getElementById('projects'),
     scrollProgress = document.getElementById('percentNumber'),
     articles = document.querySelectorAll('article'),
     progressBar = document.getElementById('progressBar'),
-    progressContainer = document.getElementById('progress'),
-    progressBars = document.getElementById('progress').querySelector('div'),
+    progressContainer = document.querySelector('footer'),
+    progressBars = progressContainer.querySelector('div'),
     progressSlash = document.getElementById('progressValue'),
     projectDescriptions = document.querySelectorAll('.projectDescription'),
-    shortcuts = document.querySelectorAll('.shortcuts'),
     projectCount = document.querySelectorAll('article').length;
 function setProjectCounter(){
     document.documentElement.style.setProperty('--projectCount', projectCount);
@@ -32,13 +31,18 @@ function setProjectsColors(){
 }
 function addProgressBars(){
     for (let i = 0; i < projectCount; i++) {
-        const div = document.createElement('div');
-        div.setAttribute('id',`bar${i+1}`);
-        progressBars.appendChild(div);
+        const a = document.createElement('a');
+        const p = projectsSection;
+        a.setAttribute('id',`bar${i+1}`);
+        a.setAttribute('href',`#${p.children[i].id}`);
+        progressBars.appendChild(a);
     }
 }
 function zigZagAlignArticles(){articles.forEach((p,i)=>{p.classList.toggle('bottom',i%2===1);})}
 function handleScroll(e){projectsSection.scrollLeft+=e.deltaY;updateProgress()}
+function handleTouch(e){
+    projectsSection.scrollLeft = scrollLeft + startX - e.touches[0].pageX;updateProgress()
+}
 function handleKeys(e){
     if(!(e.type==='keydown'&&['ArrowDown','ArrowUp','ArrowLeft','ArrowRight'].includes(e.key)))return;
     if(e.key==='ArrowDown'||e.key==='ArrowRight')projectsSection.scrollLeft+=200
@@ -48,36 +52,34 @@ function handleKeys(e){
 }
 function updateProgress(){
     const max = projectsSection.scrollWidth - projectsSection.clientWidth;
-    const progress = `${parseInt((projectsSection.scrollLeft/max)*100)}%`;
-    progressBar.style.width=progress
-    scrollProgress.innerText=progress
+    const progress = parseInt((projectsSection.scrollLeft/max)*100);
+    const scrollTip = document.querySelector('[data-lang="scroll"]');
+    const percent = `${progress}%`;
+    progressBar.style.width=percent
+    scrollProgress.innerText=percent
+    if (progress > 95) scrollTip.classList.add('hidden')
+    else {scrollTip.classList.remove('hidden')}
+
 }
 function changeTheme(){
     const theme = document.documentElement.getAttribute("data-theme");
     btnTheme.querySelector('img').src =`assets/icons/${theme}mode.svg`;
     document.documentElement.setAttribute("data-theme", theme==='dark'?'light':'dark');
 }
-function changeLang() {
-    const newLang=document.documentElement.getAttribute("lang")==='pt'?'en':'pt';
-    document.documentElement.setAttribute("lang",newLang);
-    document.querySelectorAll("[data-lang]").forEach((element)=>{
-        const key=element.getAttribute("data-lang");
-        element.innerHTML=lang[newLang][key]||lang['pt'][key];
-    });
-}
 function toggleInfoVisibility(tgt){
     const info = tgt.querySelector('.more');
-    info.style.display=info.style.display==='flex'?'none':'flex';
+    info.classList.toggle('hidden');
     !tgt.parentNode.getAttribute('data-seen')&&tgt.parentNode.setAttribute('data-seen','true');
-    updateProjectsSeenCounter();
+    updateProjectsSeenCounter(tgt);
 }
-function updateProjectsSeenCounter(){
+function updateProjectsSeenCounter(project){
     const seenProjects = document.querySelectorAll('[data-seen="true"]').length;
     document.getElementById('progressValue').innerText = `${seenProjects}/${projectCount}`;
     seenProjects!==projectCount?document.getElementById(`bar${seenProjects}`).classList.add('seen'):progressContainer.classList.add('completed');
 }
 function setupEventListeners(){
     window.addEventListener('wheel',handleScroll,{passive:false})
+    window.addEventListener('touchmove',handleTouch,{passive:true})
     window.addEventListener('keydown',handleKeys,{passive:false})
     btnTheme.addEventListener('click',changeTheme)
     btnLanguage.addEventListener('click',changeLang)

@@ -1,0 +1,132 @@
+.contactLink{
+    position: relative;
+    height: 50px;
+    margin: 5px 0;
+    background-color: var(--dec-alt);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    &>img{
+        margin: 10px;
+        width: 32px;
+        height: 32px;
+    }
+    &::before{
+        position: absolute;
+        width: fit-content;
+        white-space: nowrap;
+        padding: 0 10px;
+        right: 60px;
+        height: 50px;
+        background-color: var(--dec-alt);
+        text-align: center;
+        color: var(--black);
+        font-size: 1.2em;
+        line-height: 50px;
+        display: none;
+    }
+    &:hover::before{
+        display: flex;
+        pointer-events: none;
+    }
+    &:first-child::before{
+        content: var(--email);
+    }
+    &:nth-child(2):before{
+        content: var(--github);
+    }
+    &:last-child::before{
+        content: var(--linkedin)
+    }
+    &::after{
+        content: '';
+        position: absolute;
+        transform: rotate(45deg) translateY(-50%);
+        top: 50%;
+        right: -15px;
+        background-color: var(--dec-alt);
+        width: 10px;
+        height: 10px;
+    }
+}
+button#language{
+    display: flex;
+    align-items: center;
+    border: none;
+    font-size: 1.2em;
+    padding-left: 10px;
+    height: 40px;
+    overflow: hidden;
+    &>span{width: 60px;text-align: left;}
+    &>.flag{
+        position: relative;
+        width: 100px;height: inherit;
+        margin-right: -5px;
+        &>div{
+            position: absolute;
+            filter: brightness(.9);
+            clip-path: var(--triangle);
+            &:first-child{
+                width: 25px;height: 25px;
+                left: 30px;
+                top: 50%;transform: translateY(-50%);
+                background-color: var(--flag1);
+            }
+            &:nth-child(2){
+                width: 40px;height: 35px;
+                left: 50px;
+                background-color: var(--flag2);
+                clip-path: var(--triangle-inv);
+            }
+            &:last-child{
+                width: 40px;height: 35px;
+                left: 80px;
+                bottom: 0px;
+                background-color: var(--flag3);
+                clip-path: polygon(50% 0%, 0% 100%, 51% 100%);
+            }
+        }
+}
+
+}
+button#theme{
+    position: relative;
+    right: 0;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    &>img{width:40px;}
+    &:after{
+        content: '';
+        position: absolute;
+        bottom: -3px;
+        left: -3px;
+        width: 40px;
+        height: 40px;
+        border: 3px solid var(--dec);
+        mask: conic-gradient(at 15px 15px,transparent 75%,#000 0)
+        0 0/calc(100% - 15px) calc(100% - 15px),
+        linear-gradient(#000 0 0) content-box;
+    }
+}
+button#language,button#theme{
+    background: var(--btn);
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+}
+.shapes>div{
+    position: fixed;
+    z-index: -1;
+    background-color: var(--bg-inv);
+    clip-path: var(--triangle);
+    width: 200px;height: 200px;
+    filter: opacity(.1);
+    &:nth-child(1){top: 50%;left: -50px;clip-path: var(--triangle-inv);animation: flicker 6s infinite;}
+    &:nth-child(2){top: 60%;left: 40%;width: 100px;height: 100px;animation: flicker 12s infinite;}
+    &:nth-child(3){top: 30%;left: 80%;clip-path: var(--triangle-inv)}
+    &:nth-child(4){top: 20%;left: 80%;width: 50px;height: 50px;
+        animation: flicker 4s infinite;}
+}
+@keyframes flicker{0%,100%{opacity:0;}50%{opacity:1;}}
