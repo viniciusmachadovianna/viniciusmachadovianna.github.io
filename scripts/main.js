@@ -9,6 +9,7 @@ const btnLanguage = document.getElementById('language'),
     progressBars = progressContainer.querySelector('div'),
     progressSlash = document.getElementById('progressValue'),
     projectDescriptions = document.querySelectorAll('.projectDescription'),
+    projectLinks = document.querySelectorAll('.shortcut'),
     projectCount = document.querySelectorAll('article').length;
 function setProjectCounter(){
     document.documentElement.style.setProperty('--projectCount', projectCount);
@@ -72,8 +73,12 @@ function changeTheme(){
 function toggleInfoVisibility(tgt){
     const info = tgt.querySelector('.more');
     info.classList.toggle('hidden');
-    !tgt.parentNode.getAttribute('data-seen')&&tgt.parentNode.setAttribute('data-seen','true');
-    updateProjectsSeenCounter(tgt);
+    markAsSeen(tgt.parentNode)
+}
+function markAsSeen(tgt){
+    console.log('teste',tgt);
+    !tgt.getAttribute('data-seen')&&tgt.setAttribute('data-seen','true');
+    updateProjectsSeenCounter(tgt)
 }
 function updateProjectsSeenCounter(project){
     const seenProjects = document.querySelectorAll('[data-seen="true"]').length;
@@ -87,7 +92,7 @@ function setupEventListeners(){
     btnTheme.addEventListener('click',changeTheme)
     btnLanguage.addEventListener('click',changeLang)
     projectDescriptions.forEach((desc =>{desc.addEventListener('click',()=>{toggleInfoVisibility(desc)})}))
-    // shortcuts.forEach((desc =>{desc.addEventListener('click',()=>{})}))
+    projectLinks.forEach((link =>{link.addEventListener('click',()=>{markAsSeen(link.parentNode.parentNode)})}))
 }
 function init(){
     setupEventListeners();
